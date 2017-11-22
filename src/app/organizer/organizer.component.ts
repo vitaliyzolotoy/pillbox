@@ -3,9 +3,11 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-organizer',
   templateUrl: './organizer.component.html',
-  styleUrls: ['./organizer.component.css']
+  styleUrls: ['./organizer.component.scss']
 })
 export class OrganizerComponent implements OnInit {
+  periods = ['Morning', 'Afternoon', 'Evening', 'Bed'];
+  days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
   constructor() { }
 

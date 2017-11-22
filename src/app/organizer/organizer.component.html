@@ -1,3 +1,7 @@
-<p>
-  organizer works!
-</p>
+<ul class="organizer">
+  <li class="organizer__row" *ngFor="let row of days">
+    <div class="organizer__col"  *ngFor="let col of periods">
+      <app-event [period]="row" [day]="col"></app-event>
+    </div>
+  </li>
+</ul>
