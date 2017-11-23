@@ -1,0 +1,20 @@
+.caption {
+  font-weight: 500;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  margin: 0;
+  text-align: center;
+  text-transform: uppercase;
+  color: #333;
+
+  &__day {
+  }
+
+  &__period {
+    font-size: 1.4rem;
+    margin: 1rem 0 0;
+  }
+}

@@ -1,16 +1,54 @@
 .organizer {
-  display: table;
-  width: 700px;
-  height: 400px;
+  display: grid;
+  width: 1024px;
+  height: 500px;
   margin: 0 auto;
   padding: 0;
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  grid-column-gap: 10px;
+  grid-row-gap: 10px;
   list-style: none;
 
-  &__row {
-    display: table-cell;
+  &__item {
+    position: relative;
+    border-radius: 2px;
+    border: 1px solid #404040;
+    box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
   }
 
-  &__col {
-    border: 1px solid;
+  &__item--mon {
+    border-color: #f5873a;
+    box-shadow: inset 2px 2px 2px 0 #f5873a;
+  }
+
+  &__item--tue {
+    border-color: #ffb622;
+    box-shadow: inset 2px 2px 2px 0 #ffb622;
+  }
+
+  &__item--wed {
+    border-color: #90a757;
+    box-shadow: inset 2px 2px 2px 0 #90a757;
+  }
+
+  &__item--thu {
+    border-color: #345274;
+    box-shadow: inset 2px 2px 2px 0 #345274;
+  }
+
+  &__item--fri {
+    border-color: #714266;
+    box-shadow: inset 2px 2px 2px 0 #714266;
+  }
+
+  &__item--sat {
+    border-color: #8b2731;
+    box-shadow: inset 2px 2px 2px 0 #8b2731;
+  }
+
+  &__item--sun {
+    border-color: #a22d19;
+    box-shadow: inset 2px 2px 2px 0 #a22d19;
   }
 }
