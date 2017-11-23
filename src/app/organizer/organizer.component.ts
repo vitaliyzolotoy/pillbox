@@ -10,162 +10,207 @@ export class OrganizerComponent implements OnInit {
     {
       id: 1,
       period: 'Morn',
-      day: 'Mon'
+      day: 'Mon',
+      portions: []
     },
     {
       id: 2,
       period: 'Morn',
-      day: 'Tue'
+      day: 'Tue',
+      portions: []
     },
     {
       id: 3,
       period: 'Morn',
-      day: 'Wed'
+      day: 'Wed',
+      portions: []
     },
     {
       id: 4,
       period: 'Morn',
-      day: 'Thu'
+      day: 'Thu',
+      portions: []
     },
     {
       id: 5,
       period: 'Morn',
-      day: 'Fri'
+      day: 'Fri',
+      portions: []
     },
     {
       id: 6,
       period: 'Morn',
-      day: 'Sat'
+      day: 'Sat',
+      portions: []
     },
     {
       id: 7,
       period: 'Morn',
-      day: 'Sun'
+      day: 'Sun',
+      portions: []
     },
     {
       id: 8,
       period: 'Noon',
-      day: 'Mon'
+      day: 'Mon',
+      portions: []
     },
     {
       id: 9,
       period: 'Noon',
-      day: 'Tue'
+      day: 'Tue',
+      portions: []
     },
     {
       id: 10,
       period: 'Noon',
-      day: 'Wed'
+      day: 'Wed',
+      portions: []
     },
     {
       id: 11,
       period: 'Noon',
-      day: 'Thu'
+      day: 'Thu',
+      portions: []
     },
     {
       id: 12,
       period: 'Noon',
-      day: 'Fri'
+      day: 'Fri',
+      portions: []
     },
     {
       id: 13,
       period: 'Noon',
-      day: 'Sat'
+      day: 'Sat',
+      portions: []
     },
     {
       id: 14,
       period: 'Noon',
-      day: 'Sun'
+      day: 'Sun',
+      portions: []
     },
     {
       id: 15,
       period: 'Eve',
-      day: 'Mon'
+      day: 'Mon',
+      portions: []
     },
     {
       id: 16,
       period: 'Eve',
-      day: 'Tue'
+      day: 'Tue',
+      portions: []
     },
     {
       id: 17,
       period: 'Eve',
-      day: 'Wed'
+      day: 'Wed',
+      portions: []
     },
     {
       id: 18,
       period: 'Eve',
-      day: 'Thu'
+      day: 'Thu',
+      portions: []
     },
     {
       id: 19,
       period: 'Eve',
-      day: 'Fri'
+      day: 'Fri',
+      portions: []
     },
     {
       id: 20,
       period: 'Eve',
-      day: 'Sat'
+      day: 'Sat',
+      portions: []
     },
     {
       id: 21,
       period: 'Eve',
-      day: 'Sun'
+      day: 'Sun',
+      portions: []
     },
     {
       id: 22,
       period: 'Bed',
-      day: 'Mon'
+      day: 'Mon',
+      portions: []
     },
     {
       id: 23,
       period: 'Bed',
-      day: 'Tue'
+      day: 'Tue',
+      portions: []
     },
     {
       id: 24,
       period: 'Bed',
-      day: 'Wed'
+      day: 'Wed',
+      portions: []
     },
     {
       id: 25,
       period: 'Bed',
-      day: 'Thu'
+      day: 'Thu',
+      portions: []
     },
     {
       id: 26,
       period: 'Bed',
-      day: 'Fri'
+      day: 'Fri',
+      portions: []
     },
     {
       id: 27,
       period: 'Bed',
-      day: 'Sat'
+      day: 'Sat',
+      portions: []
     },
     {
       id: 28,
       period: 'Bed',
-      day: 'Sun'
+      day: 'Sun',
+      portions: []
     },
   ];
-  portions: [
+  portions = [
     {
       name: 'Fluanxol',
       dose: 100,
       number: 1,
-      shedule: [1, 3]
+      shedule: [1, 20]
     },
     {
       name: 'Amitryptylin',
       dose: 500,
       number: 2,
       shedule: [7, 3]
+    },
+    {
+      name: 'Depakine',
+      dose: 200,
+      number: 1,
+      shedule: [3]
+    },
+    {
+      name: 'Zolofren',
+      dose: 100,
+      number: 0.5,
+      shedule: [3]
     }
   ];
 
   constructor() { }
 
   ngOnInit() {
+    this.shedule.map(period => {
+      return period.portions = this.portions.filter(item => {
+        return item.shedule.includes(period.id);
+      });
+    });
   }
 
 }

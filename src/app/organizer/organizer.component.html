@@ -1,9 +1,6 @@
 <ul class="organizer">
   <li class="organizer__item organizer__item--{{ item.day.toLowerCase() }}" *ngFor="let item of shedule">
-      <app-caption [period]="item.period" [day]="item.day"></app-caption>
-      <ul class="portions">
-        <li class="portions__item">1p. Fluanxol 500mg</li>
-        <li class="portions__item">2p. Amitryptylin 100mg</li>
-      </ul>
+    <app-caption [period]="item.period" [day]="item.day"></app-caption>
+    <app-portions [portions]="item.portions"></app-portions>
   </li>
 </ul>

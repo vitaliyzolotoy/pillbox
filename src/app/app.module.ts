@@ -4,12 +4,14 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { OrganizerComponent } from './organizer/organizer.component';
 import { CaptionComponent } from './caption/caption.component';
+import { PortionsComponent } from './portions/portions.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OrganizerComponent,
-    CaptionComponent
+    CaptionComponent,
+    PortionsComponent
   ],
   imports: [
     BrowserModule

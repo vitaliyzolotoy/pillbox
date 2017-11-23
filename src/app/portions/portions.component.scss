@@ -1,0 +1,21 @@
+.portions {
+  font-size: 0.7rem;
+  position: relative;
+  z-index: 2;
+  margin-top: 3.2rem;
+  padding: 4px 4px 4px 6px;
+  list-style: none;
+  color: #333;
+
+  &__item {
+    overflow: hidden;
+    white-space: nowrap;
+    max-width: 100%;
+    text-overflow: ellipsis;
+  }
+
+  &__item:hover {
+    overflow: visible;
+    background: #fff;
+  }
+}
