@@ -181,7 +181,7 @@ export class OrganizerComponent implements OnInit {
       name: 'Fluanxol',
       dose: 100,
       number: 1,
-      shedule: [1, 20]
+      shedule: [1, 3, 20]
     },
     {
       name: 'Amitryptylin',

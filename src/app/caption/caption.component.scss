@@ -5,9 +5,15 @@
   right: 0;
   bottom: 0;
   left: 0;
-  margin: 0;
+  display: block;
   text-align: center;
   text-transform: uppercase;
+  text-decoration: none;
+  color: inherit;
+
+  &__inner {
+    margin: 0;
+  }
 
   &__period {
     font-size: 1.1rem;
