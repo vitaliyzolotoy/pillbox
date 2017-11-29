@@ -1,3 +1,12 @@
-<p>
-  portion-add works!
-</p>
+<form class="portion-add">
+  <fieldset class="portion-add__form">
+    <h2 class="portion-add__title">
+      Add recipe
+      <a class="portion-add__close" href="/home" [routerLink]="['/home']">x</a>
+    </h2>
+    <input class="portion-add__input input" type="text" placeholder="Quantity">
+    <input class="portion-add__input input" type="text" placeholder="Name">
+    <input class="portion-add__input input" type="text" placeholder="Dose">
+    <button class="portion-add__button button">Save</button>
+  </fieldset>
+</form>
