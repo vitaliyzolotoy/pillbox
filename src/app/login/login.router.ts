@@ -1,6 +1,6 @@
 import {Route, RouterModule} from '@angular/router';
 import {LoginComponent} from './login.component';
-// import {SignupComponent} from '../signup/signup.component';
+import {SignupComponent} from '../signup/signup.component';
 
 const routes: Route[] = [
   {
@@ -16,10 +16,10 @@ const routes: Route[] = [
     path: 'home',
     loadChildren: '../home/home.module#HomeModule'
   },
-  // {
-  //   path: 'signup',
-  //   component: SignupComponent
-  // },
+  {
+    path: 'signup',
+    component: SignupComponent
+  },
   {
     path: '',
     redirectTo: 'login',

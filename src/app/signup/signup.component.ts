@@ -4,11 +4,11 @@ import { AuthService } from '../shared/security/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class SignupComponent {
   form: FormGroup;
 
   constructor(private fb: FormBuilder,
@@ -16,19 +16,26 @@ export class LoginComponent implements OnInit {
               private router: Router) {
     this.form = fb.group({
       email: ['', Validators.required],
-      password: ['', Validators.required]
+      password: ['', Validators.required],
+      confirm: ['', Validators.required]
     });
   }
 
-  ngOnInit() {
+  isPasswordMatch() {
+    const val = this.form.value;
+
+    return val && val.password && val.password === val.confirm;
   }
 
-  login() {
+  signUp() {
     const formValue = this.form.value;
 
-    this.authService.login(formValue.email, formValue.password)
+    this.authService.signUp(formValue.email, formValue.password)
       .subscribe(
-        () => this.router.navigate(['/home']),
+        () => {
+          alert('User creates successfully');
+          this.router.navigate(['/home']);
+        },
         alert
       );
   }

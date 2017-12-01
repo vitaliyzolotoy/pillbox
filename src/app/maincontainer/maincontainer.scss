@@ -1,0 +1,10 @@
+.maincontainer { width: 970px;
+                 min-height: 300px;
+                 padding: 20px 15px;
+
+                 &--centered { margin: auto; } }
+
+//@media (max-width: 1024px) { .maincontainer { width: auto;
+//                                              padding: 60px 10px 10px 10px; } }
+//
+//@media (max-width: 480px) { .maincontainer { padding: 40px 10px 10px 10px; } }
