@@ -8,6 +8,7 @@ import { PortionsComponent } from '../portions/portions.component';
 import {CommonModule} from '@angular/common';
 import {routing} from './home.router';
 import { PortionAddComponent } from '../portion-add/portion-add.component';
+import {AuthGuard} from '../shared/security/auth.guard';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,7 @@ import { PortionAddComponent } from '../portion-add/portion-add.component';
     CommonModule,
     routing
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [HomeComponent]
 })
 export class HomeModule { }

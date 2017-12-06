@@ -4,4 +4,8 @@ export class AuthInfo {
   isLoggenIn() {
     return !!this.$uid;
   }
+
+  getUserUID() {
+    return this.$uid;
+  }
 }

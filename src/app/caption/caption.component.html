@@ -1,5 +1,5 @@
-<a class="caption" href="/home/add"
-   [routerLink]="['/home/add/']">
+<a class="caption" href="/home/ + authInfo.$uid]"
+   [routerLink]="['/home/' + authInfo.$uid]">
   <dl class="caption__inner">
     <dd class="caption__period">{{ period }}</dd>
     <dt class="caption__day caption__day--{{ day.toLowerCase() }}">{{ day }}</dt>
