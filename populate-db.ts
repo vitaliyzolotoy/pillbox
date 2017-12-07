@@ -21,7 +21,7 @@ initializeApp(firebaseConfig);
 
 
 const scheduleRef = database().ref('schedule');
-const recepthumsRef = database().ref('recepthums');
+const recepthumsRef = database().ref('receptums');
 
 
 

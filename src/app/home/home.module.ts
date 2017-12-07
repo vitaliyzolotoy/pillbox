@@ -9,6 +9,7 @@ import {CommonModule} from '@angular/common';
 import {routing} from './home.router';
 import { PortionAddComponent } from '../portion-add/portion-add.component';
 import {AuthGuard} from '../shared/security/auth.guard';
+import {ScheduleService} from '../shared/model/schedule.service';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,10 @@ import {AuthGuard} from '../shared/security/auth.guard';
     CommonModule,
     routing
   ],
-  providers: [AuthGuard],
+  providers: [
+    AuthGuard,
+    ScheduleService
+  ],
   bootstrap: [HomeComponent]
 })
 export class HomeModule { }
