@@ -1,6 +1,4 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {AuthService} from '../shared/security/auth.service';
-import {AuthInfo} from '../shared/security/auth-info';
 
 @Component({
   selector: 'app-caption',
@@ -8,17 +6,13 @@ import {AuthInfo} from '../shared/security/auth-info';
   styleUrls: ['./caption.component.scss']
 })
 export class CaptionComponent implements OnInit {
+  @Input() id;
   @Input() period;
   @Input() day;
 
-  authInfo: AuthInfo;
-
-  constructor(private authService: AuthService) { }
+  constructor() { }
 
   ngOnInit() {
-    this.authService.authInfo$.subscribe(authInfo => {
-      this.authInfo = authInfo;
-    });
   }
 
 }

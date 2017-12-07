@@ -1,3 +1,5 @@
+@import '../icon/icon.scss';
+
 .caption {
   font-weight: 500;
   position: absolute;
@@ -11,6 +13,10 @@
   text-decoration: none;
   color: inherit;
 
+  &:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+
   &__inner {
     margin: 0;
   }
@@ -22,5 +28,21 @@
 
   &__day {
     font-size: 0.8rem;
+  }
+
+  &__icon {
+    font-size: 1.2rem;
+    display: block;
+    width: 30px;
+    height: 30px;
+    margin: 0.8rem auto;
+    line-height: 30px;
+    color: transparent;
+    border-radius: 50%;
+  }
+
+  &:hover &__icon {
+    color: #fff;
+    background: #333;
   }
 }
