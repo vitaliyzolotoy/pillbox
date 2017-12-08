@@ -12,10 +12,15 @@
     position: relative;
     width: 140px;
     height: 120px;
+    overflow: hidden;
     border-radius: 2px;
     box-sizing: border-box;
     border: 1px solid #404040;
     box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+  }
+
+  &__item:hover {
+    overflow: visible;
   }
 
   &__item--mon {

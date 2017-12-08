@@ -3,13 +3,21 @@ import { Observable } from 'rxjs/Rx';
 import { AngularFireDatabase } from 'angularfire2/database';
 // import { Event } from './event';
 import {Subject} from 'rxjs/Subject';
+import {AuthService} from '../security/auth.service';
+import {AuthInfo} from '../security/auth-info';
 
 @Injectable()
-export class EventsService {
+export class ReceptumsService {
   sdkDb;
+  authInfo: AuthInfo;
 
-  constructor(private db: AngularFireDatabase) {
+  constructor(private db: AngularFireDatabase,
+              private authService: AuthService) {
     this.sdkDb = db.database.ref();
+
+    this.authService.authInfo$.subscribe(authInfo => {
+      this.authInfo = authInfo;
+    });
   }
 
   // findAllEvents(): Observable<Event[]> {
@@ -18,15 +26,15 @@ export class EventsService {
   //     .map(Event.fromJsonList);
   // }
 
-  createNewEvent(calendarKey: string, event: any): Observable<any> {
-    const eventToSave = Object.assign({}, event, {calendarId: calendarKey});
+  createNewReceptum(scheduleKey: string, receptum: any): Observable<any> {
+    const eventToSave = Object.assign({}, receptum, {scheduleItemId: scheduleKey});
 
-    const newEventKey = this.sdkDb.child('events').push().key;
+    const newReceptumKey = this.sdkDb.child('events').push().key;
 
     const dataToSave = {};
 
-    dataToSave[`events/${newEventKey}`] = eventToSave;
-    dataToSave[`eventsPerCalendar/${calendarKey}/${newEventKey}`] = true;
+    dataToSave[`receptums/${this.authInfo.$uid}/${newReceptumKey}`] = eventToSave;
+    dataToSave[`receptumsPerSchedule/${this.authInfo.$uid}/${scheduleKey}/${newReceptumKey}`] = true;
 
     return this.firebaseUpdate(dataToSave);
   }

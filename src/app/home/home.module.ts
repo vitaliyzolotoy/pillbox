@@ -10,6 +10,9 @@ import {routing} from './home.router';
 import { PortionAddComponent } from '../portion-add/portion-add.component';
 import {AuthGuard} from '../shared/security/auth.guard';
 import {ScheduleService} from '../shared/model/schedule.service';
+import {ReactiveFormsModule} from '@angular/forms';
+import {ReceptumsService} from '../shared/model/receptums.service';
+import { ReceptumFormComponent } from '../receptum-form/receptum-form.component';
 
 @NgModule({
   declarations: [
@@ -17,15 +20,18 @@ import {ScheduleService} from '../shared/model/schedule.service';
     OrganizerComponent,
     CaptionComponent,
     PortionsComponent,
-    PortionAddComponent
+    PortionAddComponent,
+    ReceptumFormComponent
   ],
   imports: [
     CommonModule,
-    routing
+    routing,
+    ReactiveFormsModule
   ],
   providers: [
     AuthGuard,
-    ScheduleService
+    ScheduleService,
+    ReceptumsService
   ],
   bootstrap: [HomeComponent]
 })

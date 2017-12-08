@@ -1,6 +1,6 @@
 <ul class="organizer">
   <li class="organizer__item organizer__item--{{ item.day.name.toLowerCase() }}" *ngFor="let item of schedule">
-    <app-caption [id]="item.id" [period]="item.name" [day]="item.day.name"></app-caption>
+    <app-caption [key]="item.$key" [period]="item.name" [day]="item.day.name"></app-caption>
     <app-portions [portions]="item.receptums"></app-portions>
   </li>
 </ul>

@@ -1,0 +1,34 @@
+@import "../input/input.scss";
+
+.receptum-form {
+  &__form {
+    margin: 0;
+    padding: 0 1rem;
+    border: none;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    position: relative;
+    margin: 1rem 0 0;
+    text-transform: uppercase;
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    right: 6px;
+    text-decoration: none;
+    color: #333;
+  }
+
+  &__input,
+  &__button {
+    display: block;
+    margin: 1rem 0 0;
+  }
+
+  &__input {
+    width: 100%;
+  }
+}

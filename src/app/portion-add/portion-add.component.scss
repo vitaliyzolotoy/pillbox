@@ -1,5 +1,4 @@
 @import "../button/button.scss";
-@import "../input/input.scss";
 
 .portion-add {
   position: absolute;
@@ -12,35 +11,14 @@
   height: 100vh;
   background: rgba(0, 0, 0, 0.1);
 
-  &__form {
+  &__inner {
     width: 360px;
     border-radius: 4px;
     border: 1px solid #e6e5e6;
     background: #fff;
   }
 
-  &__title {
-    font-size: 1.1rem;
-    position: relative;
-    margin: 1rem 0 0;
-    text-transform: uppercase;
-  }
-
-  &__close {
-    position: absolute;
-    top: 0;
-    right: 6px;
-    text-decoration: none;
-    color: #333;
-  }
-
-  &__input,
   &__button {
-    display: block;
-    margin: 1rem 0 0;
-  }
-
-  &__input {
-    width: 100%;
+    margin: 1rem;
   }
 }

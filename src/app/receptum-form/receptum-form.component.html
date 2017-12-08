@@ -1,0 +1,13 @@
+<form class="receptum-form" [formGroup]="form">
+  <fieldset class="receptum-form__form">
+    <h2 class="receptum-form__title">Add receptum
+      <a class="receptum-form__close" href="/home" [routerLink]="['/home']">x</a>
+    </h2>
+    <input class="receptum-form__input input" type="text" placeholder="Quantity" formControlName="quantity">
+    <span *ngIf="isErrorVisible('quantity', 'required')">Field is mandatory</span>
+    <input class="receptum-form__input input" type="text" placeholder="Name" formControlName="name">
+    <span *ngIf="isErrorVisible('name', 'required')">Field is mandatory</span>
+    <input class="receptum-form__input input" type="text" placeholder="Dose" formControlName="dose">
+    <span *ngIf="isErrorVisible('dose', 'required')">Field is mandatory</span>
+  </fieldset>
+</form>

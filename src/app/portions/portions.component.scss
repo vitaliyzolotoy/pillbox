@@ -1,10 +1,12 @@
 .portions {
   font-size: 0.7rem;
   position: absolute;
-  margin-top: 3.2rem;
-  padding: 4px 4px 4px 6px;
+  top: 3.4rem;
+  margin: 0 4px 4px 6px;
+  padding: 0;
   list-style: none;
   color: #333;
+  background: #fff;
 
   &__item {
     overflow: hidden;

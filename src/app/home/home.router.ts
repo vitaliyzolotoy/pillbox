@@ -37,7 +37,7 @@ const routes: Route[] = [
       //   ]
       // },
       {
-        path: ':uid',
+        path: ':key',
         component: PortionAddComponent
       }
     ]
