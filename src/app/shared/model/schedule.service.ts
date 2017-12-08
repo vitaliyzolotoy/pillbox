@@ -3,19 +3,10 @@ import { Observable } from 'rxjs/Rx';
 import { AngularFireDatabase } from 'angularfire2/database';
 import {ScheduleItem} from './scheduleItem';
 import {Receptum} from './receptum';
-import {AuthService} from '../security/auth.service';
-import {AuthInfo} from '../security/auth-info';
 
 @Injectable()
 export class ScheduleService {
-  authInfo: AuthInfo;
-
-  constructor(private db: AngularFireDatabase,
-              private authService: AuthService) {
-    this.authService.authInfo$.subscribe(authInfo => {
-      this.authInfo = authInfo;
-    });
-  }
+  constructor(private db: AngularFireDatabase) {}
 
   findAllScheduleItems(): Observable<ScheduleItem[]> {
     return this.db.list('schedule')
@@ -32,20 +23,21 @@ export class ScheduleService {
   //   }).map(results => results[0]);
   // }
 
-  findReceptumsKeysPerScheduleKey(scheduleItemKey: string): Observable<Receptum[]> {
-    return this.db.list(`receptumsPerSchedule/${this.authInfo.$uid}/${scheduleItemKey}`);
+  findReceptumsKeysPerScheduleKey(scheduleItemKey: string, uid: string): Observable<Receptum[]> {
+    return this.db.list(`receptumsPerSchedule/${uid}/${scheduleItemKey}`);
   }
 
-  findAllReceptumsForSchedule(scheduleItemKey: string): Observable<Receptum[]> {
-    const receptumsPerSchedule = this.findReceptumsKeysPerScheduleKey(scheduleItemKey);
+  findAllReceptumsForSchedule(scheduleItemKey: string, uid: string): Observable<Receptum[]> {
+    console.log(uid);
+    const receptumsPerSchedule = this.findReceptumsKeysPerScheduleKey(scheduleItemKey, uid);
 
-    const scheduleReceptumss = receptumsPerSchedule
-      .map(espc => espc.map(epc => this.db.object(`receptums/${this.authInfo.$uid}/${epc.$key}`)))
-      .flatMap(fboj => Observable.combineLatest(fboj))
+    const scheduleReceptums = receptumsPerSchedule
+      .map(espc => espc.map(epc => this.db.object(`receptums/${uid}/${epc.$key}`)))
+      .flatMap(fboj => Observable.combineLatest(fboj));
       // .do(console.log);
 
-    // scheduleReceptumss.subscribe();
+    // scheduleReceptums.subscribe();
 
-    return scheduleReceptumss;
+    return scheduleReceptums;
   }
 }

@@ -1,2 +1,8 @@
-<app-organizer></app-organizer>
+<li class="menu__item"
+    *ngIf="authInfo?.isLoggenIn()">
+  <a href="#" class="menu__link link"
+     (click)="logout(); false"><i class="link__icon icon icon--power"></i>Logout</a>
+</li>
+
+<app-organizer [uid]="authInfo.$uid"></app-organizer>
 <router-outlet></router-outlet>

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {ScheduleItem} from '../shared/model/scheduleItem';
 import {ScheduleService} from '../shared/model/schedule.service';
 import {Receptum} from '../shared/model/receptum';
@@ -9,6 +9,7 @@ import {Receptum} from '../shared/model/receptum';
   styleUrls: ['./organizer.component.scss']
 })
 export class OrganizerComponent implements OnInit {
+  @Input() uid;
   schedule: ScheduleItem[];
   receptums: Receptum[];
 
@@ -19,8 +20,9 @@ export class OrganizerComponent implements OnInit {
     // .do(console.log)
       .subscribe(schedule => {
         schedule.map(item => {
-          this.scheduleService.findAllReceptumsForSchedule(item.$key)
+          this.scheduleService.findAllReceptumsForSchedule(item.$key, this.uid)
             .subscribe(receptums => {
+              console.log(receptums);
               item.receptums = receptums;
             });
         });
