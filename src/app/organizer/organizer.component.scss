@@ -1,67 +1,32 @@
+@import '../icon/icon.scss';
+
 .organizer {
-  display: grid;
+  display: flex;
+  flex-direction: column;
   margin: 0 auto;
   padding: 0;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(4, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
   list-style: none;
 
   &__item {
     position: relative;
-    width: 140px;
-    height: 120px;
-    overflow: hidden;
-    border-radius: 2px;
-    box-sizing: border-box;
-    border: 1px solid #404040;
-    box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
   }
 
-  &__item:hover {
-    overflow: visible;
+  &__icon {
+    font-size: 1.2rem;
+    position: absolute;
+    top: 38%;
+    left: -40px;
+    display: block;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    line-height: 30px;
+    color: transparent;
+    border-radius: 50%;
   }
 
-  &__item--mon {
-    color: #f5873a;
-    border-color: #f5873a;
-    box-shadow: inset 2px 2px 2px 0 #f5873a;
-  }
-
-  &__item--tue {
-    color: #ffb622;
-    border-color: #ffb622;
-    box-shadow: inset 2px 2px 2px 0 #ffb622;
-  }
-
-  &__item--wed {
-    color: #90a757;
-    border-color: #90a757;
-    box-shadow: inset 2px 2px 2px 0 #90a757;
-  }
-
-  &__item--thu {
-    color: #345274;
-    border-color: #345274;
-    box-shadow: inset 2px 2px 2px 0 #345274;
-  }
-
-  &__item--fri {
-    color: #714266;
-    border-color: #714266;
-    box-shadow: inset 2px 2px 2px 0 #714266;
-  }
-
-  &__item--sat {
-    color: #e25d72;
-    border-color: #e25d72;
-    box-shadow: inset 2px 2px 2px 0 #e25d72;
-  }
-
-  &__item--sun {
-    color: #a22d19;
-    border-color: #a22d19;
-    box-shadow: inset 2px 2px 2px 0 #a22d19;
+  &__item:hover &__icon {
+    color: #fff;
+    background: #333;
   }
 }

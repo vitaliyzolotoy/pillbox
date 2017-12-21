@@ -90,7 +90,7 @@
 
                       &:active { background: $background; } }
 
-          &--disabled { $background: #fff;
+          &:disabled { $background: #fff;
                         $border: #ccc;
 
                         //display: none;

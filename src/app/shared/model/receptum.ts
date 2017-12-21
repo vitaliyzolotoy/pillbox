@@ -4,7 +4,9 @@ export class Receptum {
     public scheduleItemId: string,
     public name: string,
     public dose: number,
-    public quantity: number) { }
+    public quantity: number,
+    public repeat: boolean,
+    public day: string) { }
 
     // get isRed () {
     //   return this.color && this.color.includes('red');
@@ -19,14 +21,18 @@ export class Receptum {
       scheduleItemId,
       name,
       dose,
-      quantity
+      quantity,
+      repeat,
+      day
     }): Receptum {
       return new Receptum(
         $key,
         scheduleItemId,
         name,
         dose,
-        quantity
+        quantity,
+        repeat,
+        day
       );
     }
 }

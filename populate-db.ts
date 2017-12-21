@@ -33,7 +33,6 @@ dbData.schedule.forEach((scheduleItem: any) => {
     id: scheduleItem.id,
     name: scheduleItem.name,
     fullName: scheduleItem.fullName,
-    day: scheduleItem.day,
     receptums: scheduleItem.receptums
   });
 
@@ -47,6 +46,8 @@ dbData.schedule.forEach((scheduleItem: any) => {
       name: receptum.name,
       dose: receptum.dose,
       quantity: receptum.quantity,
+      repeat: receptum.repeat,
+      day: receptum.day,
       scheduleItemId: scheduleItemRef.key
     }).key);
 

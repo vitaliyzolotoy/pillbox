@@ -8,7 +8,8 @@ export class ScheduleItem {
       name: string,
       fullName: string
     },
-    public receptums: any ) { }
+    public receptums: any,
+    public week: any) { }
 
     // get isRed () {
     //   return this.color && this.color.includes('red');
@@ -24,7 +25,8 @@ export class ScheduleItem {
       name,
       fullName,
       day,
-      receptums
+      receptums,
+      week
     }): ScheduleItem {
       return new ScheduleItem(
         $key,
@@ -32,7 +34,8 @@ export class ScheduleItem {
         name,
         fullName,
         day,
-        receptums
+        receptums,
+        week
       );
     }
 }

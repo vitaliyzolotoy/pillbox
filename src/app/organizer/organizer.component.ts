@@ -20,10 +20,52 @@ export class OrganizerComponent implements OnInit {
     // .do(console.log)
       .subscribe(schedule => {
         schedule.map(item => {
+          item.week = [
+            {
+              name: 'Mon',
+              receptums: []
+            },
+            {
+              name: 'Tue',
+              receptums: []
+            },
+            {
+              name: 'Wed',
+              receptums: []
+            },
+            {
+              name: 'Thu',
+              receptums: []
+            },
+            {
+              name: 'Fri',
+              receptums: []
+            },
+            {
+              name: 'Sat',
+              receptums: []
+            },
+            {
+              name: 'Sun',
+              receptums: []
+            }
+          ];
+
           this.scheduleService.findAllReceptumsForSchedule(item.$key, this.uid)
             .subscribe(receptums => {
-              console.log(receptums);
-              item.receptums = receptums;
+              receptums.map(receptum => {
+                if (receptum.repeat) {
+                  item.week.map(day => {
+                    return day.receptums.push(receptum);
+                  });
+                } else {
+                  item.week.map(day => {
+                    if (day.name === receptum.day) {
+                      return day.receptums.push(receptum);
+                    }
+                  });
+                }
+              });
             });
         });
         this.schedule = schedule;

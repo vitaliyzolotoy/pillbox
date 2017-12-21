@@ -1,0 +1,69 @@
+.select { $background: #fd8a10;
+
+  font-size: 11px;
+  line-height: 28px;
+  position: relative;
+  display: inline-block;
+  height: 30px;
+  margin: 0 0 2px 0;
+  vertical-align: middle;
+  text-align: left;
+  cursor: pointer;
+  border-radius: 2px;
+  box-shadow: 0 2px darken($background, 8%);
+  background: $background;
+  transition: background 0.4s cubic-bezier(0, 0, 0.58, 1);
+
+  &:hover { background: lighten($background, 8%); }
+
+  &:active { background: $background; }
+
+  &__input { font-weight: 300;
+    padding: 1px 15px 0 15px;
+    letter-spacing: 0.05em;
+    vertical-align: middle;
+    text-transform: uppercase;
+    cursor: pointer;
+    outline: none;
+    color: #fff;
+    border: none;
+    background: transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+
+    &:focus,
+    &:active { outline: none; } }
+
+  &__icon { position: absolute;
+    top: 1px;
+    right: 3px;
+    z-index: 1;
+    color: #fff; }
+
+  &--small { font-size: 10px;
+    line-height: 16px;
+    height: 18px;
+
+    & .select__input { font-size: 10px;
+      line-height: 16px;
+      height: 18px;
+      padding: 1px 9px 0 9px; } }
+
+  &--large { font-size: 13px;
+    line-height: 38px;
+    height: 40px;
+
+    & .select__input { font-size: 13px;
+      line-height: 38px;
+      height: 40px;
+      padding: 1px 20px 0 20px; } }
+
+  &--extra { font-size: 14px;
+    line-height: 48px;
+    height: 50px;
+
+    & .select__input { font-size: 13px;
+      line-height: 48px;
+      height: 50px;
+      padding: 1px 20px 0 20px; } } }

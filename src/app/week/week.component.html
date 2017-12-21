@@ -1,0 +1,6 @@
+<ul class="week">
+  <li class="week__item week__item--{{ item.name.toLowerCase() }}" *ngFor="let item of week">
+    <app-caption [period]="schedule" [day]="item.name"></app-caption>
+    <app-portions [portions]="item.receptums"></app-portions>
+  </li>
+</ul>

@@ -28,7 +28,7 @@ export class ScheduleService {
   }
 
   findAllReceptumsForSchedule(scheduleItemKey: string, uid: string): Observable<Receptum[]> {
-    console.log(uid);
+    // console.log(uid);
     const receptumsPerSchedule = this.findReceptumsKeysPerScheduleKey(scheduleItemKey, uid);
 
     const scheduleReceptums = receptumsPerSchedule

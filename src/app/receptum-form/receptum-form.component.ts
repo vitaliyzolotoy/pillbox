@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {isNumber} from 'util';
 
 @Component({
   selector: 'app-receptum-form',
@@ -8,15 +9,25 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 })
 export class ReceptumFormComponent implements OnInit {
   form: FormGroup;
+  showSelect = true;
 
   constructor(private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      quantity: ['', Validators.required],
+      quantity: [null, Validators.required],
       name: ['', Validators.required],
-      dose: ['', Validators.required]
+      dose: [null, Validators.required],
+      repeat: [false],
+      day: [null]
     });
+
+    // this.form.valueChanges
+    //   .subscribe(form => {
+    //     if (form.repeat) {
+    //       this.showSelect = true;
+    //     }
+    //   });
   }
 
   isErrorVisible(field: string, error: string) {
@@ -36,5 +47,9 @@ export class ReceptumFormComponent implements OnInit {
 
   get value() {
     return this.form.value;
+  }
+
+  showSelectHandle() {
+    this.showSelect = !this.showSelect;
   }
 }

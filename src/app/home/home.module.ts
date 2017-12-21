@@ -13,6 +13,7 @@ import {ScheduleService} from '../shared/model/schedule.service';
 import {ReactiveFormsModule} from '@angular/forms';
 import {ReceptumsService} from '../shared/model/receptums.service';
 import { ReceptumFormComponent } from '../receptum-form/receptum-form.component';
+import { WeekComponent } from '../week/week.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { ReceptumFormComponent } from '../receptum-form/receptum-form.component'
     CaptionComponent,
     PortionsComponent,
     PortionAddComponent,
-    ReceptumFormComponent
+    ReceptumFormComponent,
+    WeekComponent
   ],
   imports: [
     CommonModule,
