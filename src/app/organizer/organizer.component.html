@@ -1,9 +1,8 @@
 <ul class="organizer">
   <li class="organizer__item" *ngFor="let item of schedule">
-    <a class="organizer__link" href="/home/ + item.$key]"
-       [routerLink]="['/home/' + item.$key]">
+      <a class="organizer__link" href="/home/ + item.$key]" [routerLink]="['/home/' + item.$key]">
+        <i class="organizer__icon icon icon--plus"></i>
+      </a>
       <app-week [week]="item.week" [schedule]="item.name"></app-week>
-      <i class="organizer__icon icon icon--plus"></i>
-    </a>
   </li>
 </ul>

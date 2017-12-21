@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import {ReceptumsService} from '../shared/model/receptums.service';
 
 @Component({
   selector: 'app-portions',
@@ -8,9 +9,12 @@ import {Component, Input, OnInit} from '@angular/core';
 export class PortionsComponent implements OnInit {
   @Input() portions;
 
-  constructor() { }
+  constructor(private receptumsService: ReceptumsService) { }
 
   ngOnInit() {
   }
 
+  removeReceptum(key, scheduleItemId) {
+    this.receptumsService.removeReceptum(key, scheduleItemId);
+  }
 }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {ReceptumsService} from '../shared/model/receptums.service';
 import {ActivatedRoute} from '@angular/router';
 

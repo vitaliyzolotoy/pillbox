@@ -19,7 +19,7 @@ export class ReceptumFormComponent implements OnInit {
       name: ['', Validators.required],
       dose: [null, Validators.required],
       repeat: [false],
-      day: [null]
+      day: ['Mon']
     });
 
     // this.form.valueChanges

@@ -39,6 +39,11 @@ export class ReceptumsService {
     return this.firebaseUpdate(dataToSave);
   }
 
+  removeReceptum(key, scheduleItemId) {
+    this.db.object(`receptums/${this.authInfo.$uid}/${key}`).remove();
+    this.db.object(`receptumsPerSchedule/${this.authInfo.$uid}/${scheduleItemId}/${key}`).remove();
+  }
+
   firebaseUpdate(dataToSave) {
     const subject = new Subject();
 

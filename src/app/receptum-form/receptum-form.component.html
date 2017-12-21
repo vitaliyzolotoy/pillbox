@@ -12,10 +12,11 @@
     <br>
     <label><input type="checkbox" name="repeat" value="true" formControlName="repeat" (click)="showSelectHandle()"> Repeat every day</label>
     <span *ngIf="showSelect">
-      or on
+      or
       <span class="select">
         <select class="select__input" name="day" formControlName="day">
-          <option value="Mon" [selected]="'selected'">Monday</option>
+          <option [selected]="'selected'">chose day</option>
+          <option value="Tue">Monday</option>
           <option value="Tue">Tuesday</option>
           <option value="Wed">Wednesday</option>
           <option value="Thu">Thursday</option>
@@ -27,6 +28,7 @@
           <i class="icon icon--down"></i>
         </span>
       </span>
+      <span *ngIf="isErrorVisible('day', 'required')">Field is mandatory</span>
     </span>
   </fieldset>
 </form>

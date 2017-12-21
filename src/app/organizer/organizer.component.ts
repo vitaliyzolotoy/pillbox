@@ -53,6 +53,11 @@ export class OrganizerComponent implements OnInit {
 
           this.scheduleService.findAllReceptumsForSchedule(item.$key, this.uid)
             .subscribe(receptums => {
+              item.week.map(day => {
+                day.receptums = [];
+                return day;
+              });
+
               receptums.map(receptum => {
                 if (receptum.repeat) {
                   item.week.map(day => {

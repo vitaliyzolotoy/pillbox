@@ -1,6 +1,9 @@
+@import "../icon/icon.scss";
+
 .portions {
   font-size: 0.7rem;
   position: absolute;
+  z-index: 2;
   top: 3.4rem;
   margin: 0 4px 4px 6px;
   padding: 0;
@@ -18,5 +21,14 @@
   &__item:hover {
     overflow: visible;
     background: #fff;
+  }
+
+  &__icon {
+    position: absolute;
+    display: none;
+  }
+
+  &__item:hover &__icon {
+    display: inline-block;
   }
 }
