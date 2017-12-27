@@ -5,23 +5,45 @@
       <a class="link"
          [routerLink]="['/login']">Log In</a>
     </small></h2>
-    <div class="fieldset__item">
-      <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
-             formControlName="email">
+    <div class="fieldset__pane">
+      <div class="fieldset__item">
+        <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
+               formControlName="email">
+      </div>
+      <div class="fieldset__item">
+        <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"
+               formControlName="password">
+      </div>
+      <div class="fieldset__item">
+        <input class="fieldset__input input input--extra" type="password" placeholder="Confirm Your Password" name="confirm"
+               formControlName="confirm">
+      </div>
     </div>
-    <div class="fieldset__item">
-      <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"
-             formControlName="password">
-    </div>
-    <div class="fieldset__item">
-      <input class="fieldset__input input input--extra" type="password" placeholder="Confirm Your Password" name="confirm"
-             formControlName="confirm">
+    <div class="fieldset__pane">
+      <div class="plan plan--yearly">
+        <input class="plan__control radio tabs" type="radio" id="pro" name="plan" value="yearly" formControlName="plan">
+        <label class="plan__text" for="pro">
+          <span class="plan__title"><b>Yearly</b></span>
+          <span class="plan__price"><b>$24 /yr</b></span>
+          <span class="plan__save">Only $2 a month</span>
+          <span class="plan__label">Select plan</span>
+          <span class="plan__label plan__label--checked">Selected</span>
+        </label>
+      </div>
+      <div class="plan plan--monthly">
+        <input class="plan__control radio tabs" type="radio" id="monthly" name="plan" value="monthly" formControlName="plan">
+        <label class="plan__text" for="monthly">
+          <span class="plan__title"><b>Monthly</b></span>
+          <span class="plan__price"><b>$3 /mo</b></span>
+          <span class="plan__label">Select plan</span>
+          <span class="plan__label plan__label--checked">Selected</span>
+        </label>
+      </div>
     </div>
     <div class="fieldset__foot">
       <button class="button button--large"
-              (click)="signUp()"
-              [disabled]="!isPasswordMatch()"
-              [ngClass]="{'button--disabled': !isPasswordMatch() }"><i class="link__icon icon icon--lock"></i>Sign Up</button>
+              (click)="openHandler()"
+              [disabled]="!isPasswordMatch() || !form.valid"><i class="link__icon icon icon--lock"></i>Sign Up</button>
     </div>
   </form>
 </div>

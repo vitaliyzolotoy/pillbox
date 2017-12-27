@@ -1,6 +1,4 @@
-// import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { HomeComponent } from './home.component';
 import { OrganizerComponent } from '../organizer/organizer.component';
 import { CaptionComponent } from '../caption/caption.component';
@@ -23,7 +21,7 @@ import { WeekComponent } from '../week/week.component';
     PortionsComponent,
     PortionAddComponent,
     ReceptumFormComponent,
-    WeekComponent
+    WeekComponent,
   ],
   imports: [
     CommonModule,

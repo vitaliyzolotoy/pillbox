@@ -26,6 +26,7 @@
   &__icon {
     position: absolute;
     display: none;
+    cursor: pointer;
   }
 
   &__item:hover &__icon {

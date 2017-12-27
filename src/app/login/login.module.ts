@@ -11,6 +11,7 @@ import {AngularFireAuth} from 'angularfire2/auth';
 import {AuthService} from '../shared/security/auth.service';
 import {firebaseConfig} from '../../environments/firebase.config';
 import { SignupComponent } from '../signup/signup.component';
+import {PaymentService} from '../shared/payment/payment.service';
 
 @NgModule({
   imports: [
@@ -24,9 +25,14 @@ import { SignupComponent } from '../signup/signup.component';
   ],
   providers: [
     AuthService,
-    AngularFireAuth
+    AngularFireAuth,
+    PaymentService
   ],
-  declarations: [RootComponent, LoginComponent, SignupComponent],
+  declarations: [
+    RootComponent,
+    LoginComponent,
+    SignupComponent
+  ],
   bootstrap: [
     RootComponent
   ]
