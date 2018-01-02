@@ -1,70 +1,48 @@
 /**
  *  @see fontello.com
  */
-@font-face { font-family: 'icons';
-             src: url('../../assets/icon/icon.ttf') format('truetype');
-             src: url('../../assets/icon/icon.ttf') format('woff'); }
+@font-face {
+  font-family: 'icons';
+  src: url('../../assets/icon/icon.ttf') format('truetype');
+  src: url('../../assets/icon/icon.woff') format('woff');
+}
 
-.icon { &::before { font-family: 'icons';
-                    font-weight: normal;
-                    font-style: normal;
-                    display: inline-block;
-                    width: 1em;
-                    text-align: center;
-                    box-sizing: content-box; }
+.icon {
+  &::before {
+    font-family: 'icons';
+    font-weight: normal;
+    font-style: normal;
+    display: inline-block;
+    width: 1em;
+    text-align: center;
+    box-sizing: content-box;
+  }
 
-        &--lock::before { content: '\e800'; }
+  &--setting::before {
+    content: '\e800';
+  }
 
-        &--ok::before { content: '\e801'; }
+  &--lock::before {
+    content: '\e801';
+  }
 
-        &--calendar::before { content: '\e802'; }
+  &--heart::before {
+    content: '\e803';
+  }
 
-        &--heart::before { content: '\e803'; }
+  &--down::before {
+    content: '\e80d';
+  }
 
-        &--mobile::before { content: '\e804'; }
+  &--power::before {
+    content: '\e811';
+  }
 
-        &--network::before { content: '\e805'; }
+  &--plus::before {
+    content: '\e813';
+  }
 
-        &--group::before { content: '\e806'; }
-
-        &--child::before { content: '\e807'; }
-
-        &--user::before { content: '\e808'; }
-
-        &--add::before { content: '\e809'; }
-
-        &--up::before { content: '\e80b'; }
-
-        &--right::before { content: '\e80a'; }
-
-        &--down::before { content: '\e80d'; }
-
-        &--left::before { content: '\e80c'; }
-
-        &--phone::before { content: '\e80e'; }
-
-        &--mail::before { content: '\e80f'; }
-
-        &--menu::before { content: '\e810'; }
-
-        &--power::before { content: '\e811'; }
-
-        &--dot::before { content: '\e812'; }
-
-        &--plus::before { content: '\e813'; }
-
-        &--cancel::before { content: '\e814'; }
-
-        &--ok2::before { content: '\e815'; }
-
-        &--gift::before { content: '\e816'; }
-
-        &--equal::before { content: '\e817'; }
-
-        &--block::before { content: '\e818'; }
-
-        &--yes::before { content: '\e819'; }
-
-        &--no::before { content: '\e81a'; }
-
-        &--info::before { content: '\e81b'; } }
+  &--cancel::before {
+    content: '\e814';
+  }
+}

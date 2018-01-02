@@ -1,0 +1,12 @@
+<div class="settings">
+  <div class="settings__inner">
+    <a class="settings__close" [routerLink]="['/home']"><i class="icon icon--cancel"></i></a>
+    <h2 class="settings__title">Settings</h2>
+    <p *ngIf="status === 'active'">
+      Subscription is Active
+      <br>
+      <button (click)="unsubscribe()">Unsubscribe</button>
+    </p>
+    <p *ngIf="status === 'canceled'">Subscription is canceled</p>
+  </div>
+</div>

@@ -12,6 +12,7 @@ import {ReactiveFormsModule} from '@angular/forms';
 import {ReceptumsService} from '../shared/model/receptums.service';
 import { ReceptumFormComponent } from '../receptum-form/receptum-form.component';
 import { WeekComponent } from '../week/week.component';
+import { SettingsComponent } from '../settings/settings.component';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { WeekComponent } from '../week/week.component';
     PortionAddComponent,
     ReceptumFormComponent,
     WeekComponent,
+    SettingsComponent,
   ],
   imports: [
     CommonModule,

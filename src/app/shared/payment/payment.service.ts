@@ -16,4 +16,13 @@ export class PaymentService {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
       .update({ token: token.id, plan: plan });
   }
+
+  unsubscribe() {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
+      .update({ status: 'canceled', canceled: true });
+  }
+
+  status() {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/status`);
+  }
 }

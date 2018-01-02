@@ -1,10 +1,12 @@
-<!--<header class="header">-->
-  <!--<h1 class="logo">Pillbox</h1>-->
-  <!--<menu *ngIf="authInfo?.isLoggenIn()">-->
-    <!--<a href="#" class="menu__link link" (click)="logout(); false">-->
-      <!--<i class="link__icon icon icon&#45;&#45;power"></i>Logout</a>-->
-  <!--</menu>-->
-<!--</header>-->
+<header class="header">
+  <h1 class="logo">MedAlert</h1>
+  <menu class="menu" *ngIf="authInfo?.isLoggenIn()">
+    <a href="#" class="menu__link link" [routerLink]="['/home/settings']">
+      <i class="link__icon icon icon--setting"></i>Settings</a>
+    <a href="#" class="menu__link link" (click)="logout(); false">
+      <i class="link__icon icon icon--power"></i>Logout</a>
+  </menu>
+</header>
 
 <app-organizer [uid]="authInfo.$uid"></app-organizer>
 <router-outlet></router-outlet>

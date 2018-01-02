@@ -1,0 +1,13 @@
+@import '../link/link.scss';
+@import '../icon/icon.scss';
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.logo {
+  font-size: 32px;
+  font-weight: 200;
+}
