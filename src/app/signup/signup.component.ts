@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../shared/security/auth.service';
 import { Router } from '@angular/router';
-import {environment} from '../../environments/environment';
 import {PaymentService} from '../shared/payment/payment.service';
+import {stripeConfig} from '../../environments/stripe.config';
 
 @Component({
   selector: 'app-signup',
@@ -59,6 +59,7 @@ export class SignupComponent implements OnInit {
       .subscribe(
         () => {
           this.paymentService.processPayment(token, this.price[formValue.plan].id);
+          this.paymentService.saveEmail();
           alert('User creates successfully');
           this.router.navigate(['/home']);
         },
@@ -68,7 +69,7 @@ export class SignupComponent implements OnInit {
 
   private configHandler() {
     this.handler = StripeCheckout.configure({
-      key: environment.stripeKey,
+      key: stripeConfig.stripeKey,
       image: 'https://goo.gl/EJJYq8',
       locale: 'auto',
       token: token => {

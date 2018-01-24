@@ -25,4 +25,9 @@ export class PaymentService {
   status() {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription/status`);
   }
+
+  saveEmail() {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
+      .update({ email: this.authInfo.email });
+  }
 }

@@ -35,6 +35,9 @@ export class ReceptumsService {
 
     dataToSave[`receptums/${this.authInfo.$uid}/${newReceptumKey}`] = receptumToSave;
     dataToSave[`receptumsPerSchedule/${this.authInfo.$uid}/${scheduleKey}/${newReceptumKey}`] = true;
+    dataToSave[`users/${this.authInfo.$uid}/subscription/notifications`] = true;
+
+    // console.log(dataToSave);
 
     return this.firebaseUpdate(dataToSave);
   }

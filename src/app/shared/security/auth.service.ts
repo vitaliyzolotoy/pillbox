@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  static UNKNOWN_USER = new AuthInfo(null);
+  static UNKNOWN_USER = new AuthInfo(null, null);
 
   authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
 
@@ -14,7 +14,8 @@ export class AuthService {
               private router: Router) {
     auth.authState.subscribe((authState) => {
       if (authState) {
-        const authInfo = new AuthInfo(authState.uid);
+        // console.log(authState)
+        const authInfo = new AuthInfo(authState.uid, authState.email);
         this.authInfo$.next(authInfo);
       }
     });
@@ -33,7 +34,8 @@ export class AuthService {
 
     promise
       .then(res => {
-        const authInfo = new AuthInfo(this.auth.auth.currentUser.uid);
+        // console.log(this.auth.auth.currentUser)
+        const authInfo = new AuthInfo(this.auth.auth.currentUser.uid, this.auth.auth.currentUser.email);
 
         this.authInfo$.next(authInfo);
         subject.next(res);
