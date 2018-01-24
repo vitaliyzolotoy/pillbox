@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
-import {AngularFireAuth} from 'angularfire2/auth';
 import {AuthService} from '../security/auth.service';
 import {AuthInfo} from '../security/auth-info';
 
@@ -29,5 +28,14 @@ export class PaymentService {
   saveEmail() {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
       .update({ email: this.authInfo.email });
+  }
+
+  notifications() {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/notifications`);
+  }
+
+  turnOffNotifications() {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
+      .update({ notifications: false });
   }
 }

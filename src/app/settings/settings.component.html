@@ -8,5 +8,11 @@
       <button (click)="unsubscribe()">Unsubscribe</button>
     </p>
     <p *ngIf="status === 'canceled'">Subscription is canceled</p>
+    <p *ngIf="notifications === true">
+      <button (click)="turnOffNotifications()">Turn Off Notifications</button>
+    </p>
+    <p *ngIf="notifications === false">
+      Notifications is turned off
+    </p>
   </div>
 </div>
