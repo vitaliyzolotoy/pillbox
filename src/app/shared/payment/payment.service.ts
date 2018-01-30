@@ -30,6 +30,11 @@ export class PaymentService {
       .update({ email: this.authInfo.email });
   }
 
+  saveTimezone(timezone: string) {
+    return this.db.object(`/users/${this.authInfo.$uid}`)
+      .update({ timezone: timezone });
+  }
+
   notifications() {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription/notifications`);
   }
