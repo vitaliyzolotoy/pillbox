@@ -1,3 +1,4 @@
+@import "utils.scss";
 /* You can add global styles to this file, and also import other style files */
 
 body {
@@ -14,4 +15,11 @@ body {
   line-height: 1.428571429;
   letter-spacing: 0.05em;
   color: #333;
+}
+
+@include breakpoint('s'){
+  body {
+    height: auto;
+    min-height: 0;
+  }
 }

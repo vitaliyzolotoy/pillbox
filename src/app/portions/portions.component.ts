@@ -8,6 +8,7 @@ import {ReceptumsService} from '../shared/model/receptums.service';
 })
 export class PortionsComponent implements OnInit {
   @Input() portions;
+  @Input() current;
 
   constructor(private receptumsService: ReceptumsService) { }
 

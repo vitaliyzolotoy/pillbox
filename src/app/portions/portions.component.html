@@ -1,4 +1,6 @@
-<ul class="portions">
+<input class="handle" type="radio" name="portions" [checked]="portions.length !== 0"
+   [ngClass]="{ 'handle--full': portions.length !== 0 }">
+<ul class="portions" [ngClass]="{ 'portions--full': portions.length !== 0}">
   <li class="portions__item" *ngFor="let portion of portions">
     {{ portion.quantity}}p.
     {{ portion.name }}

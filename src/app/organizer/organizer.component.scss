@@ -1,3 +1,4 @@
+@import "../../utils.scss";
 @import '../icon/icon.scss';
 
 .organizer {
@@ -28,5 +29,26 @@
   &__item:hover &__icon {
     color: #fff;
     background: #333;
+  }
+}
+
+@include breakpoint('s'){
+  .organizer {
+    position: relative;
+    width: calc(100% - 30px);
+    margin-left: 30px;
+    margin-top: 30px;
+
+    &__item {
+      position: static;
+    }
+
+    &__item /deep/ .caption__day {
+      display: none;
+    }
+
+    &__item:first-child /deep/ .caption__day {
+      display: block;
+    }
   }
 }

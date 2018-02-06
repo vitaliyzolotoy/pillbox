@@ -1,3 +1,4 @@
+@import "../../utils.scss";
 @import "../icon/icon.scss";
 
 .portions {
@@ -31,5 +32,38 @@
 
   &__item:hover &__icon {
     display: inline-block;
+  }
+}
+
+.handle {
+  display: none;
+}
+
+@include breakpoint('s'){
+  .portions {
+    &--full {
+      position: absolute;
+      top: 170px;
+      left: 0;
+      right: 0;
+      height: 60vh;
+    }
+  }
+
+  .handle {
+    display: block;
+    margin-top: 18px;
+    margin-left: 18px;
+    width: 6px;
+    height: 6px;
+    outline: none;
+    border-radius: 50%;
+    background: #404040;
+    -webkit-appearance: none;
+
+    &:checked,
+    &--full {
+      background: red;
+    }
   }
 }

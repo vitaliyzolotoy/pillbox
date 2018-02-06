@@ -1,0 +1,21 @@
+$breakpoint-s: 425px;
+$breakpoint-m: 768px;
+$breakpoint-l: 1024px;
+
+@mixin breakpoint($type) {
+  $breakpoints: (
+    's': '(max-width: ' + $breakpoint-s + ')',
+    'm': '(max-width: ' + $breakpoint-m + ')',
+    'l': '(max-width: ' + $breakpoint-l + ')',
+  );
+
+  @media #{map-get($breakpoints, $type)} {
+    @content;
+  }
+}
+
+//@include breakpoint('s'){
+//  .block {
+//      margin: 0;
+//  }
+//}

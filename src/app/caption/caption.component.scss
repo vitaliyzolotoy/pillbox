@@ -1,3 +1,5 @@
+@import "../../utils.scss";
+
 .caption {
   font-weight: 500;
   position: absolute;
@@ -27,5 +29,27 @@
 
   &__day {
     font-size: 0.8rem;
+  }
+}
+
+@include breakpoint('s'){
+  .caption {
+    position: relative;
+
+    &__day {
+      position: absolute;
+      top: -30px;
+      width: 40px;
+      text-align: center;
+    }
+
+    &__period {
+      font-size: 0.7rem;
+      position: absolute;
+      left: -40px;
+      width: 40px;
+      text-align: center;
+      transform: rotate(-90deg);
+    }
   }
 }
