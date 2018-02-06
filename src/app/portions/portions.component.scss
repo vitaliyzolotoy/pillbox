@@ -46,23 +46,26 @@
       top: 170px;
       left: 0;
       right: 0;
-      height: 60vh;
+      height: 40vh;
     }
   }
 
   .handle {
     display: block;
     margin-top: 18px;
-    margin-left: 18px;
+    margin-left: 14px;
     width: 6px;
     height: 6px;
     outline: none;
     border-radius: 50%;
-    background: #404040;
+    background: transparent;
     -webkit-appearance: none;
 
-    &:checked,
     &--full {
+      background: #404040;
+    }
+
+    &:checked {
       background: red;
     }
   }

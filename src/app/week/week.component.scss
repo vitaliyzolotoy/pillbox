@@ -94,13 +94,6 @@
 
     &__item /deep/ .handle:checked + .portions {
       display: block;
-      //width: 100%;
-      //height: 50vh;
-    }
-
-    &__item--current /deep/ .portions--clicked + .dot--full,
-    &__item--current /deep/ .portions--full + .dot--full {
-      background: red;
     }
   }
 }

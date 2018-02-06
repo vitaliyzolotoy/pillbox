@@ -35,7 +35,7 @@
 @include breakpoint('s'){
   .organizer {
     position: relative;
-    width: calc(100% - 30px);
+    width: calc(100% - 70px);
     margin-left: 30px;
     margin-top: 30px;
 
@@ -49,6 +49,17 @@
 
     &__item:first-child /deep/ .caption__day {
       display: block;
+    }
+
+    &__link {
+      position: absolute;
+      right: -45px;
+    }
+
+    &__icon {
+      top: 0;
+      color: #fff;
+      background: #333;
     }
   }
 }
