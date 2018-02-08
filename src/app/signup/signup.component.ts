@@ -4,6 +4,7 @@ import { AuthService } from '../shared/security/auth.service';
 import { Router } from '@angular/router';
 import {PaymentService} from '../shared/payment/payment.service';
 import {stripeConfig} from '../../environments/stripe.config';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +20,7 @@ export class SignupComponent implements OnInit {
       amount: 2400,
       id: 1
     },
-    monhtly: {
+    monthly: {
       amount: 300,
       id: 2
     }
@@ -53,6 +54,7 @@ export class SignupComponent implements OnInit {
     '13': 'Etc/GMT-13',
     '14': 'Etc/GMT-14'
   };
+  subscription = environment.subscription;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -62,7 +64,7 @@ export class SignupComponent implements OnInit {
       email: ['', Validators.required],
       password: ['', Validators.required],
       confirm: ['', Validators.required],
-      plan: [null, Validators.required]
+      plan: [null, environment.subscription && Validators.required]
     });
   }
 
@@ -87,7 +89,9 @@ export class SignupComponent implements OnInit {
     this.authService.signUp(formValue.email, formValue.password)
       .subscribe(
         () => {
-          this.paymentService.processPayment(token, this.price[formValue.plan].id);
+          if (environment.subscription) {
+            this.paymentService.processPayment(token, this.price[formValue.plan].id);
+          }
           this.paymentService.saveEmail();
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);
           alert('User creates successfully');

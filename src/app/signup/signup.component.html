@@ -19,7 +19,7 @@
                formControlName="confirm">
       </div>
     </div>
-    <div class="fieldset__pane">
+    <div class="fieldset__pane" *ngIf="subscription">
       <div class="plan plan--yearly">
         <input class="plan__control radio tabs" type="radio" id="pro" name="plan" value="yearly" formControlName="plan">
         <label class="plan__text" for="pro">
@@ -42,7 +42,12 @@
     </div>
     <div class="fieldset__foot">
       <button class="button button--large"
+              *ngIf="subscription"
               (click)="openHandler()"
+              [disabled]="!isPasswordMatch() || !form.valid"><i class="link__icon icon icon--lock"></i>Sign Up</button>
+      <button class="button button--large"
+              *ngIf="!subscription"
+              (click)="signUp(null)"
               [disabled]="!isPasswordMatch() || !form.valid"><i class="link__icon icon icon--lock"></i>Sign Up</button>
     </div>
   </form>
