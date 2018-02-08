@@ -12,7 +12,14 @@
     <input class="receptum-form__input input" type="number" placeholder="Dose" formControlName="dose">
     <span *ngIf="isErrorVisible('dose', 'required')">Field is mandatory</span>
     <br>
-    <label><input type="checkbox" name="repeat" value="true" formControlName="repeat" (click)="showSelectHandle()"> Repeat every day</label>
+    <label>
+      <span class="checkbox">
+        <input class="checkbox__input" type="checkbox" name="repeat" value="true" formControlName="repeat"
+           (click)="showSelectHandle()">
+        <span class="checkbox__tail"></span>
+      </span>
+      Repeat every day
+    </label>
     <span *ngIf="showSelect">
       or
       <span class="select">
