@@ -1,3 +1,22 @@
+@keyframes scale {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotateX(-40deg)
+  }
+
+  50% {
+    opacity: 1
+  }
+
+  70% {
+    transform: scale(1.05) rotateX(0)
+  }
+
+  100% {
+    transform: scale(1) rotateX(0)
+  }
+}
+
 .modal {
   position: absolute;
   top: 0;
@@ -17,6 +36,7 @@
     border-radius: 4px;
     border: 1px solid #e6e5e6;
     background: #fff;
+    animation: scale 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91);
   }
 
   &__close {
