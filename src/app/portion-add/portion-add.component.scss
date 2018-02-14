@@ -1,25 +1,9 @@
 @import "../button/button.scss";
+@import "../icon/icon.scss";
+@import "../modal/modal.scss";
 
 .portion-add {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 300;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.1);
-
-  &__inner {
-    width: 360px;
-    border-radius: 4px;
-    border: 1px solid #e6e5e6;
-    background: #fff;
-  }
-
   &__button {
-    margin: 1rem;
+    margin: 1rem 0;
   }
 }

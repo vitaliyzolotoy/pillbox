@@ -1,10 +1,5 @@
 <form class="receptum-form" [formGroup]="form">
   <fieldset class="receptum-form__form">
-    <h2 class="receptum-form__title">Add medicine
-      <a class="receptum-form__close" href="/home" [routerLink]="['/home']">
-        <i class="icon icon--cancel"></i>
-      </a>
-    </h2>
     <input class="receptum-form__input input" type="number" placeholder="Quantity" formControlName="quantity">
     <span *ngIf="isErrorVisible('quantity', 'required')">Field is mandatory</span>
     <input class="receptum-form__input input" type="text" placeholder="Name" formControlName="name">

@@ -1,5 +1,7 @@
-<div class="portion-add">
-  <div class="portion-add__inner">
+<div class="portion-add modal">
+  <div class="modal__inner">
+    <a class="modal__close" [routerLink]="['/home']"><i class="icon icon--cancel"></i></a>
+    <h2 class="modal__title">Add medicine</h2>
     <app-receptum-form #form></app-receptum-form>
     <button class="portion-add__button button" (click)="save(form)" [disabled]="!form.valid">Save</button>
   </div>
