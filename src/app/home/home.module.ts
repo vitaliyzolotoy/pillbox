@@ -13,6 +13,8 @@ import {ReceptumsService} from '../shared/model/receptums.service';
 import { ReceptumFormComponent } from '../receptum-form/receptum-form.component';
 import { WeekComponent } from '../week/week.component';
 import { SettingsComponent } from '../settings/settings.component';
+import { SpinnerComponent } from '../spinner/spinner.component';
+import { HeaderComponent } from '../header/header.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,8 @@ import { SettingsComponent } from '../settings/settings.component';
     ReceptumFormComponent,
     WeekComponent,
     SettingsComponent,
+    SpinnerComponent,
+    HeaderComponent,
   ],
   imports: [
     CommonModule,

@@ -12,6 +12,7 @@ export class OrganizerComponent implements OnInit {
   @Input() uid;
   schedule: ScheduleItem[];
   receptums: Receptum[];
+  isLoaded = false;
 
   constructor(private scheduleService: ScheduleService) { }
 
@@ -50,6 +51,8 @@ export class OrganizerComponent implements OnInit {
               receptums: []
             }
           ];
+
+          this.isLoaded = true;
 
           this.scheduleService.findAllReceptumsForSchedule(item.$key, this.uid)
             .subscribe(receptums => {

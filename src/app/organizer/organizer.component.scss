@@ -4,6 +4,8 @@
 .organizer {
   display: flex;
   flex-direction: column;
+  min-width: 980px;
+  min-height: 520px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
