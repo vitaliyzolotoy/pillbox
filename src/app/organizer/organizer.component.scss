@@ -4,11 +4,15 @@
 .organizer {
   display: flex;
   flex-direction: column;
-  min-width: 980px;
-  min-height: 520px;
+  min-width: 300px;
+  min-height: 300px;
   margin: 0 auto;
   padding: 0;
   list-style: none;
+
+  &--visibility {
+    filter: blur(10px);
+  }
 
   &__item {
     position: relative;
@@ -38,6 +42,8 @@
   .organizer {
     position: relative;
     width: calc(100% - 70px);
+    min-width: 0;
+    min-height: 0;
     margin-left: 30px;
     margin-top: 30px;
 

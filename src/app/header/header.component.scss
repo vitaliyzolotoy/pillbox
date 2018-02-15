@@ -5,6 +5,10 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+
+  &--visibility {
+    filter: blur(10px);
+  }
 }
 
 .logo {

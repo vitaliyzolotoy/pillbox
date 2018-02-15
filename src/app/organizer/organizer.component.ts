@@ -10,6 +10,7 @@ import {Receptum} from '../shared/model/receptum';
 })
 export class OrganizerComponent implements OnInit {
   @Input() uid;
+  @Input() visibility;
   schedule: ScheduleItem[];
   receptums: Receptum[];
   isLoaded = false;

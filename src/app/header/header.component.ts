@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {AuthService} from '../shared/security/auth.service';
 import {AuthInfo} from '../shared/security/auth-info';
 
@@ -8,6 +8,7 @@ import {AuthInfo} from '../shared/security/auth-info';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  @Input() visibility;
   authInfo: AuthInfo;
 
   constructor(private authService: AuthService) { }
