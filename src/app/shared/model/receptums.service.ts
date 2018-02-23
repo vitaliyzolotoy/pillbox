@@ -13,7 +13,7 @@ export class ReceptumsService {
 
   constructor(private db: AngularFireDatabase,
               private authService: AuthService) {
-    this.sdkDb = db.database.ref();
+    this.sdkDb = db.app.database().ref();
 
     this.authService.authInfo$.subscribe(authInfo => {
       this.authInfo = authInfo;

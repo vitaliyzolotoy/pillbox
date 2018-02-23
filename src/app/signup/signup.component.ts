@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {PaymentService} from '../shared/payment/payment.service';
 import {stripeConfig} from '../../environments/stripe.config';
 import {environment} from '../../environments/environment';
+import {paddleConfig} from '../../environments/paddle.config';
 
 @Component({
   selector: 'app-signup',
@@ -14,15 +15,16 @@ import {environment} from '../../environments/environment';
 export class SignupComponent implements OnInit {
   form: FormGroup;
   handler: any;
-  amount;
+  id;
   price = {
     yearly: {
-      amount: 2400,
-      id: 1
+      id: 525179
     },
     monthly: {
-      amount: 300,
-      id: 2
+      id: 525180
+    },
+    test: {
+      id: 525231
     }
   };
   timezones = {
@@ -73,7 +75,7 @@ export class SignupComponent implements OnInit {
 
     this.form.valueChanges
       .subscribe(form => {
-        this.amount = this.price[form.plan] && this.price[form.plan].amount;
+        this.id = this.price[form.plan] && this.price[form.plan].id;
       });
   }
 
@@ -102,20 +104,36 @@ export class SignupComponent implements OnInit {
   }
 
   private configHandler() {
-    this.handler = StripeCheckout.configure({
-      key: stripeConfig.stripeKey,
-      image: 'https://goo.gl/EJJYq8',
-      locale: 'auto',
-      token: token => {
-        this.signUp(token);
-      }
+    // this.handler = StripeCheckout.configure({
+    //   key: stripeConfig.stripeKey,
+    //   image: 'https://goo.gl/EJJYq8',
+    //   locale: 'auto',
+    //   token: token => {
+    //     this.signUp(token);
+    //   }
+    // });
+
+    Paddle.Setup({
+      vendor: paddleConfig.vendor
     });
   }
 
   openHandler() {
-    this.handler.open({
-      name: 'Pillbox',
-      amount: this.amount
+    // this.handler.open({
+    //   name: 'Pillbox',
+    //   amount: this.amount
+    // });
+
+    Paddle.Checkout.open({
+      product: this.id,
+      email: this.form.value.email,
+      passthrough: 1939284,
+      locale: 'en',
+      title: 'Pillbox',
+      successCallback: data => {
+        console.log(data);
+        this.signUp(data);
+      }
     });
   }
 

@@ -12,6 +12,7 @@ import {AuthService} from '../shared/security/auth.service';
 import {firebaseConfig} from '../../environments/firebase.config';
 import { SignupComponent } from '../signup/signup.component';
 import {PaymentService} from '../shared/payment/payment.service';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   imports: [
@@ -22,6 +23,7 @@ import {PaymentService} from '../shared/payment/payment.service';
     FormsModule,
     ReactiveFormsModule,
     routing,
+    HttpClientModule
   ],
   providers: [
     AuthService,

@@ -2,23 +2,39 @@ import { Injectable } from '@angular/core';
 import {AngularFireDatabase} from 'angularfire2/database';
 import {AuthService} from '../security/auth.service';
 import {AuthInfo} from '../security/auth-info';
+import {HttpClient} from '@angular/common/http';
+import {paddleConfig} from '../../../environments/paddle.config';
 
 @Injectable()
 export class PaymentService {
   authInfo: AuthInfo;
 
-  constructor(private db: AngularFireDatabase, private authService: AuthService) {
+  constructor(private db: AngularFireDatabase,
+              private authService: AuthService,
+              private http: HttpClient) {
     this.authService.authInfo$.subscribe(authInfo => this.authInfo = authInfo);
   }
 
-  processPayment(token: any, plan: any) {
+  processPayment(data: any, plan: any) {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
-      .update({ token: token.id, plan: plan });
+      .update({ token: data.checkout.id, plan: plan, status: 'active' });
   }
 
   unsubscribe() {
-    return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
+    this.db.object(`/users/${this.authInfo.$uid}/subscription`)
       .update({ status: 'canceled', canceled: true });
+
+    this.db.object(`/users/${this.authInfo.$uid}/subscription/token`)
+      .subscribe(token => {
+        console.log(token);
+        this.http.post(paddleConfig.unsubscribe_url, {
+          vendor_id: paddleConfig.vendor,
+          vendor_auth_code: paddleConfig.vendor_auth_code,
+          subscription_id: token.$value
+        }).subscribe(res => {
+          console.log(res)
+        });
+      });
   }
 
   status() {
