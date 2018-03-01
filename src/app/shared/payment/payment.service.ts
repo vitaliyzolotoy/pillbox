@@ -17,6 +17,7 @@ export class PaymentService {
 
   processPayment(data: any, plan: any) {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
+      // .update({ token: data, plan: plan, status: 'active' });
       .update({ token: data.checkout.id, plan: plan, status: 'active' });
   }
 

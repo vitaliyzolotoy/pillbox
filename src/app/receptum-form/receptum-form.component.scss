@@ -11,12 +11,18 @@
   }
 
   &__input,
-  &__button {
-    display: block;
+  &__button,
+  &__select,
+  &__label {
+    display: inline-block;
     margin: 1rem 0 0;
   }
 
   &__input {
     width: 100%;
+  }
+
+  &__input--half {
+    width: 50%;
   }
 }

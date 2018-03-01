@@ -1,13 +1,39 @@
 <form class="receptum-form" [formGroup]="form">
   <fieldset class="receptum-form__form">
-    <input class="receptum-form__input input" type="number" placeholder="Quantity" formControlName="quantity">
+    <input class="receptum-form__input receptum-form__input--half input" type="number" placeholder="Quantity" formControlName="quantity">
     <span *ngIf="isErrorVisible('quantity', 'required')">Field is mandatory</span>
+    <span class="receptum-form__select select">
+      <select class="select__input" name="type" formControlName="type">
+        <option [selected]="'selected'">chose type</option>
+        <option value="Tablet">Tablet</option>
+        <option value="Capsule">Capsule</option>
+        <option value="Drops">Drops</option>
+        <option value="Injection">Injection</option>
+        <option value="Syrup">Syrup</option>
+        <option value="Other">Other</option>
+      </select>
+      <span class="select__icon">
+        <i class="icon icon--down"></i>
+      </span>
+    </span>
+    <span *ngIf="isErrorVisible('type', 'required')">Field is mandatory</span>
     <input class="receptum-form__input input" type="text" placeholder="Name" formControlName="name">
     <span *ngIf="isErrorVisible('name', 'required')">Field is mandatory</span>
-    <input class="receptum-form__input input" type="number" placeholder="Dose" formControlName="dose">
+    <input class="receptum-form__input receptum-form__input--half input" type="number" placeholder="Dose" formControlName="dose">
     <span *ngIf="isErrorVisible('dose', 'required')">Field is mandatory</span>
+    <span class="receptum-form__select select">
+      <select class="select__input" name="unit" formControlName="unit">
+        <option [selected]="'selected'">chose unit</option>
+        <option value="Milligram">Milligram</option>
+        <option value="Milliliters">Milliliters</option>
+      </select>
+      <span class="select__icon">
+        <i class="icon icon--down"></i>
+      </span>
+    </span>
+    <span *ngIf="isErrorVisible('type', 'required')">Field is mandatory</span>
     <br>
-    <label>
+    <label class="receptum-form__label">
       <span class="checkbox">
         <input class="checkbox__input" type="checkbox" name="repeat" value="true" formControlName="repeat"
            (click)="showSelectHandle()">
@@ -15,7 +41,7 @@
       </span>
       Repeat every day
     </label>
-    <span *ngIf="showSelect">
+    <span *ngIf="showSelect" class="receptum-form__select">
       or
       <span class="select">
         <select class="select__input" name="day" formControlName="day">

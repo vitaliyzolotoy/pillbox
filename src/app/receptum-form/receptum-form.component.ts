@@ -16,18 +16,13 @@ export class ReceptumFormComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       quantity: [null, Validators.required],
+      type: ['Tablet', Validators.required],
       name: ['', Validators.required],
       dose: [null, Validators.required],
+      unit: ['Milligram', Validators.required],
       repeat: [false],
       day: ['Mon']
     });
-
-    // this.form.valueChanges
-    //   .subscribe(form => {
-    //     if (form.repeat) {
-    //       this.showSelect = true;
-    //     }
-    //   });
   }
 
   isErrorVisible(field: string, error: string) {

@@ -2,9 +2,13 @@
    [ngClass]="{ 'handle--full': portions.length !== 0 }">
 <ul class="portions" [ngClass]="{ 'portions--full': portions.length !== 0}">
   <li class="portions__item" *ngFor="let portion of portions">
-    {{ portion.quantity}}p.
+    <span title="{{ portion.type }}">
+      {{ portion.quantity}}{{ portion.type.toLowerCase().substring(0, 1) }}.
+    </span>
     {{ portion.name }}
-    {{ portion.dose }}mg.
+    <span title="{{ portion.unit }}">
+      {{ portion.dose }}{{ portion.unit.toLowerCase().substring(0, 2) }}.
+    </span>
     <i class="portions__icon icon icon--cancel" (click)="removeReceptum(portion.$key, portion.scheduleItemId)"></i>
   </li>
 </ul>
