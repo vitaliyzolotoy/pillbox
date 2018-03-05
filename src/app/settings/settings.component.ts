@@ -9,6 +9,7 @@ import {PaymentService} from '../shared/payment/payment.service';
 export class SettingsComponent implements OnInit {
   status;
   notifications;
+  cancel;
 
   constructor(public paymentService: PaymentService) { }
 
@@ -22,10 +23,12 @@ export class SettingsComponent implements OnInit {
       .subscribe(notifications => {
         this.notifications = notifications.$value;
       });
-  }
 
-  unsubscribe() {
-    this.paymentService.unsubscribe();
+    this.paymentService.unsubscribe()
+      .subscribe(data => {
+        this.cancel = data.$value;
+        // console.log(data);
+      });
   }
 
   turnOffNotifications() {

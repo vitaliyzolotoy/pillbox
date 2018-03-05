@@ -5,15 +5,16 @@
     <p *ngIf="status === 'active'">
       Subscription is Active
       <br>
-      <button (click)="unsubscribe()">Unsubscribe</button>
+      <!--<button (click)="unsubscribe()">Unsubscribe</button>-->
     </p>
     <p *ngIf="status === 'canceled'">Subscription is canceled</p>
+    <a *ngIf="status !== 'canceled'" href="{{ cancel }}">Unsubscribe</a>
+
     <p *ngIf="notifications === true">
       <button (click)="turnOffNotifications()">Turn Off Notifications</button>
     </p>
     <p *ngIf="notifications === false">
       Notifications is turned off
     </p>
-    <button (click)="unsubscribe()"></button>
   </div>
 </div>

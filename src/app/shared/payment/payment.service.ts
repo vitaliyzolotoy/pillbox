@@ -16,26 +16,28 @@ export class PaymentService {
   }
 
   processPayment(data: any, plan: any) {
+    const id = data.checkout.id;
+
+    this.db.object(`/checkouts/${id}`)
+      .update({ id: `${this.authInfo.$uid}` });
+
     return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
       // .update({ token: data, plan: plan, status: 'active' });
-      .update({ token: data.checkout.id, plan: plan, status: 'active' });
+      .update({ token: id, plan: plan, status: 'active' });
   }
 
   unsubscribe() {
-    this.db.object(`/users/${this.authInfo.$uid}/subscription`)
-      .update({ status: 'canceled', canceled: true });
+    // this.db.object(`/users/${this.authInfo.$uid}/subscription`)
+    //   .update({ status: 'canceled', canceled: true });
 
-    this.db.object(`/users/${this.authInfo.$uid}/subscription/token`)
-      .subscribe(token => {
-        console.log(token);
-        this.http.post(paddleConfig.unsubscribe_url, {
-          vendor_id: paddleConfig.vendor,
-          vendor_auth_code: paddleConfig.vendor_auth_code,
-          subscription_id: token.$value
-        }).subscribe(res => {
-          console.log(res)
-        });
-      });
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/cancel_url`);
+      //
+      // .subscribe(url => {
+      //   console.log(url.$value);
+      //   return this.http.post(url.$value, {}).subscribe(res => {
+      //     console.log(res)
+      //   });
+      // });
   }
 
   status() {
