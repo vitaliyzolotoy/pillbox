@@ -1,4 +1,5 @@
 export const environment = {
   production: true,
-  subscription: false
+  subscription: false,
+  free: false
 };

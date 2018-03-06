@@ -1,2 +1,9 @@
 @import "../icon/icon.scss";
 @import "../modal/modal.scss";
+@import "../button/button.scss";
+
+.settings {
+  &__button {
+    margin-top: 8px;
+  }
+}

@@ -5,5 +5,6 @@
 
 export const environment = {
   production: false,
-  subscription: true
+  subscription: true,
+  free: true
 };

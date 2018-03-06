@@ -39,7 +39,7 @@
           <span class="plan__label plan__label--checked">Selected</span>
         </label>
       </div>
-      <input type="radio" name="plan" value="test" formControlName="plan">
+      <label *ngIf="free"><input type="radio" name="plan" value="test" formControlName="plan"> Test plan</label>
     </div>
     <div class="fieldset__foot">
       <button class="button button--large"

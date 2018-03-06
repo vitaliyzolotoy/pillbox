@@ -57,6 +57,7 @@ export class SignupComponent implements OnInit {
     '14': 'Etc/GMT-14'
   };
   subscription = environment.subscription;
+  free = environment.free;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -131,7 +132,7 @@ export class SignupComponent implements OnInit {
       locale: 'en',
       title: 'Pillbox',
       successCallback: data => {
-        console.log(data);
+        // console.log(data);
         this.signUp(data);
       }
     });

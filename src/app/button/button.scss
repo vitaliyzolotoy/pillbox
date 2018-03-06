@@ -1,109 +1,136 @@
-.button { $background: #fd8a10;
+.button {
+  $background: #fd8a10;
 
-          font-size: 11px;
-          font-weight: 400;
-          line-height: 28px;
-          display: inline-block;
-          height: 30px;
-          margin: 0 0 2px 0;
-          padding: 1px 15px 0 15px;
-          letter-spacing: 0.05em;
-          vertical-align: middle;
-          text-transform: uppercase;
-          text-decoration: none;
-          cursor: pointer;
-          color: #fff;
-          border: none;
-          border-radius: 2px;
-          box-shadow: 0 2px darken($background, 8%);
-          background: $background;
-          transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
+  font-size: 11px;
+  font-weight: 400;
+  line-height: 28px;
+  display: inline-block;
+  height: 30px;
+  margin: 0 0 2px 0;
+  padding: 1px 15px 0 15px;
+  letter-spacing: 0.05em;
+  vertical-align: middle;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  color: #fff;
+  border: none;
+  border-radius: 2px;
+  box-shadow: 0 2px darken($background, 8%);
+  background: $background;
+  transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
 
-          &__icon { padding-right: 3px; }
+  &__icon {
+    padding-right: 3px;
+  }
 
-          &:hover { text-decoration: none;
-                    color: #fff;
-                    background: lighten($background, 8%); }
+  &:hover {
+    text-decoration: none;
+    color: #fff;
+    background: lighten($background, 8%);
+  }
 
-          &:active { background: $background; }
+  &:active {
+    background: $background;
+  }
 
-          &:focus,
-          &:active { outline: none; }
+  &:focus,
+  &:active {
+    outline: none;
+  }
 
-          &--small { font-size: 10px;
-                     line-height: 16px;
-                     height: 18px;
-                     padding: 1px 9px 0 9px;
-                     box-shadow: 0 2px darken($background, 8%);
+  &:disabled {
+    $background: #fff;
+    $border: #ccc;
 
-                     &:hover { background: lighten($background, 8%); }
+    opacity: 0.35;
+    cursor: default;
+  }
 
-                     &:active { background: $background; } }
+  &--small {
+    font-size: 10px;
+    line-height: 16px;
+    height: 18px;
+    padding: 1px 9px 0 9px;
+    box-shadow: 0 2px darken($background, 8%);
 
-          &--large { font-size: 13px;
-                     line-height: 38px;
-                     height: 40px;
-                     padding: 1px 20px 0 20px;
-                     border-radius: 3px;
-                     box-shadow: 0 2px darken($background, 8%);
+    &:hover {
+      background: lighten($background, 8%);
+    }
 
-                     &:hover { background: lighten($background, 8%); }
+    &:active {
+      background: $background;
+    }
+  }
 
-                     &:active { background: $background; } }
+  &--large {
+    font-size: 13px;
+    line-height: 38px;
+    height: 40px;
+    padding: 1px 20px 0 20px;
+    border-radius: 3px;
+    box-shadow: 0 2px darken($background, 8%);
 
-           &--extra { font-size: 14px;
-                      line-height: 48px;
-                      height: 50px;
-                      padding: 1px 25px 0 25px;
-                      border-radius: 3px;
-                      box-shadow: 0 2px darken($background, 8%);
+    &:hover {
+      background: lighten($background, 8%);
+    }
 
-                      &:hover { background: lighten($background, 8%); }
+    &:active {
+      background: $background;
+    }
+  }
 
-                      &:active { background: $background; } }
+  &--extra {
+    font-size: 14px;
+    line-height: 48px;
+    height: 50px;
+    padding: 1px 25px 0 25px;
+    border-radius: 3px;
+    box-shadow: 0 2px darken($background, 8%);
 
-          &--action { $background: #4cd964;
+    &:hover {
+      background: lighten($background, 8%);
+    }
 
-                      box-shadow: 0 2px darken($background, 8%);
-                      background: $background;
+    &:active {
+      background: $background;
+    }
+  }
 
-                      &:hover { background: lighten($background, 8%); }
+  &--action {
+    $background: #4cd964;
 
-                      &:active { background: $background; } }
+    box-shadow: 0 2px darken($background, 8%);
+    background: $background;
 
-          &--pseudo { $background: #fff;
-                      $border: #ccc;
+    &:hover {
+      background: lighten($background, 8%);
+    }
 
-                      color: darken($border, 8%);
-                      box-shadow: inset 1px 0 0 0 $border,
-                                  inset 0 1px 0 0 $border,
-                                  inset -1px 0 0 0 $border,
-                                  0 2px $border;
-                      background: $background;
+    &:active {
+      background: $background;
+    }
+  }
 
-                      &:hover { color: darken($border, 14%);
-                                box-shadow: inset 1px 0 0 0 $border,
-                                            inset 0 1px 0 0 $border,
-                                            inset -1px 0 0 0 $border,
-                                            0 2px darken($border, 14%);
-                                background: $background; }
+  &--pseudo {
+    $background: #fff;
+    $border: #ccc;
 
-                      &:active { background: $background; } }
+    color: darken($border, 8%);
+    box-shadow: inset 1px 0 0 0 $border,
+    inset 0 1px 0 0 $border,
+    inset -1px 0 0 0 $border,
+    0 2px $border;
+    background: $background;
 
-          &:disabled { $background: #fff;
-                        $border: #ccc;
+    &:hover {
+      color: darken($border, 14%);
+      box-shadow: inset 1px 0 0 0 $border, inset 0 1px 0 0 $border, inset -1px 0 0 0 $border, 0 2px darken($border, 14%);
+      background: $background;
+    }
 
-                        //display: none;
-                        opacity: 0.35;
-                        cursor: default; }
-
-          &--current { $background: #fff;
-                       $border: #ccc;
-
-                       cursor: default;
-                       color: darken($border, 28%);
-                       box-shadow: inset 1px 0 0 0 $border,
-                                   inset 0 1px 0 0 $border,
-                                   inset -1px 0 0 0 $border,
-                                   0 2px darken($border, 28%);
-                       background: $background; } }
+    &:active {
+      background: $background;
+    }
+  }
+}
