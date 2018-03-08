@@ -39,14 +39,6 @@
     outline: none;
   }
 
-  &:disabled {
-    $background: #fff;
-    $border: #ccc;
-
-    opacity: 0.35;
-    cursor: default;
-  }
-
   &--small {
     font-size: 10px;
     line-height: 16px;
@@ -132,5 +124,13 @@
     &:active {
       background: $background;
     }
+  }
+
+  &:disabled {
+    $background: #fff;
+    $border: #ccc;
+
+    opacity: 0.35;
+    cursor: default;
   }
 }
