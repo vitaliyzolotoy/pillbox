@@ -2,25 +2,31 @@
 @import "../icon/icon.scss";
 
 .portions {
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   position: absolute;
   z-index: 2;
   top: 3.4rem;
-  margin: 0 4px 4px 6px;
+  width: calc(100% - 8px);
+  margin: 0 4px 0 4px;
   padding: 0;
   list-style: none;
   color: #333;
   background: #fff;
 
+  &:hover {
+    z-index: 3;
+  }
+
   &__item {
     overflow: hidden;
     white-space: nowrap;
     max-width: 100%;
-    text-overflow: ellipsis;
+    //text-overflow: ellipsis;
   }
 
   &__item:hover {
     overflow: visible;
+    max-width: none;
     background: #fff;
   }
 

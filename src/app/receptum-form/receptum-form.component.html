@@ -1,7 +1,7 @@
 <form class="receptum-form" [formGroup]="form">
   <fieldset class="receptum-form__form">
     <input class="receptum-form__input receptum-form__input--half input" type="number" placeholder="Quantity" formControlName="quantity">
-    <span *ngIf="isErrorVisible('quantity', 'required')">Field is mandatory</span>
+    <span class="receptum-form__hint" *ngIf="isErrorVisible('quantity', 'required')">Field is mandatory</span>
     <span class="receptum-form__select select">
       <select class="select__input" name="type" formControlName="type">
         <option [selected]="'selected'">chose type</option>
@@ -16,11 +16,11 @@
         <i class="icon icon--down"></i>
       </span>
     </span>
-    <span *ngIf="isErrorVisible('type', 'required')">Field is mandatory</span>
+    <span class="receptum-form__hint" *ngIf="isErrorVisible('type', 'required')">Field is mandatory</span>
     <input class="receptum-form__input input" type="text" placeholder="Name" formControlName="name">
-    <span *ngIf="isErrorVisible('name', 'required')">Field is mandatory</span>
+    <span class="receptum-form__hint" *ngIf="isErrorVisible('name', 'required')">Field is mandatory</span>
     <input class="receptum-form__input receptum-form__input--half input" type="number" placeholder="Dose" formControlName="dose">
-    <span *ngIf="isErrorVisible('dose', 'required')">Field is mandatory</span>
+    <span class="receptum-form__hint" *ngIf="isErrorVisible('dose', 'required')">Field is mandatory</span>
     <span class="receptum-form__select select">
       <select class="select__input" name="unit" formControlName="unit">
         <option [selected]="'selected'">chose unit</option>
@@ -31,7 +31,7 @@
         <i class="icon icon--down"></i>
       </span>
     </span>
-    <span *ngIf="isErrorVisible('type', 'required')">Field is mandatory</span>
+    <span class="receptum-form__hint" *ngIf="isErrorVisible('type', 'required')">Field is mandatory</span>
     <br>
     <label class="receptum-form__label">
       <span class="checkbox">
@@ -58,7 +58,7 @@
           <i class="icon icon--down"></i>
         </span>
       </span>
-      <span *ngIf="isErrorVisible('day', 'required')">Field is mandatory</span>
+      <span class="receptum-form__hint" *ngIf="isErrorVisible('day', 'required')">Field is mandatory</span>
     </span>
   </fieldset>
 </form>

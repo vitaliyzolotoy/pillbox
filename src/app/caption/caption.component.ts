@@ -6,7 +6,6 @@ import {Component, Input, OnInit} from '@angular/core';
   styleUrls: ['./caption.component.scss']
 })
 export class CaptionComponent implements OnInit {
-  @Input() key;
   @Input() period;
   @Input() day;
 
