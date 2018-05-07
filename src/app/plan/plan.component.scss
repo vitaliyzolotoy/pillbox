@@ -1,0 +1,77 @@
+.plan { $border: #e6e5e6;
+  $select: #f5f5f5;
+  $checked: #fd8a10;
+
+  display: inline-block;
+  margin-bottom: 15px;
+  text-align: center;
+
+  &__control { display: none; }
+
+  &__text { position: relative;
+    cursor: pointer; }
+
+  &__text b { font-weight: 400; }
+
+  &__title,
+  &__price,
+  &__save { display: block; }
+
+  &__title { font-size: 14px;
+    padding-top: 10px; }
+
+  &__price { font-size: 22px;
+    margin: 4px 0; }
+
+  &__save { font-size: 14px; }
+
+  &--yearly &__text,
+  &--monthly &__text { display: inline-block;
+    width: 100px;
+    height: 100px;
+    margin: 0 8px;
+    padding: 10px;
+    vertical-align: top;
+    border-radius: 3px; }
+
+  &--yearly &__text { width: 120px;
+    height: 120px; }
+
+  &--yearly &__control + &__text,
+  &--monthly &__control + &__text { box-shadow: inset 1px 0 0 0 $border,
+  inset 0 1px 0 0 $border,
+  inset -1px 0 0 0 $border,
+  0 1px $border; }
+
+  &--yearly &__control + &__text:hover,
+  &--monthly &__control + &__text:hover,
+  &--yearly &__control:checked + &__text,
+  &--monthly &__control:checked + &__text { box-shadow: inset 2px 0 0 0 $border,
+  inset 0 2px 0 0 $border,
+  inset -2px 0 0 0 $border,
+  0 2px $border; }
+
+  &__label { font-size: 16px;
+    position: absolute;
+    right: 1px;
+    bottom: -1px;
+    left: 1px;
+    line-height: 30px;
+    color: #000;
+    border-radius: 0 0 2px 2px;
+    background: $select; }
+
+  &--yearly &__control + &__text:hover &__label,
+  &--monthly &__control + &__text:hover &__label,
+  &__label--checked { color: #fff;
+    background: $checked; }
+
+  &__control + &__text &__label { display: block; }
+
+  &__control:checked + &__text &__label { display: none; }
+
+  &__control + &__text &__label--checked { display: none; }
+
+  &__control:checked + &__text &__label--checked { display: block; }
+
+  &--lite &__control { display: inline-block; } }

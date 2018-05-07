@@ -2,6 +2,7 @@ import {Component, Input, OnInit} from '@angular/core';
 import {ScheduleItem} from '../shared/model/scheduleItem';
 import {ScheduleService} from '../shared/model/schedule.service';
 import {Receptum} from '../shared/model/receptum';
+import {PaymentService} from '../shared/payment/payment.service';
 
 @Component({
   selector: 'app-organizer',
@@ -14,8 +15,11 @@ export class OrganizerComponent implements OnInit {
   schedule: ScheduleItem[];
   receptums: Receptum[];
   isLoaded = false;
+  status;
+  trial;
 
-  constructor(private scheduleService: ScheduleService) { }
+  constructor(private scheduleService: ScheduleService,
+              public paymentService: PaymentService) { }
 
   ngOnInit() {
     this.scheduleService.findAllScheduleItems()
@@ -78,6 +82,16 @@ export class OrganizerComponent implements OnInit {
             });
         });
         this.schedule = schedule;
+      });
+
+    this.paymentService.status()
+      .subscribe(status => {
+        this.status = status.$value;
+      });
+
+    this.paymentService.trial()
+      .subscribe(trial => {
+        this.trial = trial.$value;
       });
   }
 }

@@ -36,6 +36,11 @@
     color: #fff;
     background: #333;
   }
+
+  &__link--disabled {
+    pointer-events: none;
+    cursor: not-allowed;
+  }
 }
 
 @include breakpoint('s'){

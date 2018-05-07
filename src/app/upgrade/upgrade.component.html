@@ -1,0 +1,9 @@
+<div class="upgrade modal">
+  <div class="modal__inner">
+    <a class="modal__close" [routerLink]="['/home']"><i class="icon icon--cancel"></i></a>
+    <h2 class="modal__title">Subscription</h2>
+    <span>Your free 30 days period has been ended,</span>
+    <span>choose your subscription plan</span>
+    <app-plan (id)="onId($event)"></app-plan>
+  </div>
+</div>

@@ -3,7 +3,6 @@ import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../shared/security/auth.service';
 import { Router } from '@angular/router';
 import {PaymentService} from '../shared/payment/payment.service';
-import {stripeConfig} from '../../environments/stripe.config';
 import {environment} from '../../environments/environment';
 import {paddleConfig} from '../../environments/paddle.config';
 
@@ -14,19 +13,6 @@ import {paddleConfig} from '../../environments/paddle.config';
 })
 export class SignupComponent implements OnInit {
   form: FormGroup;
-  handler: any;
-  id;
-  price = {
-    yearly: {
-      id: 525179
-    },
-    monthly: {
-      id: 525180
-    },
-    test: {
-      id: 525231
-    }
-  };
   timezones = {
     '-12': 'Etc/GMT+12',
     '-11': 'Etc/GMT+11',
@@ -57,7 +43,8 @@ export class SignupComponent implements OnInit {
     '14': 'Etc/GMT-14'
   };
   subscription = environment.subscription;
-  free = environment.free;
+  id;
+  token;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -66,18 +53,12 @@ export class SignupComponent implements OnInit {
     this.form = fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
-      confirm: ['', Validators.required],
-      plan: [null, environment.subscription && Validators.required]
+      confirm: ['', Validators.required]
     });
   }
 
   ngOnInit() {
     this.configHandler();
-
-    this.form.valueChanges
-      .subscribe(form => {
-        this.id = this.price[form.plan] && this.price[form.plan].id;
-      });
   }
 
   isPasswordMatch() {
@@ -86,54 +67,45 @@ export class SignupComponent implements OnInit {
     return val && val.password && val.password === val.confirm;
   }
 
-  signUp(token) {
+  signUp() {
     const formValue = this.form.value;
 
     this.authService.signUp(formValue.email, formValue.password)
       .subscribe(
         () => {
-          if (environment.subscription) {
-            this.paymentService.processPayment(token, this.price[formValue.plan].id);
+          // console.log(environment.subscription, this.token, this.id);
+
+          if (environment.subscription && this.token && this.id) {
+            this.paymentService.processPayment(this.token, this.id);
           }
           this.paymentService.saveEmail();
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);
-          alert('User creates successfully');
+          alert('Account creates successfully');
           this.router.navigate(['/home']);
         },
         alert
       );
   }
 
-  private configHandler() {
-    // this.handler = StripeCheckout.configure({
-    //   key: stripeConfig.stripeKey,
-    //   image: 'https://goo.gl/EJJYq8',
-    //   locale: 'auto',
-    //   token: token => {
-    //     this.signUp(token);
-    //   }
-    // });
-
+  configHandler() {
     Paddle.Setup({
       vendor: paddleConfig.vendor
     });
   }
 
-  openHandler() {
-    // this.handler.open({
-    //   name: 'Pillbox',
-    //   amount: this.amount
-    // });
+  onId(id) {
+    // console.log(id);
+    this.id = id;
 
     Paddle.Checkout.open({
-      product: this.id,
+      product: id,
       email: this.form.value.email,
-      passthrough: 1939284,
+      passthrough: paddleConfig.passthrough,
       locale: 'en',
       title: 'Pillbox',
       successCallback: data => {
         // console.log(data);
-        this.signUp(data);
+        this.token = data;
       }
     });
   }

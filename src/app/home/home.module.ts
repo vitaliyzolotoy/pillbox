@@ -15,6 +15,8 @@ import { WeekComponent } from '../week/week.component';
 import { SettingsComponent } from '../settings/settings.component';
 import { SpinnerComponent } from '../spinner/spinner.component';
 import { HeaderComponent } from '../header/header.component';
+import { UpgradeComponent } from '../upgrade/upgrade.component';
+import {SubscriptionModule} from '../subscription/subscription.module';
 
 @NgModule({
   declarations: [
@@ -28,11 +30,13 @@ import { HeaderComponent } from '../header/header.component';
     SettingsComponent,
     SpinnerComponent,
     HeaderComponent,
+    UpgradeComponent
   ],
   imports: [
     CommonModule,
     routing,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    SubscriptionModule
   ],
   providers: [
     AuthGuard,

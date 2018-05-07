@@ -40,6 +40,10 @@ export class PaymentService {
       // });
   }
 
+  update() {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/update_url`);
+  }
+
   status() {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription/status`);
   }
@@ -61,5 +65,9 @@ export class PaymentService {
   turnOffNotifications() {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
       .update({ notifications: false });
+  }
+
+  trial() {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/trial`);
   }
 }

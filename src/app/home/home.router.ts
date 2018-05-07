@@ -4,6 +4,7 @@ import {HomeComponent} from './home.component';
 import {PortionAddComponent} from '../portion-add/portion-add.component';
 import {AuthGuard} from '../shared/security/auth.guard';
 import {SettingsComponent} from '../settings/settings.component';
+import {UpgradeComponent} from '../upgrade/upgrade.component';
 
 const routes: Route[] = [
   {
@@ -36,6 +37,10 @@ const routes: Route[] = [
       {
         path: 'settings',
         component: SettingsComponent
+      },
+      {
+        path: 'upgrade',
+        component: UpgradeComponent
       },
       {
         path: ':key',

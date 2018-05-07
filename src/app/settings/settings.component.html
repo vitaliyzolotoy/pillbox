@@ -13,6 +13,10 @@
       <br>
       <a *ngIf="cancel" class="settings__button button button--pseudo" href="{{ cancel }}">Unsubscribe</a>
     </p>
-    <p *ngIf="status === 'canceled'">Subscription is canceled</p>
+    <p *ngIf="status === 'canceled'">
+      Subscription is canceled
+      <br>
+      <a *ngIf="update" class="settings__button button button--pseudo" href="{{ update }}">Update</a>
+    </p>
   </div>
 </div>

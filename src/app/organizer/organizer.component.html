@@ -1,6 +1,9 @@
 <ul class="organizer" [ngClass]="{ 'organizer--visibility': visibility }">
   <li class="organizer__item" *ngFor="let item of schedule">
-      <a class="organizer__link" [routerLink]="['/home/' + item.$key]" [queryParams]="{ modal: true }">
+      <a class="organizer__link"
+         [routerLink]="['/home/' + item.$key]"
+         [queryParams]="{ modal: true }"
+         [class.organizer__link--disabled]="status ==='canceled' || !trial">
         <i class="organizer__icon icon icon--plus"></i>
       </a>
       <app-week [week]="item.week" [schedule]="item.name"></app-week>
