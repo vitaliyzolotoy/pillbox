@@ -47,6 +47,7 @@ export class UpgradeComponent implements OnInit {
         // console.log(data);
         this.token = data;
         this.paymentService.processPayment(this.token, this.id);
+        // this.paymentService.trialUpdate(false);
       }
     });
   }

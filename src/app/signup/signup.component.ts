@@ -77,6 +77,9 @@ export class SignupComponent implements OnInit {
 
           if (environment.subscription && this.token && this.id) {
             this.paymentService.processPayment(this.token, this.id);
+            // this.paymentService.trialUpdate(false);
+          } else {
+            this.paymentService.trialUpdate(true);
           }
           this.paymentService.saveEmail();
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);

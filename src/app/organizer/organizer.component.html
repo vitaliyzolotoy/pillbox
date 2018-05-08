@@ -3,7 +3,7 @@
       <a class="organizer__link"
          [routerLink]="['/home/' + item.$key]"
          [queryParams]="{ modal: true }"
-         [class.organizer__link--disabled]="status ==='canceled' || !trial">
+         [class.organizer__link--disabled]="status === 'canceled' || (!trial && status !== 'active')">
         <i class="organizer__icon icon icon--plus"></i>
       </a>
       <app-week [week]="item.week" [schedule]="item.name"></app-week>

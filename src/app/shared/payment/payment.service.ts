@@ -70,4 +70,9 @@ export class PaymentService {
   trial() {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription/trial`);
   }
+
+  trialUpdate(status) {
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
+      .update({ trial: status });
+  }
 }

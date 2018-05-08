@@ -10,7 +10,6 @@ export class SettingsComponent implements OnInit {
   status;
   notifications;
   cancel;
-  update;
 
   constructor(public paymentService: PaymentService) { }
 
@@ -28,12 +27,6 @@ export class SettingsComponent implements OnInit {
     this.paymentService.unsubscribe()
       .subscribe(data => {
         this.cancel = data.$value;
-        // console.log(data);
-      });
-
-    this.paymentService.update()
-      .subscribe(data => {
-        this.update = data.$value;
         // console.log(data);
       });
   }
