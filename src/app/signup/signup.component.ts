@@ -91,7 +91,7 @@ export class SignupComponent implements OnInit {
 
             // this.paymentService.trialUpdate(false);
           }
-          
+
           this.paymentService.trialUpdate(true);
           this.paymentService.saveEmail();
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);
