@@ -75,12 +75,24 @@ export class SignupComponent implements OnInit {
         () => {
           // console.log(environment.subscription, this.token, this.id);
 
-          if (environment.subscription && this.token && this.id) {
-            this.paymentService.processPayment(this.token, this.id);
+          if (environment.subscription && this.id) {
+            Paddle.Checkout.open({
+              product: this.id,
+              email: this.form.value.email,
+              passthrough: paddleConfig.passthrough,
+              locale: 'en',
+              title: 'Pillbox',
+              successCallback: data => {
+                // console.log(data);
+                this.token = data;
+                this.paymentService.processPayment(data, this.id);
+              }
+            });
+
             // this.paymentService.trialUpdate(false);
-          } else {
-            this.paymentService.trialUpdate(true);
           }
+          
+          this.paymentService.trialUpdate(true);
           this.paymentService.saveEmail();
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);
           alert('Account creates successfully');
@@ -99,25 +111,6 @@ export class SignupComponent implements OnInit {
   onId(id) {
     // console.log(id);
     this.id = id;
-  }
-
-  openHandler() {
-    if (this.id) {
-      Paddle.Checkout.open({
-        product: this.id,
-        email: this.form.value.email,
-        passthrough: paddleConfig.passthrough,
-        locale: 'en',
-        title: 'Pillbox',
-        successCallback: data => {
-          // console.log(data);
-          this.token = data;
-          this.signUp();
-        }
-      });
-    } else {
-      this.signUp();
-    }
   }
 
   getTimezoneOffset() {
