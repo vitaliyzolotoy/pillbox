@@ -25,7 +25,7 @@
     </div>
     <div class="fieldset__foot">
       <button class="button button--large"
-              (click)="signUp()"
+              (click)="openHandler()"
               [disabled]="!isPasswordMatch() || !form.valid"><i class="link__icon icon icon--lock"></i>Sign Up</button>
     </div>
   </form>

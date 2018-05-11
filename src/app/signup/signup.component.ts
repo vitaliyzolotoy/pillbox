@@ -99,18 +99,25 @@ export class SignupComponent implements OnInit {
   onId(id) {
     // console.log(id);
     this.id = id;
+  }
 
-    Paddle.Checkout.open({
-      product: id,
-      email: this.form.value.email,
-      passthrough: paddleConfig.passthrough,
-      locale: 'en',
-      title: 'Pillbox',
-      successCallback: data => {
-        // console.log(data);
-        this.token = data;
-      }
-    });
+  openHandler() {
+    if (this.id) {
+      Paddle.Checkout.open({
+        product: this.id,
+        email: this.form.value.email,
+        passthrough: paddleConfig.passthrough,
+        locale: 'en',
+        title: 'Pillbox',
+        successCallback: data => {
+          // console.log(data);
+          this.token = data;
+          this.signUp();
+        }
+      });
+    } else {
+      this.signUp();
+    }
   }
 
   getTimezoneOffset() {

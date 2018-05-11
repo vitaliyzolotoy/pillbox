@@ -18,7 +18,7 @@ export class PlanComponent implements OnInit {
       id: 525180
     },
     test: {
-      id: 525231
+      id: 530377
     }
   };
   free = environment.free;
