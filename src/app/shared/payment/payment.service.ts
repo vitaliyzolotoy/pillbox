@@ -62,6 +62,10 @@ export class PaymentService {
     return this.db.object(`/users/${this.authInfo.$uid}/subscription/notifications`);
   }
 
+  partialNotifications() {
+    return this.db.list(`/users/${this.authInfo.$uid}/notifications`);
+  }
+
   turnOffNotifications() {
     this.db.object(`/users/${this.authInfo.$uid}`)
       .update({ notifications: {
