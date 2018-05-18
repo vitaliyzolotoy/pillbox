@@ -26,7 +26,7 @@ export class ReceptumsService {
       .map(Receptum.fromJsonList);
   }
 
-  createNewReceptum(scheduleKey: string, receptum: any): Observable<any> {
+  createNewReceptum(scheduleKey: string, receptum: any, schedule: string): Observable<any> {
     const receptumToSave = Object.assign({}, receptum, {scheduleItemId: scheduleKey});
 
     const newReceptumKey = this.sdkDb.child('events').push().key;
@@ -36,6 +36,7 @@ export class ReceptumsService {
     dataToSave[`receptums/${this.authInfo.$uid}/${newReceptumKey}`] = receptumToSave;
     dataToSave[`receptumsPerSchedule/${this.authInfo.$uid}/${scheduleKey}/${newReceptumKey}`] = true;
     dataToSave[`users/${this.authInfo.$uid}/subscription/notifications`] = true;
+    dataToSave[`users/${this.authInfo.$uid}/notifications/${schedule}`] = true;
 
     // console.log(dataToSave);
 

@@ -31,7 +31,7 @@ export class PlanComponent implements OnInit {
 
   ngOnInit() {
     // console.log(this.free);
-    
+
     this.form.valueChanges
       .subscribe(form => {
         this.id.emit(this.price[form.plan].id);

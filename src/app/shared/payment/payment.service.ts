@@ -63,6 +63,14 @@ export class PaymentService {
   }
 
   turnOffNotifications() {
+    this.db.object(`/users/${this.authInfo.$uid}`)
+      .update({ notifications: {
+        'Morn': false,
+        'Noon': false,
+        'Eve': false,
+        'Bed': false
+      } });
+
     return this.db.object(`/users/${this.authInfo.$uid}/subscription`)
       .update({ notifications: false });
   }

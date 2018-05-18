@@ -9,20 +9,28 @@ import {ActivatedRoute} from '@angular/router';
   styleUrls: ['./portion-add.component.scss']
 })
 export class PortionAddComponent implements OnInit {
-  form: FormGroup;
   scheduleKey: string;
+  schedule: string;
 
-  constructor(private formBuilder: FormBuilder,
-              private route: ActivatedRoute,
-              private receptumsService: ReceptumsService) { }
+  constructor(private route: ActivatedRoute,
+              private receptumsService: ReceptumsService,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.scheduleKey = this.route.snapshot.params['key'];
+
+    this.activatedRoute.parent.queryParams.subscribe((params: any) => {
+      if (params) {
+        this.schedule = params.schedule;
+      }
+    });
   }
 
   save(form) {
+    // console.log(this.schedule);
+
     this.receptumsService
-      .createNewReceptum(this.scheduleKey, form.value)
+      .createNewReceptum(this.scheduleKey, form.value, this.schedule)
       .subscribe(
         () => {
           alert('Receptum created');
