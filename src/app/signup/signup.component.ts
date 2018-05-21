@@ -86,6 +86,8 @@ export class SignupComponent implements OnInit {
                 // console.log(data);
                 this.token = data;
                 this.paymentService.processPayment(data, this.id);
+
+                gtag_report_conversion();
               }
             });
 
