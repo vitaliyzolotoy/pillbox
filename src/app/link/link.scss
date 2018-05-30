@@ -1,19 +1,14 @@
-.link { $color: #007aff;
+.link {
+  text-decoration: none;
+  cursor: pointer;
+  color: var(--secondary);
+  border-bottom: 1px solid transparent;
 
-        display: inline;
-        margin: 0;
-        text-decoration: none;
-        cursor: pointer;
-        color: $color;
-        border-bottom: 1px solid transparent;
+  &:hover {
+    border-bottom: 1px solid;
+  }
 
-        &:hover { text-decoration: none;
-                  border-bottom: 1px solid; }
-
-        &__icon { padding-right: 3px; }
-
-        &--disabled { opacity: 0.5;
-                      cursor: default;
-                      color: #404040;
-
-                      &:hover { border-bottom: transparent; } } }
+  &__icon {
+    padding-right: 4px;
+  }
+}

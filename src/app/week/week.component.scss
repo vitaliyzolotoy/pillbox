@@ -11,8 +11,8 @@
     height: 130px;
     overflow: hidden;
     box-sizing: border-box;
-    border: 1px solid #404040;
-    box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.75);
+    color: var(--primary);
+    border: 1px solid var(--primary);
   }
 
   &__item:hover {
@@ -20,45 +20,51 @@
   }
 
   &__item--mon {
-    color: #f5873a;
-    border-color: #f5873a;
-    box-shadow: inset 2px 2px 2px 0 #f5873a;
+    color: var(--mon);
+    border-color: var(--mon);
+    box-shadow: inset 2px 2px 2px 0 var(--mon);
   }
 
   &__item--tue {
-    color: #ffb622;
-    border-color: #ffb622;
-    box-shadow: inset 2px 2px 2px 0 #ffb622;
+    color: var(--tue);
+    border-color: var(--tue);
+    box-shadow: inset 2px 2px 2px 0 var(--tue);
   }
 
   &__item--wed {
-    color: #90a757;
-    border-color: #90a757;
-    box-shadow: inset 2px 2px 2px 0 #90a757;
+    color: var(--wed);
+    border-color: var(--wed);
+    box-shadow: inset 2px 2px 2px 0 var(--wed);
   }
 
   &__item--thu {
-    color: #345274;
-    border-color: #345274;
-    box-shadow: inset 2px 2px 2px 0 #345274;
+    color: var(--thu);
+    border-color: var(--thu);
+    box-shadow: inset 2px 2px 2px 0 var(--thu);
   }
 
   &__item--fri {
-    color: #714266;
-    border-color: #714266;
-    box-shadow: inset 2px 2px 2px 0 #714266;
+    color: var(--fri);
+    border-color: var(--fri);
+    box-shadow: inset 2px 2px 2px 0 var(--fri);
   }
 
   &__item--sat {
-    color: #e25d72;
-    border-color: #e25d72;
-    box-shadow: inset 2px 2px 2px 0 #e25d72;
+    color: var(--sat);
+    border-color: var(--sat);
+    box-shadow: inset 2px 2px 2px 0 var(--sat);
   }
 
   &__item--sun {
-    color: #a22d19;
-    border-color: #a22d19;
-    box-shadow: inset 2px 2px 2px 0 #a22d19;
+    color: var(--sun);
+    border-color: var(--sun);
+    box-shadow: inset 2px 2px 2px 0 var(--sun);
+  }
+
+  &__item--current {
+    color: var(--primary);
+    border-color: var(--primary);
+    box-shadow: inset 2px 2px 2px 0 var(--primary);
   }
 }
 
