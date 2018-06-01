@@ -13,10 +13,6 @@ export class WeekComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.current = this.week[new Date().getDay()];
-  }
-
-  setCurrent(current) {
-    this.current = current;
+    this.current = this.week[new Date().getDay() - 1];
   }
 }

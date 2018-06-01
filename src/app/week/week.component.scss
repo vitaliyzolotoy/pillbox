@@ -7,7 +7,8 @@
 
   &__item {
     position: relative;
-    width: 140px;
+    width: calc(100vw / 7);
+    max-width: 140px;
     height: 130px;
     overflow: hidden;
     box-sizing: border-box;
@@ -71,7 +72,6 @@
 @include breakpoint('m'){
   .week {
     &__item {
-      width: 100px;
       height: 100px;
     }
   }

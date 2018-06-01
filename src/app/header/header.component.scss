@@ -1,3 +1,4 @@
+@import "../../utils.scss";
 @import '../link/link.scss';
 @import '../icon/icon.scss';
 
@@ -5,6 +6,7 @@
   display: flex;
   justify-content: space-between;
   align-items: baseline;
+  margin: 0 auto;
 
   &--visibility {
     filter: blur(10px);
@@ -25,5 +27,17 @@
     height: 9px;
     background: url('../../assets/logo/logo.png') 0 0 no-repeat;
     background-size: contain;
+  }
+}
+
+@include breakpoint('l') {
+  .header {
+    width: calc(100% - 80px);
+  }
+}
+
+@include breakpoint('s') {
+  .header {
+    width: 100%;
   }
 }
