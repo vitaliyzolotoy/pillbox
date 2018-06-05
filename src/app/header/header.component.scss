@@ -30,6 +30,12 @@
   }
 }
 
+.menu {
+  &__link {
+    margin-left: 4px;
+  }
+}
+
 @include breakpoint('l') {
   .header {
     width: calc(100% - 80px);

@@ -17,27 +17,27 @@ export class SettingsComponent implements OnInit {
   ngOnInit() {
     this.paymentService.status()
       .subscribe(status => {
-        this.status = status.$value;
+        this.status = status;
       });
 
     this.paymentService.notifications()
       .subscribe(notifications => {
-        this.notifications = notifications.$value;
+        this.notifications = notifications;
       });
 
     this.paymentService.partialNotifications()
       .subscribe(notifications => {
         this.partialNotifications = notifications.some(item => {
-          return item.$value === true;
+          return item === true;
         });
 
-        console.log(this.partialNotifications);
+        // console.log(this.partialNotifications);
       });
 
     this.paymentService.unsubscribe()
-      .subscribe(data => {
-        this.cancel = data.$value;
-        // console.log(data);
+      .subscribe(cancel => {
+        this.cancel = cancel;
+        // console.log(cancel);
       });
   }
 

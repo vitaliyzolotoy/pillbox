@@ -35,14 +35,15 @@ export class HomeComponent implements OnInit {
     });
 
     this.paymentService.trial()
-      .subscribe(data => {
-        this.trial = data.$value;
+      .subscribe(trial => {
+        // console.log(trial)
+        this.trial = trial;
 
         // console.log(!this.trial)
 
         this.paymentService.status()
           .subscribe(status => {
-            this.status = status.$value;
+            this.status = status;
 
             if (!this.trial && this.status !== 'active') {
               this.router.navigate(['/home/upgrade'], { queryParams: { modal: true } });

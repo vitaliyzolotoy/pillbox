@@ -59,12 +59,16 @@ export class OrganizerComponent implements OnInit {
 
           this.isLoaded = true;
 
+          // console.log(item);
+
           this.scheduleService.findAllReceptumsForSchedule(item.$key, this.uid)
             .subscribe(receptums => {
               item.week.map(day => {
                 day.receptums = [];
                 return day;
               });
+
+              // console.log(receptums);
 
               receptums.map(receptum => {
                 if (receptum.repeat) {
@@ -86,12 +90,12 @@ export class OrganizerComponent implements OnInit {
 
     this.paymentService.status()
       .subscribe(status => {
-        this.status = status.$value;
+        this.status = status;
       });
 
     this.paymentService.trial()
       .subscribe(trial => {
-        this.trial = trial.$value;
+        this.trial = trial;
       });
   }
 }

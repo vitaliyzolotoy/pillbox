@@ -30,7 +30,7 @@ export class PaymentService {
     // this.db.object(`/users/${this.authInfo.$uid}/subscription`)
     //   .update({ status: 'canceled', canceled: true });
 
-    return this.db.object(`/users/${this.authInfo.$uid}/subscription/cancel_url`);
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/cancel_url`).valueChanges();
       //
       // .subscribe(url => {
       //   console.log(url.$value);
@@ -45,7 +45,7 @@ export class PaymentService {
   }
 
   status() {
-    return this.db.object(`/users/${this.authInfo.$uid}/subscription/status`);
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/status`).valueChanges();
   }
 
   saveEmail() {
@@ -59,11 +59,11 @@ export class PaymentService {
   }
 
   notifications() {
-    return this.db.object(`/users/${this.authInfo.$uid}/subscription/notifications`);
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/notifications`).valueChanges();
   }
 
   partialNotifications() {
-    return this.db.list(`/users/${this.authInfo.$uid}/notifications`);
+    return this.db.list(`/users/${this.authInfo.$uid}/notifications`).valueChanges();
   }
 
   turnOffNotifications() {
@@ -80,7 +80,7 @@ export class PaymentService {
   }
 
   trial() {
-    return this.db.object(`/users/${this.authInfo.$uid}/subscription/trial`);
+    return this.db.object(`/users/${this.authInfo.$uid}/subscription/trial`).valueChanges();
   }
 
   trialUpdate(status) {

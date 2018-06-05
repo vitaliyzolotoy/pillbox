@@ -20,6 +20,7 @@
       </div>
     </div>
     <div class="fieldset__pane" *ngIf="subscription">
+      <span>Choose your subscription plan</span>
       <app-plan (id)="onId($event)"></app-plan>
       <span>or try it free for 30 days</span>
     </div>

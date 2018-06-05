@@ -31,4 +31,4 @@ const routes: Route[] = [
   }
 ];
 
-export const routing = RouterModule.forRoot(routes);
+export const routing = RouterModule.forRoot(routes, { useHash: true });

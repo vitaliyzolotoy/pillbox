@@ -9,6 +9,6 @@
     <span title="{{ portion.unit }}">
       {{ portion.dose }}{{ portion.unit.toLowerCase().substring(0, 2) }}.
     </span>
-    <i class="portions__icon icon icon--cancel" (click)="removeReceptum(portion.$key, portion.scheduleItemId)"></i>
+    <i class="portions__icon icon icon--cancel" (click)="removeReceptum(portion.key, portion.scheduleItemId)"></i>
   </li>
 </ul>
