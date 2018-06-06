@@ -46,7 +46,6 @@ export class ScheduleService {
         })
       )))
       .flatMap(fboj => Observable.combineLatest(fboj));
-    // .do(console.log);
 
     // scheduleReceptums.subscribe();
 
