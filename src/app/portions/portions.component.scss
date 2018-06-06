@@ -6,7 +6,7 @@
   position: absolute;
   z-index: 2;
   top: 3.4rem;
-  width: calc(100% - 8px);
+  //width: calc(100% - 8px);
   margin: 0 4px 0 4px;
   padding: 0;
   list-style: none;
@@ -31,13 +31,14 @@
   }
 
   &__icon {
-    position: absolute;
+    //position: absolute;
     display: none;
     cursor: pointer;
   }
 
   &__item:hover &__icon {
     display: inline-block;
+    line-height: 15px;
   }
 }
 
