@@ -8,11 +8,18 @@ import {Component, Input, OnInit} from '@angular/core';
 export class WeekComponent implements OnInit {
   @Input() week;
   @Input() schedule;
+  dayOfWeek;
   current;
 
   constructor() { }
 
   ngOnInit() {
-    this.current = this.week[new Date().getDay() - 1];
+    this.dayOfWeek = new Date().getDay() || 7;
+
+    // console.log(this.dayOfWeek - 1)
+
+    this.current = this.week[this.dayOfWeek - 1];
+
+    // console.log(this.current);
   }
 }
