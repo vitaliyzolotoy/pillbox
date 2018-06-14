@@ -1,3 +1,13 @@
+<a name="0.0.5"></a>
+## [0.0.5](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.4...v0.0.5) (2018-06-14)
+
+
+### Features
+
+* Add analytics service ([538ab19](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/538ab19))
+
+
+
 <a name="0.0.4"></a>
 ## [0.0.4](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.3...v0.0.4) (2018-06-14)
 
