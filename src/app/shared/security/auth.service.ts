@@ -29,6 +29,10 @@ export class AuthService {
     return this.fromFirebaseAuthPromise(this.auth.auth.createUserWithEmailAndPassword(email, password));
   }
 
+  requestPass(email) {
+    return this.auth.auth.sendPasswordResetEmail(email);
+  }
+
   fromFirebaseAuthPromise(promise): Observable<any> {
     const subject = new Subject<any>();
 
@@ -45,7 +49,7 @@ export class AuthService {
       this.authInfo$.error(err);
       subject.error(err);
       subject.complete();
-    })
+    });
 
     return subject.asObservable();
   }

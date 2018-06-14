@@ -14,6 +14,7 @@ import { SignupComponent } from '../signup/signup.component';
 import {PaymentService} from '../shared/payment/payment.service';
 import {HttpClientModule} from '@angular/common/http';
 import {SubscriptionModule} from '../subscription/subscription.module';
+import { ResetComponent } from '../reset/reset.component';
 
 @NgModule({
   imports: [
@@ -35,7 +36,8 @@ import {SubscriptionModule} from '../subscription/subscription.module';
   declarations: [
     RootComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    ResetComponent
   ],
   bootstrap: [
     RootComponent
