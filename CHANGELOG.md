@@ -1,10 +1,10 @@
-<a name="0.0.0"></a>
-# [0.0.0](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.2...v0.0.0) (2018-06-14)
+<a name="0.0.3"></a>
+## [0.0.3](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.2...v0.0.3) (2018-06-14)
 
 
+### Features
 
-<a name="0.0.0"></a>
-# [0.0.0](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.2...v0.0.0) (2018-06-14)
+* add changlog ([c5a0f30](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/c5a0f30))
 
 
 
