@@ -1,10 +1,11 @@
-<a name="0.0.5"></a>
-## [0.0.5](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.4...v0.0.5) (2018-06-14)
+<a name="0.0.6"></a>
+## [0.0.6](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.4...v0.0.6) (2018-06-14)
 
 
 ### Features
 
 * Add analytics service ([538ab19](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/538ab19))
+* Reset password page ([29fe37c](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/29fe37c))
 
 
 
