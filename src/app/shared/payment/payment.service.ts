@@ -4,6 +4,7 @@ import {AuthService} from '../security/auth.service';
 import {AuthInfo} from '../security/auth-info';
 import {HttpClient} from '@angular/common/http';
 import {paddleConfig} from '../../../environments/paddle.config';
+import {AnalyticsService} from '../analytics/analytics.service';
 
 @Injectable()
 export class PaymentService {
@@ -11,11 +12,14 @@ export class PaymentService {
 
   constructor(private db: AngularFireDatabase,
               private authService: AuthService,
-              private http: HttpClient) {
+              private http: HttpClient,
+              private analyticsService: AnalyticsService) {
     this.authService.authInfo$.subscribe(authInfo => this.authInfo = authInfo);
   }
 
   processPayment(data: any, plan: any) {
+    this.analyticsService.trackEvent('subscription');
+
     const id = data.checkout.id;
 
     this.db.object(`/checkouts/${id}`)
