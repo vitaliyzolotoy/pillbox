@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import { AuthService } from '../shared/security/auth.service';
 import {AuthInfo} from '../shared/security/auth-info';
-import {ActivatedRoute, Router} from '@angular/router';
+import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PaymentService} from '../shared/payment/payment.service';
 
 @Component({
@@ -19,7 +19,14 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
               public paymentService: PaymentService,
-              private router: Router) { }
+              private router: Router) {
+    this.router.events.subscribe(event => {
+      if (event instanceof NavigationEnd) {
+        (<any>window).ga('set', 'page', event.urlAfterRedirects);
+        (<any>window).ga('send', 'pageview');
+      }
+    });
+  }
 
   ngOnInit() {
     this.authService.authInfo$.subscribe(authInfo => {
