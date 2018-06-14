@@ -5,6 +5,7 @@
 ### Bug Fixes
 
 * **release:** touch ([4402149](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/4402149))
+* another test commit ([bf25135](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/bf25135))
 * test commit ([72b6acb](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/72b6acb))
 
 
