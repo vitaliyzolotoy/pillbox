@@ -1,5 +1,9 @@
 .button {
-  $background: #fd8a10;
+  --white: #fff;
+
+  --hue: 25;
+  --saturation: 90%;
+  --lightness: 59%;
 
   font-size: 11px;
   font-weight: 400;
@@ -12,26 +16,21 @@
   vertical-align: middle;
   text-transform: uppercase;
   text-decoration: none;
-  cursor: pointer;
-  color: #fff;
+  color: var(--white);
   border: none;
   border-radius: 2px;
-  box-shadow: 0 2px darken($background, 8%);
-  background: $background;
+  box-shadow: 0 2px hsl(var(--hue), var(--saturation), calc(var(--lightness) - 5%));
+  background: hsl(var(--hue), var(--saturation), var(--lightness));
   transition: all 0.2s cubic-bezier(0, 0, 0.58, 1);
-
-  &__icon {
-    padding-right: 3px;
-  }
 
   &:hover {
     text-decoration: none;
     color: #fff;
-    background: lighten($background, 8%);
+    background: hsl(var(--hue), var(--saturation), calc(var(--lightness) + 5%));
   }
 
   &:active {
-    background: $background;
+    background: hsl(var(--hue), var(--saturation), var(--lightness));
   }
 
   &:focus,
@@ -44,15 +43,6 @@
     line-height: 16px;
     height: 18px;
     padding: 1px 9px 0 9px;
-    box-shadow: 0 2px darken($background, 8%);
-
-    &:hover {
-      background: lighten($background, 8%);
-    }
-
-    &:active {
-      background: $background;
-    }
   }
 
   &--large {
@@ -61,15 +51,6 @@
     height: 40px;
     padding: 1px 20px 0 20px;
     border-radius: 3px;
-    box-shadow: 0 2px darken($background, 8%);
-
-    &:hover {
-      background: lighten($background, 8%);
-    }
-
-    &:active {
-      background: $background;
-    }
   }
 
   &--extra {
@@ -78,59 +59,53 @@
     height: 50px;
     padding: 1px 25px 0 25px;
     border-radius: 3px;
-    box-shadow: 0 2px darken($background, 8%);
+  }
+
+  &--pseudo {
+    --hue: 0;
+    --saturation: 0%;
+    --lightness: 80%;
+
+    color: hsl(var(--hue), var(--saturation), calc(var(--lightness) - 5%));
+    box-shadow: inset 1px 0 0 0 hsl(var(--hue), var(--saturation), var(--lightness)),
+    inset 0 1px 0 0 hsl(var(--hue), var(--saturation), var(--lightness)),
+    inset -1px 0 0 0 hsl(var(--hue), var(--saturation), var(--lightness)),
+    0 2px hsl(var(--hue), var(--saturation), var(--lightness));
+    background: var(--white);
 
     &:hover {
-      background: lighten($background, 8%);
+      color: hsl(var(--hue), var(--saturation), calc(var(--lightness) + 5%));
+      box-shadow: inset 1px 0 0 0 hsl(var(--hue), var(--saturation), var(--lightness)),
+      inset 0 1px 0 0 hsl(var(--hue), var(--saturation), var(--lightness)),
+      inset -1px 0 0 0 hsl(var(--hue), var(--saturation), var(--lightness)),
+      0 2px hsl(var(--hue), var(--saturation), calc(var(--lightness) + 5%));
+      background: var(--white);
     }
 
     &:active {
-      background: $background;
+      background: var(--white);
     }
   }
 
   &--action {
-    $background: #4cd964;
+    --hue: 130;
+    --saturation: 65%;
+    --lightness: 57%;
 
-    box-shadow: 0 2px darken($background, 8%);
-    background: $background;
+    box-shadow: 0 2px hsl(var(--hue), var(--saturation), calc(var(--lightness) - 5%));
+    background: hsl(var(--hue), var(--saturation), var(--lightness));
 
     &:hover {
-      background: lighten($background, 8%);
+      background: hsl(var(--hue), var(--saturation), calc(var(--lightness) + 5%));
     }
 
     &:active {
-      background: $background;
-    }
-  }
-
-  &--pseudo {
-    $background: #fff;
-    $border: #ccc;
-
-    color: darken($border, 8%);
-    box-shadow: inset 1px 0 0 0 $border,
-    inset 0 1px 0 0 $border,
-    inset -1px 0 0 0 $border,
-    0 2px $border;
-    background: $background;
-
-    &:hover {
-      color: darken($border, 14%);
-      box-shadow: inset 1px 0 0 0 $border, inset 0 1px 0 0 $border, inset -1px 0 0 0 $border, 0 2px darken($border, 14%);
-      background: $background;
-    }
-
-    &:active {
-      background: $background;
+      background: hsl(var(--hue), var(--saturation), var(--lightness));
     }
   }
 
   &:disabled {
-    $background: #fff;
-    $border: #ccc;
-
     opacity: 0.35;
-    cursor: default;
+    cursor: not-allowed;;
   }
 }
