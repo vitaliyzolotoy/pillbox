@@ -6,3 +6,5 @@ interface NodeModule {
   id: string;
 }
 declare let gtag_report_conversion: Function;
+
+declare var require: any;

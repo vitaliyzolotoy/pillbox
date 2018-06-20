@@ -1,6 +1,5 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-require('moment-recur');
 
 @Component({
   selector: 'app-receptum-form',

@@ -3,6 +3,7 @@ import {ScheduleItem} from '../shared/model/scheduleItem';
 import {ScheduleService} from '../shared/model/schedule.service';
 import {Receptum} from '../shared/model/receptum';
 import {PaymentService} from '../shared/payment/payment.service';
+require('moment-recur');
 
 @Component({
   selector: 'app-organizer',
