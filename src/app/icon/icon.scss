@@ -45,4 +45,16 @@
   &--cancel::before {
     content: '\e814';
   }
+
+  &--right:before {
+    content: '\e80a';
+  }
+
+  &--up:before {
+    content: '\e80b';
+  }
+
+  &--left:before {
+    content: '\e80c';
+  }
 }

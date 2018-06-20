@@ -8,7 +8,9 @@ export class Receptum {
     public repeat: boolean,
     public day: string,
     public type: string,
-    public unit: string) { }
+    public unit: string,
+    public recurrence: number,
+    public timestamp: number) { }
 
     // get isRed () {
     //   return this.color && this.color.includes('red');
@@ -27,7 +29,9 @@ export class Receptum {
       repeat,
       day,
       type,
-      unit
+      unit,
+      recurrence,
+      timestamp
     }): Receptum {
       return new Receptum(
         $key,
@@ -38,7 +42,9 @@ export class Receptum {
         repeat,
         day,
         type,
-        unit
+        unit,
+        recurrence,
+        timestamp
       );
     }
 }

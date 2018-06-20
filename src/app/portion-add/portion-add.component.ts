@@ -33,7 +33,7 @@ export class PortionAddComponent implements OnInit {
       .createNewReceptum(this.scheduleKey, form.value, this.schedule)
       .subscribe(
         () => {
-          alert('Receptum created');
+          alert('Medicine added');
           form.reset();
         },
         err => alert(`${err}`)

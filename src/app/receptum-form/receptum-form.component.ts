@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
-import {isNumber} from 'util';
+require('moment-recur');
 
 @Component({
   selector: 'app-receptum-form',
@@ -9,7 +9,7 @@ import {isNumber} from 'util';
 })
 export class ReceptumFormComponent implements OnInit {
   form: FormGroup;
-  showSelect = true;
+  showOptions = false;
 
   constructor(private formBuilder: FormBuilder) { }
 
@@ -20,8 +20,10 @@ export class ReceptumFormComponent implements OnInit {
       name: ['', Validators.required],
       dose: [null, Validators.required],
       unit: ['Milligram', Validators.required],
-      repeat: [false],
-      day: ['Mon']
+      repeat: [true],
+      day: ['Mon'],
+      recurrence: [null],
+      timestamp: [Date.now()]
     });
   }
 
@@ -44,7 +46,7 @@ export class ReceptumFormComponent implements OnInit {
     return this.form.value;
   }
 
-  showSelectHandle() {
-    this.showSelect = !this.showSelect;
+  showOptionsHandle() {
+    this.showOptions = !this.showOptions;
   }
 }

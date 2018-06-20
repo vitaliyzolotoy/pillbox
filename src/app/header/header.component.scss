@@ -1,6 +1,7 @@
 @import "../../utils.scss";
 @import '../link/link.scss';
 @import '../icon/icon.scss';
+@import "../button/button.scss";
 
 .header {
   display: flex;
@@ -29,6 +30,16 @@
     background-size: contain;
   }
 }
+
+//.selector {
+//  display: flex;
+//  margin: 0;
+//  list-style: none;
+//
+//  &__item {
+//    margin-left: 4px;
+//  }
+//}
 
 .menu {
   &__link {

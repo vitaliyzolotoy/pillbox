@@ -3,6 +3,10 @@
     <h1 class="logo__name">Pillbox</h1>
     <span class="logo__line"></span>
   </div>
+  <!--<ul class="selector">-->
+    <!--<li class="selector__item"><button class="button">Today</button></li>-->
+    <!--<li class="selector__item"><button class="button"><i class="icon icon&#45;&#45;right"></i></button></li>-->
+  <!--</ul>-->
   <menu class="menu" *ngIf="authInfo?.isLoggenIn()">
     <a href="#" class="menu__link link" [routerLink]="['/home/settings']" [queryParams]="{ modal: true }">
       <i class="link__icon icon icon--setting"></i>Settings</a>

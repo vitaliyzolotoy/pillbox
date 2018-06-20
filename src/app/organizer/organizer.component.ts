@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Inject, Input, OnInit} from '@angular/core';
 import {ScheduleItem} from '../shared/model/scheduleItem';
 import {ScheduleService} from '../shared/model/schedule.service';
 import {Receptum} from '../shared/model/receptum';
@@ -17,11 +17,15 @@ export class OrganizerComponent implements OnInit {
   isLoaded = false;
   status;
   trial;
+  days;
 
   constructor(private scheduleService: ScheduleService,
-              public paymentService: PaymentService) { }
+              public paymentService: PaymentService,
+              @Inject('moment') private moment) { }
 
   ngOnInit() {
+    this.getCurrentWeek();
+
     this.scheduleService.findAllScheduleItems()
     // .do(console.log)
       .subscribe(schedule => {
@@ -29,33 +33,48 @@ export class OrganizerComponent implements OnInit {
           item.week = [
             {
               name: 'Mon',
-              receptums: []
+              receptums: [],
+              // date: new Date('06/18/2018')
             },
             {
               name: 'Tue',
-              receptums: []
+              receptums: [],
+              // date: new Date('06/19/2018')
             },
             {
               name: 'Wed',
-              receptums: []
+              receptums: [],
+              // date: new Date('06/20/2018')
             },
             {
               name: 'Thu',
-              receptums: []
+              receptums: [],
+              // date: new Date('06/21/2018')
             },
             {
               name: 'Fri',
-              receptums: []
+              receptums: [],
+              // date: new Date('06/22/2018')
             },
             {
               name: 'Sat',
-              receptums: []
+              receptums: [],
+              // date: new Date('06/23/2018')
             },
             {
               name: 'Sun',
-              receptums: []
+              receptums: [],
+              // date: new Date('06/24/2018')
             }
           ];
+
+          item.week.map((day, index) => {
+            day.date = this.days[index];
+
+            // console.log(day, index);
+
+            return day;
+          });
 
           this.isLoaded = true;
 
@@ -76,11 +95,21 @@ export class OrganizerComponent implements OnInit {
                     return day.receptums.push(receptum);
                   });
                 } else {
-                  item.week.map(day => {
-                    if (day.name === receptum.day) {
-                      return day.receptums.push(receptum);
-                    }
-                  });
+                  if (receptum.recurrence && receptum.timestamp) {
+                    const rInterval = this.moment(new Date(receptum.timestamp)).recur().every(receptum.recurrence).days();
+
+                    item.week.map(day => {
+                      if (rInterval.matches(day.date)) {
+                        return day.receptums.push(receptum);
+                      }
+                    });
+                  } else {
+                    item.week.map(day => {
+                      if (day.name === receptum.day) {
+                        return day.receptums.push(receptum);
+                      }
+                    });
+                  }
                 }
               });
             });
@@ -97,5 +126,22 @@ export class OrganizerComponent implements OnInit {
       .subscribe(trial => {
         this.trial = trial;
       });
+  }
+
+  getCurrentWeek() {
+    const currentDate = this.moment();
+
+    const weekStart = currentDate.clone().startOf('isoWeek');
+    // const weekEnd = currentDate.clone().endOf('isoWeek');
+
+    const days = [];
+
+    for (let i = 0; i <= 6; i++) {
+      days.push(this.moment(weekStart).add(i, 'days').format('MM/DD/YYYY'));
+    }
+
+    // console.log(days);
+
+    this.days = days;
   }
 }

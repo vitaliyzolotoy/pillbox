@@ -17,6 +17,7 @@ import { SpinnerComponent } from '../spinner/spinner.component';
 import { HeaderComponent } from '../header/header.component';
 import { UpgradeComponent } from '../upgrade/upgrade.component';
 import {SubscriptionModule} from '../subscription/subscription.module';
+import * as moment from 'moment';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import {SubscriptionModule} from '../subscription/subscription.module';
   providers: [
     AuthGuard,
     ScheduleService,
-    ReceptumsService
+    ReceptumsService,
+    { provide: 'moment', useFactory: (): any => moment }
   ],
   bootstrap: [HomeComponent]
 })

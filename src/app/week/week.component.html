@@ -1,6 +1,7 @@
 <ul class="week">
   <li class="week__item week__item--{{ item.name.toLowerCase() }} " *ngFor="let item of week; index as i"
-      [ngClass]="{ 'week__item--current': current.name.toLowerCase() === item.name.toLowerCase() }">
+      [ngClass]="{ 'week__item--current': current.name.toLowerCase() === item.name.toLowerCase() }"
+      title="{{ item.date }}">
     <app-caption [period]="schedule" [day]="item.name"></app-caption>
     <app-portions [portions]="item.receptums" [current]="current"></app-portions>
   </li>

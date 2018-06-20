@@ -97,6 +97,48 @@
       ]
     },
     {
+      "uid": "bcbd05a553271901bb1dd688d0684527",
+      "css": "left-dir",
+      "code": 59404,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M357 250V750Q357 764 347 775T321 786 296 775L46 525Q36 514 36 500T46 475L296 225Q307 214 321 214T347 225 357 250Z",
+        "width": 357.1
+      },
+      "search": [
+        "left-dir"
+      ]
+    },
+    {
+      "uid": "0d0616a0aa1ef46565f364d5e357ddc6",
+      "css": "right-dir",
+      "code": 59402,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M321 500Q321 514 311 525L61 775Q50 786 36 786T11 775 0 750V250Q0 235 11 225T36 214 61 225L311 475Q321 485 321 500Z",
+        "width": 357.1
+      },
+      "search": [
+        "right-dir"
+      ]
+    },
+    {
+      "uid": "f8b290a94857d950b3489b03a7512301",
+      "css": "up-dir",
+      "code": 59403,
+      "src": "custom_icons",
+      "selected": true,
+      "svg": {
+        "path": "M571 679Q571 693 561 704T536 714H36Q21 714 11 704T0 679 11 653L261 403Q271 393 286 393T311 403L561 653Q571 664 571 679Z",
+        "width": 571.4
+      },
+      "search": [
+        "up-dir"
+      ]
+    },
+    {
       "uid": "5355357c178617544ea8a8dfead848f4",
       "css": "play",
       "code": 9654,
@@ -1466,48 +1508,6 @@
       },
       "search": [
         "user-add"
-      ]
-    },
-    {
-      "uid": "0d0616a0aa1ef46565f364d5e357ddc6",
-      "css": "right-dir",
-      "code": 59402,
-      "src": "custom_icons",
-      "selected": false,
-      "svg": {
-        "path": "M321 500Q321 514 311 525L61 775Q50 786 36 786T11 775 0 750V250Q0 235 11 225T36 214 61 225L311 475Q321 485 321 500Z",
-        "width": 357.1
-      },
-      "search": [
-        "right-dir"
-      ]
-    },
-    {
-      "uid": "f8b290a94857d950b3489b03a7512301",
-      "css": "up-dir",
-      "code": 59403,
-      "src": "custom_icons",
-      "selected": false,
-      "svg": {
-        "path": "M571 679Q571 693 561 704T536 714H36Q21 714 11 704T0 679 11 653L261 403Q271 393 286 393T311 403L561 653Q571 664 571 679Z",
-        "width": 571.4
-      },
-      "search": [
-        "up-dir"
-      ]
-    },
-    {
-      "uid": "bcbd05a553271901bb1dd688d0684527",
-      "css": "left-dir",
-      "code": 59404,
-      "src": "custom_icons",
-      "selected": false,
-      "svg": {
-        "path": "M357 250V750Q357 764 347 775T321 786 296 775L46 525Q36 514 36 500T46 475L296 225Q307 214 321 214T347 225 357 250Z",
-        "width": 357.1
-      },
-      "search": [
-        "left-dir"
       ]
     },
     {

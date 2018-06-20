@@ -36,17 +36,19 @@
     <label class="receptum-form__label">
       <span class="checkbox">
         <input class="checkbox__input" type="checkbox" name="repeat" value="true" formControlName="repeat"
-           (click)="showSelectHandle()">
+           (click)="showOptionsHandle()">
         <span class="checkbox__tail"></span>
       </span>
-      Repeat every day
+      Repeat daily
     </label>
-    <span *ngIf="showSelect" class="receptum-form__select">
-      or
+    <span *ngIf="showOptions" class="receptum-form__select">
+      Repeat every
+      <input class="receptum-form__input receptum-form__input--number input" type="number" placeholder="day(s)" formControlName="recurrence">
+      or on
       <span class="select">
         <select class="select__input" name="day" formControlName="day">
           <option [selected]="'selected'">chose day</option>
-          <option value="Tue">Monday</option>
+          <option value="Mon">Monday</option>
           <option value="Tue">Tuesday</option>
           <option value="Wed">Wednesday</option>
           <option value="Thu">Thursday</option>

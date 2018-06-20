@@ -29,4 +29,13 @@
   &__hint {
     display: block;
   }
+
+  &__select {
+    margin-left: 4px;
+  }
+
+  &__input--number {
+    width: 70px;
+    margin-top: 0;
+  }
 }
