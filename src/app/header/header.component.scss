@@ -6,7 +6,7 @@
 .header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
   margin: 0 auto;
 
   &--visibility {
@@ -31,15 +31,16 @@
   }
 }
 
-//.selector {
-//  display: flex;
-//  margin: 0;
-//  list-style: none;
-//
-//  &__item {
-//    margin-left: 4px;
-//  }
-//}
+.selector {
+  display: flex;
+  margin: 0;
+  padding: 0 30px;
+  list-style: none;
+
+  &__item {
+    margin-left: 4px;
+  }
+}
 
 .menu {
   &__link {
@@ -56,5 +57,12 @@
 @include breakpoint('s') {
   .header {
     width: 100%;
+    padding: 0 10px;
+  }
+
+  .selector {
+    flex-direction: column;
+    margin-left: 10px;
+    padding: 0;
   }
 }

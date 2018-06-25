@@ -1,4 +1,7 @@
 <ul class="organizer" [ngClass]="{ 'organizer--visibility': visibility }">
+  <li class="organizer__head" *ngIf="isLoaded">
+    <span class="organizer__date" *ngFor="let day of days">{{ day }}</span>
+  </li>
   <li class="organizer__item" *ngFor="let item of schedule">
       <a class="organizer__link"
          [routerLink]="['/home/' + item.$key]"

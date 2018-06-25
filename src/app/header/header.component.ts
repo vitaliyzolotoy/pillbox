@@ -10,6 +10,7 @@ import {AuthInfo} from '../shared/security/auth-info';
 export class HeaderComponent implements OnInit {
   @Input() visibility;
   authInfo: AuthInfo;
+  week = 0;
 
   constructor(private authService: AuthService) { }
 
@@ -17,6 +18,14 @@ export class HeaderComponent implements OnInit {
     this.authService.authInfo$.subscribe(authInfo => {
       this.authInfo = authInfo;
     });
+  }
+
+  onToday() {
+    this.week = 0;
+  }
+
+  onNextWeek() {
+    this.week = this.week + 1;
   }
 
   logout() {

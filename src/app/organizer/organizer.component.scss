@@ -14,6 +14,12 @@
     filter: blur(10px);
   }
 
+  &__head {
+    font-size: 0.75rem;
+    display: flex;
+    justify-content: space-around;
+  }
+
   &__item {
     position: relative;
   }
@@ -56,6 +62,10 @@
     min-height: 0;
     margin-top: 30px;
 
+    &__head {
+      display: none;
+    }
+
     &__item {
       position: static;
     }
@@ -64,7 +74,7 @@
       display: none;
     }
 
-    &__item:first-child /deep/ .caption__day {
+    &__item:nth-child(2) /deep/ .caption__day {
       display: block;
     }
 
