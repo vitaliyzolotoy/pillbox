@@ -1,3 +1,19 @@
+<a name="0.0.7"></a>
+## [0.0.7](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.6...v0.0.7) (2018-06-25)
+
+
+### Bug Fixes
+
+* moment recurr module ([e54fd9b](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/e54fd9b))
+
+
+### Features
+
+* date slider ([1772bad](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/1772bad))
+* recurring receptums ([c2fe3fe](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/c2fe3fe))
+
+
+
 <a name="0.0.6"></a>
 ## [0.0.6](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.4...v0.0.6) (2018-06-14)
 
