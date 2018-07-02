@@ -7,13 +7,13 @@
   --primary: #343a40;
   --secondary: #007bff;
 
-  --mon: #f5873a !important;
-  --tue: #ffb622;
-  --wed: #90a757;
-  --thu: #345274;
-  --fri: #714266;
-  --sat: #e25d72;
-  --sun: #a22d19;
+  --mon: rgb(255, 149, 0);
+  --tue: rgb(255, 204, 0);
+  --wed: rgb(99, 218, 56);
+  --thu: rgb(27, 173, 248);
+  --fri: rgb(204, 115, 225);
+  --sat: rgb(255, 41, 104);
+  --sun: rgb(255, 59, 48);
 }
 
 body {
@@ -38,4 +38,3 @@ body {
     min-height: 0;
   }
 }
-
