@@ -47,6 +47,22 @@
     pointer-events: none;
     cursor: not-allowed;
   }
+
+  &__item:nth-child(2) /deep/ .week__item:first-child {
+    border-radius: 3px 0 0 0;
+  }
+
+  &__item:nth-child(2) /deep/ .week__item:last-child {
+    border-radius: 0 3px 0 0;
+  }
+
+  &__item:last-child /deep/ .week__item:first-child {
+    border-radius: 0 0 0 3px;
+  }
+
+  &__item:last-child /deep/ .week__item:last-child {
+    border-radius: 0 0 3px 0;
+  }
 }
 
 @include breakpoint('l') {
