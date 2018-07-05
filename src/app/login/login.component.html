@@ -1,27 +1,25 @@
-<div class="maincontainer maincontainer--centered clearfix">
-  <form class="fieldset"
-        [formGroup]="form">
-    <h2 class="fieldset__head">Log In <small>or
-      <a class="link"
-         [routerLink]="['/signup']">Sign Up</a>
-    </small></h2>
-    <div class="fieldset__item">
-      <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
-             formControlName="email">
-    </div>
-    <div class="fieldset__item">
-      <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"
-             formControlName="password">
-    </div>
-    <div class="fieldset__item">
-      <button class="button button--large"
-              (click)="login()"><i class="link__icon icon icon--lock"></i>Log In</button>
-    </div>
-    <div class="fieldset__foot">
-      Can't login?
-      <a class="link"
-         [routerLink]="['/reset']"
-         [queryParams]="{ email: form.value.email }">Reset your password</a>
-    </div>
-  </form>
-</div>
+<form class="fieldset"
+      [formGroup]="form">
+  <h2 class="fieldset__head">Log In <small>or
+    <a class="link"
+       [routerLink]="['/signup']">Sign Up</a>
+  </small></h2>
+  <div class="fieldset__item">
+    <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
+           formControlName="email">
+  </div>
+  <div class="fieldset__item">
+    <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"
+           formControlName="password">
+  </div>
+  <div class="fieldset__item">
+    <button class="button button--large"
+            (click)="login()"><i class="link__icon icon icon--lock"></i>Log In</button>
+  </div>
+  <div class="fieldset__foot">
+    Can't login?
+    <a class="link"
+       [routerLink]="['/reset']"
+       [queryParams]="{ email: form.value.email }">Reset your password</a>
+  </div>
+</form>

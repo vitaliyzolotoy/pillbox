@@ -1,21 +1,19 @@
-<div class="maincontainer maincontainer--centered clearfix">
-  <form class="fieldset"
-        [formGroup]="resetForm">
-    <h2 class="fieldset__head">Reset Your Password</h2>
-    <div class="fieldset__item">
-      <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
-             formControlName="email"
-      *ngIf="!check">
-      <span *ngIf="check">Check your email</span>
-    </div>
-    <div class="fieldset__item">
-      <button class="button button--large"
-              (click)="requestPass()"><i class="link__icon icon icon--cancel"></i>Reset</button>
-    </div>
-    <div class="fieldset__foot">
-      Do you remember it now?
-      <a class="link"
-         [routerLink]="['/login']">Log In</a>
-    </div>
-  </form>
-</div>
+<form class="fieldset"
+      [formGroup]="resetForm">
+  <h2 class="fieldset__head">Reset Your Password</h2>
+  <div class="fieldset__item">
+    <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
+           formControlName="email"
+           *ngIf="!check">
+    <span *ngIf="check">Check your email</span>
+  </div>
+  <div class="fieldset__item">
+    <button class="button button--large"
+            (click)="requestPass()"><i class="link__icon icon icon--cancel"></i>Reset</button>
+  </div>
+  <div class="fieldset__foot">
+    Do you remember it now?
+    <a class="link"
+       [routerLink]="['/login']">Log In</a>
+  </div>
+</form>
