@@ -20,9 +20,8 @@ export class ReceptumFormComponent implements OnInit {
       dose: [null, Validators.required],
       unit: ['Milligram', Validators.required],
       repeat: [true],
-      day: ['Mon'],
       recurrence: [null],
-      timestamp: [Date.now()]
+      timestamp: [null]
     });
   }
 

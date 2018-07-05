@@ -34,8 +34,17 @@
     margin-left: 4px;
   }
 
+  &__recurrence {
+    margin-top: 1rem;
+  }
+
   &__input--number {
-    width: 70px;
+    width: 66px;
+    margin-top: 0;
+  }
+
+  &__input--date {
+    width: 146px;
     margin-top: 0;
   }
 }
