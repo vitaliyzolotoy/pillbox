@@ -33,20 +33,20 @@ export class ReceptumsService {
   }
 
   createNewReceptum(scheduleKey: string, receptum: any, schedule: string): Observable<any> {
-    const receptumToSave = Object.assign({}, receptum, {scheduleItemId: scheduleKey});
-
     const newReceptumKey = this.sdkDb.child('receptums').push().key;
+
+    const receptumToSave = Object.assign({}, receptum, {scheduleItemId: scheduleKey}, {key: newReceptumKey});
 
     const dataToSave = {};
 
     dataToSave[`receptums/${this.authInfo.$uid}/${newReceptumKey}`] = receptumToSave;
     dataToSave[`receptumsPerSchedule/${this.authInfo.$uid}/${scheduleKey}/${newReceptumKey}`] = true;
-    // dataToSave[`users/${this.authInfo.$uid}/subscription/notifications`] = true;
+    dataToSave[`users/${this.authInfo.$uid}/subscription/notifications`] = true;
     dataToSave[`users/${this.authInfo.$uid}/notifications/${schedule}`] = true;
 
     // console.log(dataToSave);
 
-    return this.firebaseUpdate(dataToSave);
+    return this.firebaseUpdate(dataToSave, receptumToSave);
   }
 
   removeReceptum(key, scheduleItemId) {
@@ -72,13 +72,16 @@ export class ReceptumsService {
     });
   }
 
-  firebaseUpdate(dataToSave) {
+  firebaseUpdate(dataToSave, receptumToSave?) {
     const subject = new Subject();
+
+    // console.log(dataToSave);
 
     this.sdkDb.update(dataToSave)
       .then(
         val => {
-          subject.next(val);
+          // console.log(dataToSave);
+          subject.next(receptumToSave);
           subject.complete();
         },
         err => {
