@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import {PaymentService} from '../shared/payment/payment.service';
 import {environment} from '../../environments/environment';
 import {paddleConfig} from '../../environments/paddle.config';
+import {AnalyticsService} from '../shared/analytics/analytics.service';
 
 @Component({
   selector: 'app-signup',
@@ -49,7 +50,8 @@ export class SignupComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private router: Router,
-              public paymentService: PaymentService) {
+              public paymentService: PaymentService,
+              private analyticsService: AnalyticsService) {
     this.form = fb.group({
       email: ['', Validators.required],
       password: ['', Validators.required],
@@ -95,10 +97,16 @@ export class SignupComponent implements OnInit {
           }
 
           this.paymentService.trialUpdate(true);
+
           this.paymentService.saveEmail();
+
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);
+
           alert('Account creates successfully');
+
           this.router.navigate(['/home']);
+
+          this.analyticsService.trackEvent('signup');
         },
         alert
       );
