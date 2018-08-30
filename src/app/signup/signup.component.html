@@ -8,14 +8,30 @@
     <div class="fieldset__item">
       <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
              formControlName="email">
+      <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'required')">Email is required</span>
+      <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'email')">Email must be a valid email</span>
     </div>
     <div class="fieldset__item">
       <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"
              formControlName="password">
+      <span class="fieldset__hint" *ngIf="isErrorVisible('password', 'required')">Password is required</span>
+      <span class="fieldset__hint" *ngIf="isErrorVisible('password', 'pattern')">Password must contain letters and numbers</span>
+      <span class="fieldset__hint" *ngIf="isErrorVisible('password', 'minlength')">Password must be at least 6 characters long</span>
     </div>
     <div class="fieldset__item">
       <input class="fieldset__input input input--extra" type="password" placeholder="Confirm Your Password" name="confirm"
              formControlName="confirm">
+      <span class="fieldset__hint" *ngIf="isErrorVisible('confirm', 'required')">Field is required</span>
+    </div>
+    <div class="fieldset__item">
+      <label>
+        <span class="checkbox">
+          <input class="checkbox__input" type="checkbox" name="terms" formControlName="terms">
+          <span class="checkbox__tail"></span>
+        </span>
+        I agree to the
+      </label> <a href="http://getpillboxapp.com/terms.html" class="link">Terms of Use</a>
+      <span class="fieldset__hint" *ngIf="isErrorVisible('terms', 'required')">Field is required</span>
     </div>
   </div>
   <div class="fieldset__pane" *ngIf="subscription">
@@ -26,6 +42,6 @@
   <div class="fieldset__foot">
     <button class="button button--large"
             (click)="signUp()"
-            [disabled]="!isPasswordMatch() || !form.valid"><i class="link__icon icon icon--lock"></i>Sign Up</button>
+            [disabled]="!isPasswordMatch() || !isAgreed() || !form.valid"><i class="link__icon icon icon--lock"></i>Sign Up</button>
   </div>
 </form>

@@ -7,14 +7,18 @@
   <div class="fieldset__item">
     <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
            formControlName="email">
+    <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'required')">Email is required</span>
+    <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'email')">Email must be a valid email</span>
   </div>
   <div class="fieldset__item">
     <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"
            formControlName="password">
+    <span class="fieldset__hint" *ngIf="isErrorVisible('password', 'required')">Password is required</span>
   </div>
   <div class="fieldset__item">
     <button class="button button--large"
-            (click)="login()"><i class="link__icon icon icon--lock"></i>Log In</button>
+            (click)="login()"
+            [disabled]="!form.valid"><i class="link__icon icon icon--lock"></i>Log In</button>
   </div>
   <div class="fieldset__foot">
     Can't login?

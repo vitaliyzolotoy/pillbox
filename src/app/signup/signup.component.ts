@@ -53,9 +53,17 @@ export class SignupComponent implements OnInit {
               public paymentService: PaymentService,
               private analyticsService: AnalyticsService) {
     this.form = fb.group({
-      email: ['', Validators.required],
-      password: ['', Validators.required],
-      confirm: ['', Validators.required]
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
+      password: ['', [
+        Validators.required,
+        Validators.minLength(6),
+        Validators.pattern(/(?:\d+[a-z]|[a-z]+\d)[a-z\d]*/)
+      ]],
+      confirm: ['', Validators.required],
+      terms: [false, Validators.required]
     });
   }
 
@@ -67,6 +75,19 @@ export class SignupComponent implements OnInit {
     const val = this.form.value;
 
     return val && val.password && val.password === val.confirm;
+  }
+
+  isAgreed() {
+    const val = this.form.value;
+
+    return val && val.terms === true;
+  }
+
+  isErrorVisible(field: string, error: string) {
+    return this.form.controls[field].dirty
+      && this.form.controls[field].errors
+      && this.form.controls[field].errors[error];
+
   }
 
   signUp() {

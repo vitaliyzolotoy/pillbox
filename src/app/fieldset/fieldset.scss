@@ -35,7 +35,7 @@
   &__item {
     position: relative;
     min-height: 30px;
-    margin-bottom: 15px;
+    margin-bottom: 25px;
   }
 
   &__input,
@@ -73,6 +73,12 @@
 
   &__tiny {
     width: 105px;
+  }
+
+  &__hint {
+    font-size: small;
+    display: block;
+    color: rgb(255, 59, 48);
   }
 }
 

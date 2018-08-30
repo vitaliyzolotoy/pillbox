@@ -16,7 +16,10 @@ export class ResetComponent implements OnInit {
               private authService: AuthService,
               private activatedRoute: ActivatedRoute) {
     this.resetForm = fb.group({
-      email: ['', Validators.required]
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]]
     });
   }
 
@@ -37,5 +40,12 @@ export class ResetComponent implements OnInit {
       .then(data => {
         this.check = true;
       });
+  }
+
+  isErrorVisible(field: string, error: string) {
+    return this.resetForm.controls[field].dirty
+      && this.resetForm.controls[field].errors
+      && this.resetForm.controls[field].errors[error];
+
   }
 }

@@ -6,10 +6,13 @@
            formControlName="email"
            *ngIf="!check">
     <span *ngIf="check">Check your email</span>
+    <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'required')">Email is required</span>
+    <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'email')">Email must be a valid email</span>
   </div>
   <div class="fieldset__item">
     <button class="button button--large"
-            (click)="requestPass()"><i class="link__icon icon icon--cancel"></i>Reset</button>
+            (click)="requestPass()"
+            [disabled]="!form.valid"><i class="link__icon icon icon--cancel"></i>Reset</button>
   </div>
   <div class="fieldset__foot">
     Do you remember it now?

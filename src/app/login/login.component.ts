@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../shared/security/auth.service';
-import {Router} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {AnalyticsService} from '../shared/analytics/analytics.service';
 
 @Component({
@@ -15,9 +15,13 @@ export class LoginComponent implements OnInit {
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private router: Router,
-              private analyticsService: AnalyticsService) {
+              private analyticsService: AnalyticsService,
+              private activatedRoute: ActivatedRoute) {
     this.form = fb.group({
-      email: ['', Validators.required],
+      email: ['', [
+        Validators.required,
+        Validators.email
+      ]],
       password: ['', Validators.required]
     });
 
@@ -25,6 +29,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.activatedRoute.parent.queryParams.subscribe((params: any) => {
+      if (params) {
+        this.form.patchValue({
+          email: params.email,
+          password: params.password
+        });
+      }
+    });
   }
 
   login() {
@@ -39,5 +51,12 @@ export class LoginComponent implements OnInit {
         },
         alert
       );
+  }
+
+  isErrorVisible(field: string, error: string) {
+    return this.form.controls[field].dirty
+      && this.form.controls[field].errors
+      && this.form.controls[field].errors[error];
+
   }
 }
