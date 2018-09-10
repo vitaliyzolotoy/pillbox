@@ -19,7 +19,9 @@
             "assets": [
               "src/assets",
               "src/favicon.ico",
-              "src/.htaccess"
+              "src/.htaccess",
+              "src/firebase-messaging-sw.js",
+              "src/manifest.json"
             ],
             "styles": [
               "src/styles.scss"
@@ -50,7 +52,7 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
             "browserTarget": "pillbox:build",
-            "port": 4201
+            "port": 4202
           },
           "configurations": {
             "production": {

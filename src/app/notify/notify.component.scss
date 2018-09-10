@@ -1,0 +1,41 @@
+@import "../icon/icon.scss";
+
+@keyframes show {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+.notify {
+  position: fixed;
+  left: 50%;
+  top: 0;
+  z-index: 10;
+  width: 380px;
+  padding: 16px;
+  border: 1px solid var(--primary);
+  border-top: none;
+  background: #fff;
+  animation: show 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91);
+
+  &__close {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    text-decoration: none;
+    color: #333;
+    cursor: pointer;
+  }
+
+  &__title {
+    font-size: 1.1rem;
+    position: relative;
+    margin: 0;
+    text-transform: uppercase;
+  }
+}

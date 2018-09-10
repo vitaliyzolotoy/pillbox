@@ -18,6 +18,7 @@ import { HeaderComponent } from '../header/header.component';
 import { UpgradeComponent } from '../upgrade/upgrade.component';
 import {SubscriptionModule} from '../subscription/subscription.module';
 import * as moment from 'moment';
+import { NotifyComponent } from '../notify/notify.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import * as moment from 'moment';
     SettingsComponent,
     SpinnerComponent,
     HeaderComponent,
-    UpgradeComponent
+    UpgradeComponent,
+    NotifyComponent
   ],
   imports: [
     CommonModule,

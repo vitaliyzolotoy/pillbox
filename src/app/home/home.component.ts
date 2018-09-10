@@ -4,6 +4,7 @@ import {AuthInfo} from '../shared/security/auth-info';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PaymentService} from '../shared/payment/payment.service';
 import {AnalyticsService} from '../shared/analytics/analytics.service';
+import {MessagingService} from '../shared/messaging/messaging.service';
 
 @Component({
   selector: 'app-home',
@@ -16,12 +17,14 @@ export class HomeComponent implements OnInit {
   visibility = false;
   trial;
   status;
+  message;
 
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
               public paymentService: PaymentService,
               private router: Router,
-              private analyticsService: AnalyticsService) {
+              private analyticsService: AnalyticsService,
+              private messagingService: MessagingService) {
     this.analyticsService.trackPageViews();
   }
 
@@ -60,5 +63,12 @@ export class HomeComponent implements OnInit {
             }
           });
       });
+
+    this.messagingService.receiveMessage();
+
+    this.messagingService.currentMessage.subscribe(message => {
+      this.message = message;
+      // alert(message);
+    });
   }
 }

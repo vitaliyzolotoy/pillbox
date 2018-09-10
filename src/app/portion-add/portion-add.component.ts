@@ -3,6 +3,8 @@ import {FormBuilder, FormGroup} from '@angular/forms';
 import {ReceptumsService} from '../shared/model/receptums.service';
 import {ActivatedRoute} from '@angular/router';
 import {TaskService} from '../shared/task/task.service';
+import {MessagingService} from '../shared/messaging/messaging.service';
+import * as firebase from 'firebase';
 
 @Component({
   selector: 'app-portion-add',
@@ -22,7 +24,8 @@ export class PortionAddComponent implements OnInit {
   constructor(private route: ActivatedRoute,
               private receptumsService: ReceptumsService,
               private activatedRoute: ActivatedRoute,
-              private taskService: TaskService) { }
+              private taskService: TaskService,
+              private messagingService: MessagingService) { }
 
   ngOnInit() {
     this.scheduleKey = this.route.snapshot.params['key'];
@@ -61,6 +64,9 @@ export class PortionAddComponent implements OnInit {
           );
 
           alert('Medicine added');
+
+          this.messagingService.getPermission();
+
           form.reset();
         },
         err => alert(`${err}`)
