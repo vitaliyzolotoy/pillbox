@@ -3,12 +3,12 @@ import {ReceptumsService} from '../shared/model/receptums.service';
 import {TaskService} from '../shared/task/task.service';
 
 @Component({
-  selector: 'app-portions',
-  templateUrl: './portions.component.html',
-  styleUrls: ['./portions.component.scss']
+  selector: 'app-receptums',
+  templateUrl: './receptums.component.html',
+  styleUrls: ['./receptums.component.scss']
 })
-export class PortionsComponent implements OnInit {
-  @Input() portions;
+export class ReceptumsComponent implements OnInit {
+  @Input() receptums;
   @Input() current;
 
   constructor(private receptumsService: ReceptumsService,

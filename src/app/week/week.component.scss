@@ -13,7 +13,7 @@
     overflow: hidden;
     box-sizing: border-box;
     color: var(--primary);
-    border: 1px solid var(--primary);
+    //border: 1px solid var(--primary);
   }
 
   &__item:hover {
@@ -22,49 +22,49 @@
 
   &__item--mon {
     color: var(--mon);
-    border-color: var(--mon);
+    //border-color: var(--mon);
     box-shadow: inset 2px 2px 2px 0 var(--mon);
   }
 
   &__item--tue {
     color: var(--tue);
-    border-color: var(--tue);
+    //border-color: var(--tue);
     box-shadow: inset 2px 2px 2px 0 var(--tue);
   }
 
   &__item--wed {
     color: var(--wed);
-    border-color: var(--wed);
+    //border-color: var(--wed);
     box-shadow: inset 2px 2px 2px 0 var(--wed);
   }
 
   &__item--thu {
     color: var(--thu);
-    border-color: var(--thu);
+    //border-color: var(--thu);
     box-shadow: inset 2px 2px 2px 0 var(--thu);
   }
 
   &__item--fri {
     color: var(--fri);
-    border-color: var(--fri);
+    //border-color: var(--fri);
     box-shadow: inset 2px 2px 2px 0 var(--fri);
   }
 
   &__item--sat {
     color: var(--sat);
-    border-color: var(--sat);
+    //border-color: var(--sat);
     box-shadow: inset 2px 2px 2px 0 var(--sat);
   }
 
   &__item--sun {
     color: var(--sun);
-    border-color: var(--sun);
+    border-right: 1px solid var(--sun);
     box-shadow: inset 2px 2px 2px 0 var(--sun);
   }
 
   &__item--current {
     color: var(--primary);
-    border-color: var(--primary);
+    //border-color: var(--primary);
     box-shadow: inset 2px 2px 2px 0 var(--primary);
   }
 }
@@ -94,11 +94,11 @@
       display: block;
     }
 
-    &__item /deep/ .portions {
+    &__item /deep/ .receptums {
       display: none;
     }
 
-    &__item /deep/ .handle:checked + .portions {
+    &__item /deep/ .handle:checked + .receptums {
       display: block;
     }
   }

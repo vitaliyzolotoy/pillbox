@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { HomeComponent } from './home.component';
 import { OrganizerComponent } from '../organizer/organizer.component';
 import { CaptionComponent } from '../caption/caption.component';
-import { PortionsComponent } from '../portions/portions.component';
 import {CommonModule} from '@angular/common';
 import {routing} from './home.router';
 import { PortionAddComponent } from '../portion-add/portion-add.component';
@@ -19,13 +18,14 @@ import { UpgradeComponent } from '../upgrade/upgrade.component';
 import {SubscriptionModule} from '../subscription/subscription.module';
 import * as moment from 'moment';
 import { NotifyComponent } from '../notify/notify.component';
+import {ReceptumsComponent} from '../receptums/receptums.component';
 
 @NgModule({
   declarations: [
     HomeComponent,
     OrganizerComponent,
     CaptionComponent,
-    PortionsComponent,
+    ReceptumsComponent,
     PortionAddComponent,
     ReceptumFormComponent,
     WeekComponent,

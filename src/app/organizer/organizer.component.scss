@@ -24,6 +24,10 @@
     position: relative;
   }
 
+  &__item:last-child /deep/ .week__item {
+    border-bottom: 1px solid;
+  }
+
   &__icon {
     font-size: 1.2rem;
     position: absolute;

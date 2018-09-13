@@ -3,6 +3,6 @@
       *ngFor="let item of week; index as i"
       [ngClass]="{ 'week__item--current': current.name.toLowerCase() === item.name.toLowerCase() }">
     <app-caption [period]="schedule" [day]="item.name"></app-caption>
-    <app-portions [portions]="item.receptums" [current]="current"></app-portions>
+    <app-receptums [receptums]="item.receptums" [current]="current"></app-receptums>
   </li>
 </ul>

@@ -1,7 +1,7 @@
 @import "../../utils.scss";
 @import "../icon/icon.scss";
 
-.portions {
+.receptums {
   font-size: 0.75rem;
   position: absolute;
   z-index: 2;
@@ -40,6 +40,10 @@
     display: inline-block;
     line-height: 15px;
   }
+
+  &__type {
+    font-weight: 400;
+  }
 }
 
 .handle {
@@ -47,7 +51,7 @@
 }
 
 @include breakpoint('s'){
-  .portions {
+  .receptums {
     &--full {
       position: absolute;
       top: 170px;
