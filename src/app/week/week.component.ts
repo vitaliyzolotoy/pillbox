@@ -21,5 +21,8 @@ export class WeekComponent implements OnInit {
     this.current = this.week[this.dayOfWeek - 1];
 
     // console.log(this.current);
+
+    console.log(this.schedule);
+    // console.log(this.week);
   }
 }
