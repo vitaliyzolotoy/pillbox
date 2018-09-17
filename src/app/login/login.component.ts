@@ -47,7 +47,11 @@ export class LoginComponent implements OnInit {
         () => {
           this.router.navigate(['/home']);
 
-          this.analyticsService.trackEvent('login');
+          if (formValue.email == 'demo@getpillboxapp.com') {
+            this.analyticsService.trackEvent('demo');
+          } else {
+            this.analyticsService.trackEvent('login');
+          }
         },
         alert
       );
