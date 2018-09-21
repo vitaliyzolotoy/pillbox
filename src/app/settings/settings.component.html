@@ -3,11 +3,21 @@
     <a class="modal__close" [routerLink]="['/home']"><i class="icon icon--cancel"></i></a>
     <h2 class="modal__title">Settings</h2>
     <p *ngIf="notifications === true || partialNotifications">
-      Notifications
+      Email Notifications
       <br>
-      <button class="settings__button button" (click)="turnOffNotifications()">Turn Off Notifications</button>
+      <button class="settings__button button" (click)="turnOffNotifications()">Turn Off</button>
     </p>
     <p *ngIf="!partialNotifications && notifications === false">Notifications is turned off</p>
+    <p>SMS Notifications</p>
+    <form class="phone-form" [formGroup]="phoneForm" (ngSubmit)="savePhone(phoneForm.value)">
+      <fieldset class="phone-form__fieldset">
+        <input class="phone-form__input input" type="text" placeholder="Phone Number" formControlName="phoneNumber">
+        <button class="phone-form__button button" [disabled]="phoneForm.invalid" *ngIf="!smsStatus">Turn On</button>
+        <button class="phone-form__button button" type="button" *ngIf="smsStatus" (click)="turnOffSms()">Turn Off</button>
+        <span class="phone-form__hint" *ngIf="isErrorVisible('phoneNumber', 'required')">Field is mandatory</span>
+        <span class="phone-form__hint" *ngIf="isErrorVisible('phoneNumber', 'pattern')">Phone number should contain only + and numbers</span>
+      </fieldset>
+    </form>
     <p *ngIf="status === 'active'">
       Subscription is Active
       <br>

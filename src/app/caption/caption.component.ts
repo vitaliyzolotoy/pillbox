@@ -18,7 +18,7 @@ export class CaptionComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.period);
+    // console.log(this.period);
   }
 
 }

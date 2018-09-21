@@ -22,7 +22,7 @@ export class WeekComponent implements OnInit {
 
     // console.log(this.current);
 
-    console.log(this.schedule);
+    // console.log(this.schedule);
     // console.log(this.week);
   }
 }

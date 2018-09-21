@@ -1,9 +1,27 @@
 @import "../icon/icon.scss";
 @import "../modal/modal.scss";
 @import "../button/button.scss";
+@import "../input/input.scss";
 
 .settings {
   &__button {
     margin-top: 8px;
+  }
+}
+
+.phone-form {
+  &__fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+
+  &__input {
+    margin-right: 6px;
+  }
+
+  &__hint {
+    display: block;
+    color: red;
   }
 }
