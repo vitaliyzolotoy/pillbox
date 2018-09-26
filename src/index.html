@@ -6,6 +6,7 @@
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="manifest" href="./manifest.json">
   <!--<script src="https://checkout.stripe.com/checkout.js"></script>-->
   <script src="https://cdn.paddle.com/paddle/paddle.js"></script>
   <!-- Global site tag (gtag.js) - Google AdWords: 1059079319 -->
@@ -33,7 +34,9 @@
       return false;
     }
   </script>
-  <link rel="manifest" href="./manifest.json">
+  <script>
+    document.addEventListener("touchstart", function() {},false);
+  </script>
 </head>
 <body>
   <app-root></app-root>

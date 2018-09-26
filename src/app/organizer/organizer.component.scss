@@ -80,10 +80,23 @@
     position: relative;
     min-width: 0;
     min-height: 0;
-    margin-top: 30px;
+    margin-top: 40px;
 
     &__head {
+      position: absolute;
+      left: 50%;
+      margin-top: -45px;
+      transform: translate(-50%, 0);
+    }
+
+    &__head &__date {
       display: none;
+    }
+
+    &__head &__date:first-child,
+    &__head &__date:last-child {
+      display: block;
+      margin-right: 6px;
     }
 
     &__item {

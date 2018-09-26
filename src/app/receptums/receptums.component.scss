@@ -24,7 +24,8 @@
     //text-overflow: ellipsis;
   }
 
-  &__item:hover {
+  &__item:hover,
+  &__item:active {
     overflow: visible;
     max-width: none;
     background: #fff;

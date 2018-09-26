@@ -1,3 +1,5 @@
+@import "../../utils.scss";
+
 @keyframes scale {
   0% {
     opacity: 0;
@@ -50,5 +52,11 @@
     position: relative;
     margin: 0;
     text-transform: uppercase;
+  }
+}
+
+@include breakpoint('s') {
+  .modal {
+    align-items: initial;
   }
 }
