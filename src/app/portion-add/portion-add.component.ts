@@ -42,6 +42,7 @@ export class PortionAddComponent implements OnInit {
   }
 
   save(form) {
+    // console.log(form.value);
 
     this.receptumsService
       .createNewReceptum(this.scheduleKey, form.value, this.schedule)
@@ -60,7 +61,13 @@ export class PortionAddComponent implements OnInit {
             // minutes(1),
             minutes(form.value.recurrence ? form.value.recurrence * 1440 : 1440),
             'emailWorker',
-            { hello: 'yes' }
+            {
+              quantity: form.value.quantity,
+              type: form.value.type,
+              name: form.value.name,
+              dose: form.value.dose,
+              unit: form.value.unit
+            }
           );
 
           alert('Medicine added');
