@@ -1,75 +1,95 @@
-.input { $background: #fff;
-         $border: #e6e5e6;
+.input {
+  $background: #fff;
+  $border: #e6e5e6;
 
-         font-size: 14px;
-         font-family: 'helvetica neue', helvetica, arial, sans-serif;
-         font-weight: 300;
-         position: relative;
-         display: inline-block;
-         width: 200px;
-         height: 31px;
-         max-width: 100%;
-         margin: 0 0 1px 0;
-         padding: 1px 9px 0 9px;
-         letter-spacing: 0.01em;
-         outline: none;
-         vertical-align: middle;
-         box-sizing: border-box;
-         border: none;
-         border-radius: 3px;
-         box-shadow: inset 1px 0 0 0 $border,
-                     inset 0 1px 0 0 $border,
-                     inset -1px 0 0 0 $border,
-                     0 1px $border;
-         background: $background;
-         -webkit-appearance: none;
-            -moz-appearance: none;
-                 appearance: none;
+  font-size: 14px;
+  font-family: 'helvetica neue', helvetica, arial, sans-serif;
+  font-weight: 300;
+  position: relative;
+  display: inline-block;
+  width: 200px;
+  height: 31px;
+  max-width: 100%;
+  margin: 0 0 1px 0;
+  padding: 1px 9px 0 9px;
+  letter-spacing: 0.01em;
+  outline: none;
+  vertical-align: middle;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 3px;
+  box-shadow: inset 1px 0 0 0 $border,
+              inset 0 1px 0 0 $border,
+              inset -1px 0 0 0 $border,
+              0 1px $border;
+  background: $background;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 
-         &:focus { box-shadow: inset 2px 0 0 0 $border,
-                               inset 0 2px 0 0 $border,
-                               inset -2px 0 0 0 $border,
-                               0 2px $border; }
+  &:focus {
+    box-shadow: inset 2px 0 0 0 $border,
+                inset 0 2px 0 0 $border,
+                inset -2px 0 0 0 $border,
+                0 2px $border;
+  }
 
-         &::placeholder { color: darken($border, 20%); }
+  &::placeholder {
+    color: darken($border, 20%);
+  }
 
-         &--textarea { height: 90px;
-                       padding: 5px 9px; }
+  &--textarea {
+    height: 90px;
+    padding: 5px 9px;
+  }
 
-         &--small { font-size: 10px;
-                    border-radius: 3px;
-                    height: 18px;
-                    padding: 0px 9px; }
+  &--small {
+    font-size: 10px;
+    border-radius: 3px;
+    height: 18px;
+    padding: 0px 9px;
+  }
 
-         //&--small&--textarea { height: 60px;
-         //                      padding: 4px 9px; }
+  //&--small&--textarea { height: 60px;
+  //                      padding: 4px 9px; }
 
-         &--large { font-size: 16px;
-                    border-radius: 3px;
-                    height: 40px;
-                    padding: 0px 15px; }
+  &--large {
+    font-size: 16px;
+    border-radius: 3px;
+    height: 40px;
+    padding: 0px 15px;
+  }
 
-         //&--large&--textarea { height: 120px;
-         //                      padding: 10px 15px; }
+  //&--large&--textarea { height: 120px;
+  //                      padding: 10px 15px; }
 
-         &--extra { font-size: 16px;
-                    border-radius: 3px;
-                    height: 50px;
-                    padding: 0px 15px; }
+  &--extra {
+    font-size: 16px;
+    border-radius: 3px;
+    height: 50px;
+    padding: 0px 15px;
+  }
 
-         //&--extra&--textarea { height: 120px;
-         //                      padding: 10px 15px; }
+  //&--extra&--textarea { height: 120px;
+  //                      padding: 10px 15px; }
 
-         &--error { $error: #e40a47;
+  &--error {
+    $error: #e40a47;
 
-                    box-shadow: inset 1px 0 0 0 lighten($error, 5%),
-                                inset 0 1px 0 0 lighten($error, 5%),
-                                inset -1px 0 0 0 lighten($error, 5%),
-                                0 1px lighten($error, 5%);
+    box-shadow: inset 1px 0 0 0 lighten($error, 5%),
+                inset 0 1px 0 0 lighten($error, 5%),
+                inset -1px 0 0 0 lighten($error, 5%),
+                0 1px lighten($error, 5%);
 
-                    &:focus { box-shadow: inset 2px 0 0 0 lighten($error, 25%),
-                                          inset 0 2px 0 0 lighten($error, 25%),
-                                          inset -2px 0 0 0 lighten($error, 25%),
-                                          0 2px lighten($error, 25%); }
+    &:focus {
+      box-shadow: inset 2px 0 0 0 lighten($error, 25%),
+                  inset 0 2px 0 0 lighten($error, 25%),
+                  inset -2px 0 0 0 lighten($error, 25%),
+                  0 2px lighten($error, 25%);
+    }
 
-                    &::placeholder { color: lighten($error, 25%); } } }
+    &::placeholder {
+      color: lighten($error, 25%);
+    }
+  }
+}
