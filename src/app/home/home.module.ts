@@ -12,13 +12,12 @@ import {ReceptumsService} from '../shared/model/receptums.service';
 import { ReceptumFormComponent } from '../receptum-form/receptum-form.component';
 import { WeekComponent } from '../week/week.component';
 import { SettingsComponent } from '../settings/settings.component';
-import { SpinnerComponent } from '../spinner/spinner.component';
 import { HeaderComponent } from '../header/header.component';
 import { UpgradeComponent } from '../upgrade/upgrade.component';
-import {SubscriptionModule} from '../subscription/subscription.module';
 import * as moment from 'moment';
 import { NotifyComponent } from '../notify/notify.component';
 import {ReceptumsComponent} from '../receptums/receptums.component';
+import {BaseModule} from '../base/base.module';
 
 @NgModule({
   declarations: [
@@ -30,7 +29,6 @@ import {ReceptumsComponent} from '../receptums/receptums.component';
     ReceptumFormComponent,
     WeekComponent,
     SettingsComponent,
-    SpinnerComponent,
     HeaderComponent,
     UpgradeComponent,
     NotifyComponent
@@ -39,7 +37,7 @@ import {ReceptumsComponent} from '../receptums/receptums.component';
     CommonModule,
     routing,
     ReactiveFormsModule,
-    SubscriptionModule
+    BaseModule
   ],
   providers: [
     AuthGuard,

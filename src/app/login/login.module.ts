@@ -13,8 +13,8 @@ import {firebaseConfig} from '../../environments/firebase.config';
 import { SignupComponent } from '../signup/signup.component';
 import {PaymentService} from '../shared/payment/payment.service';
 import {HttpClientModule} from '@angular/common/http';
-import {SubscriptionModule} from '../subscription/subscription.module';
 import { ResetComponent } from '../reset/reset.component';
+import {BaseModule} from '../base/base.module';
 
 @NgModule({
   imports: [
@@ -26,7 +26,7 @@ import { ResetComponent } from '../reset/reset.component';
     ReactiveFormsModule,
     routing,
     HttpClientModule,
-    SubscriptionModule
+    BaseModule
   ],
   providers: [
     AuthService,

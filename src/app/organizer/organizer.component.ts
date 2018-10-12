@@ -16,7 +16,7 @@ export class OrganizerComponent implements OnInit {
   @Input() visibility;
   schedule: ScheduleItem[];
   receptums: Receptum[];
-  isLoaded = false;
+  loading = false;
   status;
   trial;
   days;
@@ -88,7 +88,7 @@ export class OrganizerComponent implements OnInit {
                 return day;
               });
 
-              this.isLoaded = true;
+              this.loading = true;
 
               // console.log(item);
 

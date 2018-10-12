@@ -11,6 +11,7 @@ import {AnalyticsService} from '../shared/analytics/analytics.service';
 })
 export class LoginComponent implements OnInit {
   form: FormGroup;
+  loading = false;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -42,12 +43,14 @@ export class LoginComponent implements OnInit {
   login() {
     const formValue = this.form.value;
 
+    this.loading = true;
+
     this.authService.login(formValue.email, formValue.password)
       .subscribe(
         () => {
           this.router.navigate(['/home']);
 
-          if (formValue.email == 'demo@getpillboxapp.com') {
+          if (formValue.email === 'demo@getpillboxapp.com') {
             this.analyticsService.trackEvent('demo');
           } else {
             this.analyticsService.trackEvent('login');

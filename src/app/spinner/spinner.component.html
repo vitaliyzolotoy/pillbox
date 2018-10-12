@@ -1,1 +1,4 @@
-<i class="spinner"></i>
+<i class="spinner" [ngClass]="{
+  'spinner--size-small': size === 'small',
+  'spinner--theme-white': theme === 'white'
+}"></i>

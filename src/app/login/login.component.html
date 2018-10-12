@@ -18,7 +18,11 @@
   <div class="fieldset__item">
     <button class="button button--large"
             (click)="login()"
-            [disabled]="!form.valid"><i class="link__icon icon icon--lock"></i>Log In</button>
+            [disabled]="!form.valid">
+      <i *ngIf="!loading" class="link__icon icon icon--lock"></i>
+      <app-spinner *ngIf="loading" [size]="'small'" [theme]="'white'"></app-spinner>
+      Log In
+    </button>
   </div>
   <div class="fieldset__foot">
     Can't login?

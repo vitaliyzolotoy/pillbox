@@ -46,6 +46,7 @@ export class SignupComponent implements OnInit {
   subscription = environment.subscription;
   id;
   token;
+  loading = false;
 
   constructor(private fb: FormBuilder,
               private authService: AuthService,
@@ -92,6 +93,8 @@ export class SignupComponent implements OnInit {
 
   signUp() {
     const formValue = this.form.value;
+
+    this.loading = true;
 
     this.authService.signUp(formValue.email, formValue.password)
       .subscribe(
