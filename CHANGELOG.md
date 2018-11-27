@@ -1,3 +1,20 @@
+<a name="0.0.8"></a>
+## [0.0.8](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.7...v0.0.8) (2018-11-27)
+
+
+### Bug Fixes
+
+* dont use hash in router ([f3aeb85](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/f3aeb85))
+* recurrence start from date ([362d711](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/362d711))
+* remove unnecesare blocks ([76ab7f4](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/76ab7f4))
+
+
+### Features
+
+* rounded corners ([a4c7b30](https://bitbucket.org/vitaliyzolotoy/pillbox/commits/a4c7b30))
+
+
+
 <a name="0.0.7"></a>
 ## [0.0.7](https://bitbucket.org/vitaliyzolotoy/pillbox/compare/v0.0.6...v0.0.7) (2018-06-25)
 
