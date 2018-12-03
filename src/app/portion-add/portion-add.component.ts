@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ReceptumsService} from '../shared/model/receptums.service';
 import {ActivatedRoute} from '@angular/router';
 import {TaskService} from '../shared/task/task.service';
 import {MessagingService} from '../shared/messaging/messaging.service';
 import * as firebase from 'firebase';
+import {NotifyComponent} from '../notify/notify.component';
+import {AlertService} from '../shared/alert/alert.service';
 
 @Component({
   selector: 'app-portion-add',
@@ -21,11 +23,15 @@ export class PortionAddComponent implements OnInit {
     Bed: 23
   };
 
+  @ViewChild('alert', { read: ViewContainerRef }) alert: ViewContainerRef;
+
   constructor(private route: ActivatedRoute,
               private receptumsService: ReceptumsService,
               private activatedRoute: ActivatedRoute,
               private taskService: TaskService,
-              private messagingService: MessagingService) { }
+              private messagingService: MessagingService,
+              private cfr: ComponentFactoryResolver,
+              private alertService: AlertService) { }
 
   ngOnInit() {
     this.scheduleKey = this.route.snapshot.params['key'];
@@ -70,7 +76,9 @@ export class PortionAddComponent implements OnInit {
             }
           );
 
-          alert('Medicine added');
+          this.showAlert('alert');
+
+          this.alertService.success('Medicine added');
 
           this.messagingService.getPermission();
 
@@ -79,6 +87,16 @@ export class PortionAddComponent implements OnInit {
         err => alert(`${err}`)
       );
 
+  }
+
+  showAlert(target) {
+    this[target].clear();
+
+    const factory = this.cfr.resolveComponentFactory(NotifyComponent);
+
+    const ref = this[target].createComponent(factory);
+
+    ref.changeDetectorRef.detectChanges();
   }
 }
 

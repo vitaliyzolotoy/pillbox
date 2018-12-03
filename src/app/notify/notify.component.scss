@@ -14,28 +14,30 @@
 .notify {
   position: fixed;
   left: 50%;
-  top: 0;
+  top: 10px;
   z-index: 10;
-  width: 380px;
-  padding: 16px;
+  max-width: 380px;
+  padding: 6px 26px;
   border: 1px solid var(--primary);
-  border-top: none;
   background: #fff;
   animation: show 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91);
 
-  &__close {
-    position: absolute;
-    top: 6px;
-    right: 6px;
-    text-decoration: none;
-    color: #333;
-    cursor: pointer;
+  &--success {
+    color: var(--wed);
+    border-color: var(--wed);
   }
 
-  &__title {
-    font-size: 1.1rem;
-    position: relative;
-    margin: 0;
-    text-transform: uppercase;
+  &--error {
+    color: var(--sun);
+    border-color: var(--sun);
+  }
+
+  &__close {
+    position: absolute;
+    top: 4px;
+    right: 6px;
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
   }
 }

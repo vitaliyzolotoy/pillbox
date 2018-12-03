@@ -1,10 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { AuthService } from '../shared/security/auth.service';
 import {AuthInfo} from '../shared/security/auth-info';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
 import {PaymentService} from '../shared/payment/payment.service';
 import {AnalyticsService} from '../shared/analytics/analytics.service';
 import {MessagingService} from '../shared/messaging/messaging.service';
+import {NotifyComponent} from '../notify/notify.component';
+import {AlertService} from '../shared/alert/alert.service';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +21,16 @@ export class HomeComponent implements OnInit {
   status;
   message;
 
+  @ViewChild('alert', { read: ViewContainerRef }) alert: ViewContainerRef;
+
   constructor(private authService: AuthService,
               private activatedRoute: ActivatedRoute,
               public paymentService: PaymentService,
               private router: Router,
               private analyticsService: AnalyticsService,
-              private messagingService: MessagingService) {
+              private messagingService: MessagingService,
+              private cfr: ComponentFactoryResolver,
+              private alertService: AlertService) {
     this.analyticsService.trackPageViews();
   }
 
@@ -68,7 +74,22 @@ export class HomeComponent implements OnInit {
 
     this.messagingService.currentMessage.subscribe(message => {
       this.message = message;
-      // alert(message);
+
+      if (this.message) {
+        this.showAlert('alert');
+
+        this.alertService.success(this.message.notification.body);
+      }
     });
+  }
+
+  showAlert(target) {
+    this[target].clear();
+
+    const factory = this.cfr.resolveComponentFactory(NotifyComponent);
+
+    const ref = this[target].createComponent(factory);
+
+    ref.changeDetectorRef.detectChanges();
   }
 }

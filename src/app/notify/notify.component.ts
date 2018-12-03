@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
 import {interval} from 'rxjs';
+import {AlertService} from '../shared/alert/alert.service';
 
 @Component({
   selector: 'app-notify',
@@ -7,21 +8,27 @@ import {interval} from 'rxjs';
   styleUrls: ['./notify.component.scss']
 })
 export class NotifyComponent implements OnInit, OnChanges {
-  @Input() message;
+  // @Input() message;
+  message;
 
-  constructor() { }
+  constructor(private alertService: AlertService) { }
 
   ngOnInit() {
+    this.alertService.getMessage().subscribe(message => {
+      console.log(message);
+
+      this.message = message;
+    });
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.message.currentValue) {
-      interval(5000)
-        .take(1)
-        .subscribe(x => {
-          this.message = null;
-        });
-    }
+    // if (changes.message.currentValue) {
+    //   interval(5000)
+    //     .take(1)
+    //     .subscribe(x => {
+    //       this.message = null;
+    //     });
+    // }
   }
 
   hideNotify() {

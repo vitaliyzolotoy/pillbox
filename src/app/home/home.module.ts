@@ -45,6 +45,7 @@ import {BaseModule} from '../base/base.module';
     ReceptumsService,
     { provide: 'moment', useFactory: (): any => moment }
   ],
-  bootstrap: [HomeComponent]
+  bootstrap: [HomeComponent],
+  entryComponents: [NotifyComponent]
 })
 export class HomeModule { }
