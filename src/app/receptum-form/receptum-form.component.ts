@@ -15,10 +15,10 @@ export class ReceptumFormComponent implements OnInit {
   ngOnInit() {
     this.form = this.formBuilder.group({
       quantity: [null, Validators.required],
-      type: ['Tablet', Validators.required],
+      type: ['Tablet(s)', Validators.required],
       name: ['', Validators.required],
       dose: [null, Validators.required],
-      unit: ['Milligram', Validators.required],
+      unit: ['Milligram(s)', Validators.required],
       repeat: [true],
       recurrence: [null],
       timestamp: [null]
