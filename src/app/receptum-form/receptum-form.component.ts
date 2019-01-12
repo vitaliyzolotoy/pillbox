@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {ScheduleService} from '../shared/model/schedule.service';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'app-receptum-form',
@@ -9,19 +11,34 @@ import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 export class ReceptumFormComponent implements OnInit {
   form: FormGroup;
   showOptions = false;
+  schedule;
+  scheduleKey;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private scheduleService: ScheduleService,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
+      schedule: [null, Validators.required],
       quantity: [null, Validators.required],
       type: ['Tablet(s)', Validators.required],
       name: ['', Validators.required],
-      dose: [null, Validators.required],
-      unit: ['Milligram(s)', Validators.required],
+      dose: [null],
+      unit: ['Milligram(s)'],
       repeat: [true],
       recurrence: [null],
       timestamp: [null]
+    });
+
+    this.scheduleService.findAllScheduleItems()
+    // .do(console.log)
+      .subscribe(schedule => {
+      this.schedule = schedule;
+
+        this.scheduleKey = this.route.snapshot.params['key'];
+
+        this.form.controls['schedule'].patchValue(this.scheduleKey);
     });
   }
 

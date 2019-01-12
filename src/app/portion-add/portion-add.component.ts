@@ -51,7 +51,7 @@ export class PortionAddComponent implements OnInit {
     // console.log(form.value);
 
     this.receptumsService
-      .createNewReceptum(this.scheduleKey, form.value, this.schedule)
+      .createNewReceptum(form.value.schedule, form.value, this.schedule)
       .subscribe(
         (data) => {
           // console.log(data);

@@ -10,12 +10,15 @@
     border: none;
   }
 
+  &__item {
+    margin: 1rem 0 0;
+  }
+
   &__input,
   &__button,
   &__select,
   &__label {
     display: inline-block;
-    margin: 1rem 0 0;
   }
 
   &__input {
