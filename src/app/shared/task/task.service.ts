@@ -21,6 +21,7 @@ export class TaskService {
 
   // Schedule recurring tasks
   performPeriodic(id: string, time: number, interval: number, worker: string, opts = {}) {
+
     const newTaskKey = this.sdkDb.child(`tasks`).push().key;
 
     const taskRef = this.db.object(`tasks/${id}`);

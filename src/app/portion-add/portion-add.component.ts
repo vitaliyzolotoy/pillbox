@@ -50,6 +50,8 @@ export class PortionAddComponent implements OnInit {
   save(form) {
     // console.log(form.value);
 
+    console.log(form.value.time.split(':')[0])
+
     this.receptumsService
       .createNewReceptum(form.value.schedule, form.value, this.schedule)
       .subscribe(
@@ -62,8 +64,8 @@ export class PortionAddComponent implements OnInit {
             data.key,
             // Date.now(),
             form.value.timestamp
-              ? new Date(new Date(form.value.timestamp).setHours(this.schedules[this.schedule])).getTime()
-              : new Date(new Date(new Date().toISOString().substring(0, 10)).setHours(this.schedules[this.schedule])).getTime(),
+              ? new Date(new Date(form.value.timestamp).setHours(form.value.time.split(':')[0], form.value.time.split(':')[1])).getTime()
+              : new Date(new Date(new Date().toISOString().substring(0, 10)).setHours(form.value.time.split(':')[0], form.value.time.split(':')[1])).getTime(),
             // minutes(1),
             minutes(form.value.recurrence ? form.value.recurrence * 1440 : 1440),
             'emailWorker',

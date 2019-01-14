@@ -7,6 +7,10 @@
     </span>
     of
     {{ portion.name }}
+    <ng-container *ngIf="portion.time">
+      at
+      {{ portion.time }}
+    </ng-container>
     <span class="receptums__unit" title="{{ portion.unit }}"
       *ngIf="portion.dose">
       {{ portion.dose }}{{ (portion.unit === 'Milligram') ? 'mg' : 'ml' }}.
