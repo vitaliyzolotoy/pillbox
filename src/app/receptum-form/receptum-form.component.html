@@ -33,8 +33,9 @@
       </span>
       <span class="receptum-form__hint" *ngIf="isErrorVisible('schedule', 'required')">Field is mandatory</span>
       at
-      <input class="receptum-form__input receptum-form__input--date input" type="time" placeholder="00:00" formControlName="time" required>
+      <input class="receptum-form__input receptum-form__input--date input" type="time" placeholder="hh:mm" formControlName="time" required>
       <span class="receptum-form__hint" *ngIf="isErrorVisible('time', 'required')">Field is mandatory</span>
+      <span class="receptum-form__hint" *ngIf="isErrorVisible('time', 'pattern')">Time format is 24-hour</span>
     </div>
     <div class="receptum-form__item">
       <input class="receptum-form__input receptum-form__input--half input" type="number" placeholder="Dose" formControlName="dose">
