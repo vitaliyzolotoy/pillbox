@@ -36,14 +36,14 @@ body {
 }
 
 // sass-lint:disable dark mode
-@media (prefers-color-scheme: dark) {
-  :root {
-    --primary: #fff;
-    --secondary: #007bff;
-    --primary-background: #343a40;
-    --secondary-background: #2c3035;
-  }
-}
+//@media (prefers-color-scheme: dark) {
+//  :root {
+//    --primary: #fff;
+//    --secondary: #007bff;
+//    --primary-background: #343a40;
+//    --secondary-background: #2c3035;
+//  }
+//}
 // sass-lint:enable dark mode
 
 @include breakpoint('s'){
