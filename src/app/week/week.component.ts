@@ -8,6 +8,9 @@ import {Component, Input, OnInit} from '@angular/core';
 export class WeekComponent implements OnInit {
   @Input() week;
   @Input() schedule;
+  @Input() date;
+  @Input() key;
+  @Input() trial;
   dayOfWeek;
   current;
 

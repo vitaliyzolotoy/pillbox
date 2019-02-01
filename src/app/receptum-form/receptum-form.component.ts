@@ -13,10 +13,12 @@ export class ReceptumFormComponent implements OnInit {
   showOptions = false;
   schedule;
   scheduleKey;
+  date;
 
   constructor(private formBuilder: FormBuilder,
               private scheduleService: ScheduleService,
-              private route: ActivatedRoute) { }
+              private route: ActivatedRoute,
+              private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -43,6 +45,20 @@ export class ReceptumFormComponent implements OnInit {
         this.scheduleKey = this.route.snapshot.params['key'];
 
         this.form.controls['schedule'].patchValue(this.scheduleKey);
+    });
+
+    this.activatedRoute.parent.queryParams.subscribe((params: any) => {
+      if (params.date) {
+        this.date = params.date;
+
+        this.form.controls['repeat'].patchValue(false);
+
+        this.form.controls['recurrence'].patchValue(1);
+
+        this.form.controls['timestamp'].patchValue(this.date);
+
+        this.showOptions = true;
+      }
     });
   }
 

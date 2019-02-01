@@ -65,6 +65,7 @@
       <div *ngIf="showOptions" class="receptum-form__recurrence">
         Repeat every
         <input class="receptum-form__input receptum-form__input--number input" type="number" placeholder="day(s)" formControlName="recurrence" required>
+        day(s)
         <span class="receptum-form__hint" *ngIf="isErrorVisible('recurrence', 'required')">Field is mandatory</span>
         from
         <input class="receptum-form__input receptum-form__input--date input" type="date" placeholder="mm/dd/year" formControlName="timestamp" required>

@@ -9,7 +9,8 @@
          [class.organizer__link--disabled]="status === 'canceled' || (!trial && status !== 'active')">
         <i class="organizer__icon icon icon--plus"></i>
       </a>
-      <app-week [week]="item.week" [schedule]="item.name"></app-week>
+      <app-week [week]="item.week" [schedule]="item.name" [date]="item.week.date" [key]="item.$key"
+                [trial]="status === 'canceled' || (!trial && status !== 'active')"></app-week>
   </li>
 </ul>
 <app-spinner *ngIf="!loading"></app-spinner>

@@ -22,6 +22,7 @@ export class PortionAddComponent implements OnInit {
     Eve: 20,
     Bed: 23
   };
+  date;
 
   @ViewChild('alert', { read: ViewContainerRef }) alert: ViewContainerRef;
 
@@ -39,6 +40,8 @@ export class PortionAddComponent implements OnInit {
     this.activatedRoute.parent.queryParams.subscribe((params: any) => {
       if (params) {
         this.schedule = params.schedule;
+
+        this.date = params.date;
 
         // console.log(this.schedule);
 
