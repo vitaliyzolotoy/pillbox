@@ -35,7 +35,7 @@
     width: 380px;
     padding: 16px;
     border-radius: 4px;
-    background: #fff;
+    background: var(--primary-background);
     animation: scale 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91);
   }
 

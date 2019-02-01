@@ -6,6 +6,8 @@
 
   --primary: #343a40;
   --secondary: #007bff;
+  --primary-background: #fff;
+  --secondary-background: #f8f8f8;
 
   --mon: rgb(255, 149, 0);
   --tue: rgb(255, 204, 0);
@@ -30,6 +32,16 @@ body {
   line-height: 1.428571429;
   letter-spacing: 0.05em;
   color: var(--primary);
+  background: var(--primary-background);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --primary: #fff;
+    --secondary: #007bff;
+    --primary-background: #343a40;
+    --secondary-background: #2c3035;
+  }
 }
 
 @include breakpoint('s'){
