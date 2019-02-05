@@ -1,3 +1,17 @@
+@import '../icon/icon.scss';
+
+.option {
+  display: block;
+
+  &__checkbox {
+    display: none;
+  }
+
+  &__checkbox:checked + &__icon {
+    color: #fd8a10;
+  }
+}
+
 .plan {
   $border: #e6e5e6;
   $select: #f5f5f5;

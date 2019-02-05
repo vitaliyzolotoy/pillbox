@@ -61,7 +61,7 @@ export class SignupComponent implements OnInit {
       password: ['', [
         Validators.required,
         Validators.minLength(6),
-        Validators.pattern(/(?:\d+[a-z]|[a-z]+\d)[a-z\d]*/)
+        // Validators.pattern(/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/)
       ]],
       confirm: ['', Validators.required],
       terms: [false, Validators.required]
@@ -145,6 +145,8 @@ export class SignupComponent implements OnInit {
   onId(id) {
     // console.log(id);
     this.id = id;
+
+    this.analyticsService.trackEvent('choose');
   }
 
   getTimezoneOffset() {

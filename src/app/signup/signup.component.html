@@ -15,7 +15,7 @@
       <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"
              formControlName="password">
       <span class="fieldset__hint" *ngIf="isErrorVisible('password', 'required')">Password is required</span>
-      <span class="fieldset__hint" *ngIf="isErrorVisible('password', 'pattern')">Password must contain letters and numbers</span>
+      <!--<span class="fieldset__hint" *ngIf="isErrorVisible('password', 'pattern')">Minimum 6 characters, at least one letter and one number</span>-->
       <span class="fieldset__hint" *ngIf="isErrorVisible('password', 'minlength')">Password must be at least 6 characters long</span>
     </div>
     <div class="fieldset__item">
@@ -37,7 +37,6 @@
   <div class="fieldset__pane" *ngIf="subscription">
     <span>Choose your subscription plan</span>
     <app-plan (id)="onId($event)"></app-plan>
-    <span>or try it free for 30 days</span>
   </div>
   <div class="fieldset__foot">
     <button class="button button--large"

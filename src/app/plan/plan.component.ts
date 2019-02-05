@@ -34,6 +34,8 @@ export class PlanComponent implements OnInit {
 
     this.form.valueChanges
       .subscribe(form => {
+        // console.log(form)
+
         this.id.emit(this.price[form.plan].id);
       });
   }

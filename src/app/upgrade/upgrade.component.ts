@@ -3,6 +3,7 @@ import {paddleConfig} from '../../environments/paddle.config';
 import {PaymentService} from '../shared/payment/payment.service';
 import {AuthService} from '../shared/security/auth.service';
 import {AuthInfo} from '../shared/security/auth-info';
+import {AnalyticsService} from '../shared/analytics/analytics.service';
 
 @Component({
   selector: 'app-upgrade',
@@ -15,7 +16,8 @@ export class UpgradeComponent implements OnInit {
   authInfo: AuthInfo;
 
   constructor(public paymentService: PaymentService,
-              private authService: AuthService) { }
+              private authService: AuthService,
+              private analyticsService: AnalyticsService) { }
 
   ngOnInit() {
     this.authService.authInfo$.subscribe(authInfo => {
@@ -36,6 +38,8 @@ export class UpgradeComponent implements OnInit {
   onId(id) {
     // console.log(id);
     this.id = id;
+
+    this.analyticsService.trackEvent('choose');
 
     Paddle.Checkout.open({
       product: id,
