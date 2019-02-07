@@ -118,6 +118,14 @@
 
 @include breakpoint('s'){
   .week {
+    &__link {
+      display: none;
+    }
+
+    &__item:hover &__link {
+      display: none;
+    }
+
     &__item {
       position: static;
       overflow: visible;
