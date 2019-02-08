@@ -7,6 +7,7 @@ import {MessagingService} from '../shared/messaging/messaging.service';
 import * as firebase from 'firebase';
 import {NotifyComponent} from '../notify/notify.component';
 import {AlertService} from '../shared/alert/alert.service';
+import {AnalyticsService} from '../shared/analytics/analytics.service';
 
 @Component({
   selector: 'app-portion-add',
@@ -32,7 +33,8 @@ export class PortionAddComponent implements OnInit {
               private taskService: TaskService,
               private messagingService: MessagingService,
               private cfr: ComponentFactoryResolver,
-              private alertService: AlertService) { }
+              private alertService: AlertService,
+              private analyticsService: AnalyticsService) { }
 
   ngOnInit() {
     this.scheduleKey = this.route.snapshot.params['key'];
@@ -53,7 +55,7 @@ export class PortionAddComponent implements OnInit {
   save(form) {
     // console.log(form.value);
 
-    console.log(form.value.time.split(':')[0])
+    // console.log(form.value.time.split(':')[0])
 
     this.receptumsService
       .createNewReceptum(form.value.schedule, form.value, this.schedule)
@@ -88,6 +90,8 @@ export class PortionAddComponent implements OnInit {
           this.messagingService.getPermission();
 
           form.reset();
+
+          this.analyticsService.trackEvent('create');
         },
         err => alert(`${err}`)
       );
