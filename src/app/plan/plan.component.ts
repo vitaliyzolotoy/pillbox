@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {environment} from '../../environments/environment';
 
@@ -9,6 +9,8 @@ import {environment} from '../../environments/environment';
 })
 export class PlanComponent implements OnInit {
   @Output() id: EventEmitter<any> = new EventEmitter();
+  @Input() trial = true;
+
   form: FormGroup;
   price = {
     yearly: {

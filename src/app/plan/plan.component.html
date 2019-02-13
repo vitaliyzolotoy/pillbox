@@ -1,25 +1,25 @@
 <form [formGroup]="form">
   <br>
-  <div class="plan plan--yearly">
-    <input class="plan__control radio tabs" type="radio" id="pro" name="plan" value="yearly" formControlName="plan">
-    <label class="plan__text" for="pro">
-      <span class="plan__title"><b>Yearly</b></span>
-      <span class="plan__price"><b>$36 /yr</b></span>
-      <span class="plan__save">Only $3 a month</span>
-      <span class="plan__label">Select plan</span>
-      <span class="plan__label plan__label--checked">Selected</span>
-    </label>
-  </div>
   <div class="plan plan--monthly">
     <input class="plan__control radio tabs" type="radio" id="monthly" name="plan" value="monthly" formControlName="plan">
     <label class="plan__text" for="monthly">
       <span class="plan__title"><b>Monthly</b></span>
-      <span class="plan__price"><b>$4 /mo</b></span>
+      <span class="plan__price"><b>$5/month</b></span>
+      <span class="plan__label">Select plan</span>
+      <span class="plan__label plan__label--checked">Selected</span>
+    </label>
+  </div>
+  <div class="plan plan--yearly">
+    <input class="plan__control radio tabs" type="radio" id="pro" name="plan" value="yearly" formControlName="plan">
+    <label class="plan__text" for="pro">
+      <span class="plan__title"><b>Yearly</b></span>
+      <span class="plan__price"><b>$48/year</b></span>
+      <span class="plan__save">Save 20%</span>
       <span class="plan__label">Select plan</span>
       <span class="plan__label plan__label--checked">Selected</span>
     </label>
   </div>
   <br>
   <label class="option" *ngIf="free"><input class="option__checkbox" type="radio" name="plan" value="test" formControlName="plan"><i class="option__icon icon icon--ok"></i> Free plan</label>
-  <label class="option"><input class="option__checkbox" type="radio" value="option" name="plan"><i class="option__icon icon icon--ok"></i> or try it free for 30 days</label>
+  <label class="option" *ngIf="trial"><input class="option__checkbox" type="radio" value="option" name="plan"><i class="option__icon icon icon--ok"></i> or try it free for 30 days</label>
 </form>

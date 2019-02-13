@@ -4,6 +4,6 @@
     <h2 class="modal__title">Subscription</h2>
     <span>Your free 30 days period has been ended,</span>
     <span>choose your subscription plan</span>
-    <app-plan (id)="onId($event)"></app-plan>
+    <app-plan [trial]="false" (id)="onId($event)"></app-plan>
   </div>
 </div>
