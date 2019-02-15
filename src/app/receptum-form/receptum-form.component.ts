@@ -60,6 +60,13 @@ export class ReceptumFormComponent implements OnInit {
         this.showOptions = true;
       }
     });
+
+    this.form.valueChanges
+      .subscribe(form => {
+        if (form.repeat) {
+          this.form.controls['timestamp'].patchValue(new Date());
+        }
+      });
   }
 
   isErrorVisible(field: string, error: string) {
