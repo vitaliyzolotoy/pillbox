@@ -14,6 +14,7 @@ export class ReceptumFormComponent implements OnInit {
   schedule;
   scheduleKey;
   date;
+  currentDate = Date.now();
 
   constructor(private formBuilder: FormBuilder,
               private scheduleService: ScheduleService,
@@ -55,7 +56,13 @@ export class ReceptumFormComponent implements OnInit {
 
         this.form.controls['recurrence'].patchValue(1);
 
-        this.form.controls['timestamp'].patchValue(this.date);
+        if (new Date(this.date) <= new Date(this.currentDate)) {
+          this.form.controls['timestamp'].patchValue(new Date().toISOString().substring(0, 10));
+        } else {
+          // console.log(this.date);
+
+          this.form.controls['timestamp'].setValue(new Date(this.date + 'Z').toISOString().substring(0, 10));
+        }
 
         this.showOptions = true;
       }
@@ -64,7 +71,7 @@ export class ReceptumFormComponent implements OnInit {
     this.form.valueChanges
       .subscribe(form => {
         if (form.repeat) {
-          this.form.controls['timestamp'].patchValue(new Date());
+          this.form.controls['timestamp'].reset();
         }
       });
   }
@@ -90,5 +97,9 @@ export class ReceptumFormComponent implements OnInit {
 
   showOptionsHandle() {
     this.showOptions = !this.showOptions;
+  }
+
+  getToday(): string {
+    return new Date().toISOString().split('T')[0];
   }
 }
