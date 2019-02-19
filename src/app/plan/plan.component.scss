@@ -46,12 +46,17 @@
   }
 
   &__price {
-    font-size: 22px;
+    font-size: 28px;
+    line-height: 20px;
     margin: 4px 0;
   }
 
   &__price span {
     font-size: 14px;
+  }
+
+  &__price sup {
+    font-size: 12px;
   }
 
   &__save {
