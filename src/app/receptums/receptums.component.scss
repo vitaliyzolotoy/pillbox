@@ -43,7 +43,8 @@
     line-height: 15px;
   }
 
-  &__type {
+  &__type,
+  &__name {
     font-weight: 400;
   }
 }

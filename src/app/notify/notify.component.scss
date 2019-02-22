@@ -23,13 +23,13 @@
   animation: show 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91);
 
   &--success {
-    color: var(--wed);
-    border-color: var(--wed);
+    color: green;
+    border-color: green;
   }
 
   &--error {
-    color: var(--sun);
-    border-color: var(--sun);
+    color: red;
+    border-color: red;
   }
 
   &__close {

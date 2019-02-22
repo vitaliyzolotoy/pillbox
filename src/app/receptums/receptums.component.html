@@ -6,15 +6,17 @@
       {{ portion.quantity}}{{ portion.type.toLowerCase().substring(0, 3) }}.
     </span>
     of
-    {{ portion.name }}
+    <span class="receptums__name">
+      {{ portion.name }}
+    </span>
+    <span class="receptums__unit" title="{{ portion.unit }}"
+          *ngIf="portion.dose">
+      {{ portion.dose }}{{ (portion.unit === 'Milligram') ? 'mg' : 'ml' }}.
+    </span>
     <ng-container *ngIf="portion.time">
       at
       {{ portion.time }}
     </ng-container>
-    <span class="receptums__unit" title="{{ portion.unit }}"
-      *ngIf="portion.dose">
-      {{ portion.dose }}{{ (portion.unit === 'Milligram') ? 'mg' : 'ml' }}.
-    </span>
     <i class="receptums__icon icon icon--cancel" (click)="removeReceptum(portion.key, portion.scheduleItemId)"></i>
   </li>
 </ul>

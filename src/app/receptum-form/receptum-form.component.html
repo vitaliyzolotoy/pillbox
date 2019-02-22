@@ -5,7 +5,7 @@
       <span class="receptum-form__hint" *ngIf="isErrorVisible('quantity', 'required')">Field is mandatory</span>
       <span class="receptum-form__select select">
         <select class="select__input" name="type" formControlName="type">
-          <option [selected]="'selected'">chose type</option>
+          <!--<option [selected]="'selected'">chose type</option>-->
           <option value="Tablet(s)">Tablet(s)</option>
           <option value="Capsule(s)">Capsule(s)</option>
           <option value="Drop(s)">Drop(s)</option>
@@ -42,7 +42,7 @@
       <span class="receptum-form__hint" *ngIf="isErrorVisible('dose', 'required')">Field is mandatory</span>
       <span class="receptum-form__select select">
         <select class="select__input" name="unit" formControlName="unit">
-          <option [selected]="'selected'">chose unit</option>
+          <!--<option [selected]="'selected'">chose unit</option>-->
           <option value="Milligram(s)">Milligram(s)</option>
           <option value="Milliliter(s)">Milliliter(s)</option>
         </select>
