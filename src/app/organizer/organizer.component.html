@@ -1,8 +1,9 @@
-<ul class="organizer" [ngClass]="{ 'organizer--visibility': visibility }">
-  <li class="organizer__head" *ngIf="loading">
-    <span class="organizer__date" *ngFor="let day of days">{{ day }}</span>
-  </li>
-  <li class="organizer__item" *ngFor="let item of schedule">
+<div class="organizer-outer">
+  <ul class="organizer" [ngClass]="{ 'organizer--visibility': visibility }">
+    <li class="organizer__head" *ngIf="loading">
+      <span class="organizer__date" *ngFor="let day of days">{{ day }}</span>
+    </li>
+    <li class="organizer__item" *ngFor="let item of schedule">
       <a class="organizer__link"
          [routerLink]="['/home/' + item.$key]"
          [queryParams]="{ modal: true, schedule: item.name }"
@@ -11,6 +12,7 @@
       </a>
       <app-week [week]="item.week" [schedule]="item.name" [date]="item.week.date" [key]="item.$key"
                 [trial]="status === 'canceled' || (!trial && status !== 'active')"></app-week>
-  </li>
-</ul>
-<app-spinner *ngIf="!loading"></app-spinner>
+    </li>
+  </ul>
+  <app-spinner *ngIf="!loading"></app-spinner>
+</div>

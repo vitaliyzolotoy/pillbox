@@ -113,6 +113,14 @@
   }
 }
 
+//@include breakpoint('l'){
+//  .week {
+//    &__item {
+//      width: calc(100vw * 7);
+//    }
+//  }
+//}
+
 @include breakpoint('m'){
   .week {
     &__item {
