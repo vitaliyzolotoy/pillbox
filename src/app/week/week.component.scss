@@ -113,53 +113,53 @@
   }
 }
 
-//@include breakpoint('l'){
+@include breakpoint('l'){
+  .week {
+    &__item {
+      width: calc(100vw * 7);
+    }
+  }
+}
+
+//@include breakpoint('m'){
 //  .week {
 //    &__item {
-//      width: calc(100vw * 7);
+//      height: 100px;
 //    }
 //  }
 //}
-
-@include breakpoint('m'){
-  .week {
-    &__item {
-      height: 100px;
-    }
-  }
-}
-
-@include breakpoint('s'){
-  .week {
-    &__link {
-      display: none;
-    }
-
-    &__item:hover &__link {
-      display: none;
-    }
-
-    &__item {
-      position: static;
-      overflow: visible;
-      width: 40px;
-      height: 40px;
-    }
-
-    &__item /deep/ .caption__period {
-      display: none;
-    }
-
-    &__item:first-child /deep/ .caption__period {
-      display: block;
-    }
-
-    &__item /deep/ .receptums {
-      display: none;
-    }
-
-    &__item /deep/ .handle:checked + .receptums {
-      display: block;
-    }
-  }
-}
+//
+//@include breakpoint('s'){
+//  .week {
+//    &__link {
+//      display: none;
+//    }
+//
+//    &__item:hover &__link {
+//      display: none;
+//    }
+//
+//    &__item {
+//      position: static;
+//      overflow: visible;
+//      width: 40px;
+//      height: 40px;
+//    }
+//
+//    &__item /deep/ .caption__period {
+//      display: none;
+//    }
+//
+//    &__item:first-child /deep/ .caption__period {
+//      display: block;
+//    }
+//
+//    &__item /deep/ .receptums {
+//      display: none;
+//    }
+//
+//    &__item /deep/ .handle:checked + .receptums {
+//      display: block;
+//    }
+//  }
+//}

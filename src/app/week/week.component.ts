@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-week',
@@ -11,6 +11,7 @@ export class WeekComponent implements OnInit {
   @Input() date;
   @Input() key;
   @Input() trial;
+  // @Output() active = new EventEmitter();
   dayOfWeek;
   current;
 
@@ -22,6 +23,8 @@ export class WeekComponent implements OnInit {
     // console.log(this.dayOfWeek - 1)
 
     this.current = this.week[this.dayOfWeek - 1];
+
+    // this.active.emit(this.current);
 
     // console.log(this.current);
 

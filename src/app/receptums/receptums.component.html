@@ -2,21 +2,23 @@
    [ngClass]="{ 'handle--full': receptums.length !== 0 }">
 <ul class="receptums" [ngClass]="{ 'receptums--full': receptums.length !== 0}">
   <li class="receptums__item" *ngFor="let portion of receptums">
-    <span class="receptums__type" title="{{ portion.type }}">
-      {{ portion.quantity}}{{ portion.type.toLowerCase().substring(0, 3) }}.
+    <span class="receptums__item-inner">
+      <span class="receptums__type" title="{{ portion.type }}">
+        {{ portion.quantity}}{{ portion.type.toLowerCase().substring(0, 3) }}.
+      </span>
+        <!--of-->
+      <span class="receptums__name">
+        {{ portion.name }}
+      </span>
+      <span class="receptums__unit" title="{{ portion.unit }}"
+            *ngIf="portion.dose">
+        {{ portion.dose }}{{ (portion.unit === 'Milligram') ? 'mg' : 'ml' }}.
+      </span>
+      <i class="receptums__icon icon icon--cancel" (click)="removeReceptum(portion.key, portion.scheduleItemId)"></i>
     </span>
-    of
-    <span class="receptums__name">
-      {{ portion.name }}
-    </span>
-    <span class="receptums__unit" title="{{ portion.unit }}"
-          *ngIf="portion.dose">
-      {{ portion.dose }}{{ (portion.unit === 'Milligram') ? 'mg' : 'ml' }}.
-    </span>
-    <ng-container *ngIf="portion.time">
-      at
+    <span class="receptums__time" *ngIf="portion.time">
+      <!--at-->
       {{ portion.time }}
-    </ng-container>
-    <i class="receptums__icon icon icon--cancel" (click)="removeReceptum(portion.key, portion.scheduleItemId)"></i>
+    </span>
   </li>
 </ul>

@@ -7,11 +7,11 @@
     <li class="selector__item"><button class="button"
                                        [routerLink]="['/home']"
                                        [queryParams]="{ week: null }"
-                                       (click)="onToday()">Today</button></li>
+                                       (click)="onToday()">Current Week</button></li>
     <li class="selector__item"><button class="button"
                                        (click)="onNextWeek()"
                                        [routerLink]="['/home']"
-                                       [queryParams]="{ week: week }"><i class="icon icon--right"></i></button></li>
+                                       [queryParams]="{ week: week }">Next <i class="icon icon--right"></i></button></li>
   </ul>
   <menu class="menu" *ngIf="authInfo?.isLoggenIn()">
     <a href="#" class="menu__link link" [routerLink]="['/home/settings']" [queryParams]="{ modal: true }">

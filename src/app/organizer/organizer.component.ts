@@ -1,4 +1,4 @@
-import {Component, EventEmitter, Inject, Input, OnInit, Output} from '@angular/core';
+import {Component, ElementRef, EventEmitter, Inject, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {ScheduleItem} from '../shared/model/scheduleItem';
 import {ScheduleService} from '../shared/model/schedule.service';
 import {Receptum} from '../shared/model/receptum';
@@ -22,6 +22,9 @@ export class OrganizerComponent implements OnInit {
   days;
   start;
   week;
+  current;
+  dayOfWeek;
+  @ViewChild('scroller', {read: ElementRef}) private scroller: ElementRef;
 
   constructor(private scheduleService: ScheduleService,
               public paymentService: PaymentService,
@@ -89,6 +92,13 @@ export class OrganizerComponent implements OnInit {
               });
 
               this.loading = true;
+
+              // console.log(new Date().getDay())
+
+              this.dayOfWeek = new Date().getDay() || 7;
+
+
+              this.scroller.nativeElement.scrollLeft = 1190 / 7 * (this.dayOfWeek - 1);
 
               // console.log(item);
 
@@ -160,4 +170,10 @@ export class OrganizerComponent implements OnInit {
 
     this.days = days;
   }
+
+  // onActive(current) {
+  //   console.log(current.name.toLowerCase());
+  //
+  //   this.current = current.name.toLowerCase();
+  // }
 }

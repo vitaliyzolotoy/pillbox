@@ -6,7 +6,7 @@
   position: absolute;
   z-index: 2;
   top: 3.4rem;
-  //width: calc(100% - 8px);
+  width: calc(100% - 8px);
   margin: 0 4px 0 4px;
   padding: 0;
   list-style: none;
@@ -18,18 +18,27 @@
   }
 
   &__item {
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 100%;
-    //text-overflow: ellipsis;
-    word-spacing: -2px;
+    display: flex;
+    justify-content: space-between;
   }
 
-  &__item:hover,
-  &__item:active {
+  &__item-inner {
+    //position: relative;
+    //display: inline-block;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 100%;
+    text-overflow: ellipsis;
+    word-spacing: -2px;
+    word-break: break-all;
+  }
+
+  &__item-inner:hover,
+  &__item-inner:active {
     overflow: visible;
-    max-width: none;
-    background: var(--primary-background);
+    //max-width: none;
+    //background: var(--primary-background);
+    white-space: normal;
   }
 
   &__icon {
@@ -38,14 +47,23 @@
     cursor: pointer;
   }
 
-  &__item:hover &__icon {
+  &__item-inner:hover &__icon {
     display: inline-block;
-    line-height: 15px;
+    //line-height: 15px;
   }
 
-  &__type,
-  &__name {
+  &__type {
     font-weight: 400;
+  }
+
+  &__time {
+    font-weight: 400;
+    font-size: 0.7rem;
+    //position: absolute;
+    //right: 0;
+    width: 35px;
+    margin-top: 1px;
+    color: #cccccc;
   }
 }
 
@@ -53,34 +71,34 @@
   display: none;
 }
 
-@include breakpoint('s'){
-  .receptums {
-    &--full {
-      position: absolute;
-      top: 170px;
-      left: 0;
-      right: 0;
-      height: 40vh;
-    }
-  }
-
-  .handle {
-    display: block;
-    margin-top: 18px;
-    margin-left: 14px;
-    width: 6px;
-    height: 6px;
-    outline: none;
-    border-radius: 50%;
-    background: transparent;
-    -webkit-appearance: none;
-
-    &--full {
-      background: #404040;
-    }
-
-    &:checked {
-      background: red;
-    }
-  }
-}
+//@include breakpoint('s'){
+//  .receptums {
+//    &--full {
+//      position: absolute;
+//      top: 170px;
+//      left: 0;
+//      right: 0;
+//      height: 40vh;
+//    }
+//  }
+//
+//  .handle {
+//    display: block;
+//    margin-top: 18px;
+//    margin-left: 14px;
+//    width: 6px;
+//    height: 6px;
+//    outline: none;
+//    border-radius: 50%;
+//    background: transparent;
+//    -webkit-appearance: none;
+//
+//    &--full {
+//      background: #404040;
+//    }
+//
+//    &:checked {
+//      background: red;
+//    }
+//  }
+//}
