@@ -1,3 +1,5 @@
+<ng-template #alert></ng-template>
+
 <form class="fieldset"
       [formGroup]="form">
   <h2 class="fieldset__head">Log In <small>or
@@ -8,7 +10,7 @@
     <input class="fieldset__input input input--extra" type="text" placeholder="Your Email Address" name="email" autofocus
            formControlName="email">
     <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'required')">Email is required</span>
-    <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'email')">Email must be a valid email</span>
+    <span class="fieldset__hint" *ngIf="isErrorVisible('email', 'email')">Email address is badly formatted</span>
   </div>
   <div class="fieldset__item">
     <input class="fieldset__input input input--extra" type="password" placeholder="Your Password" name="password"

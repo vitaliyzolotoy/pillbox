@@ -1,7 +1,7 @@
 <div class="notify" *ngIf="message" [ngClass]="{
-  'notify--success': message.type === 'success',
-  'notify--error': message.type === 'error'
+  'notify#success': message.type === 'success',
+  'notify#error': message.type === 'error'
 }">
-  <div class="notify__close" (click)="hideNotify()"><i class="icon icon--cancel"></i></div>
-  <p class="notify__desc">{{ message.text }}</p>
+  <div class="notify/close" (click)="hideNotify()"><i class="notify/icon icon icon--cancel"></i></div>
+  <p class="notify/desc">{{ message.text }}</p>
 </div>

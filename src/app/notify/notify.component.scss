@@ -12,27 +12,28 @@
 }
 
 .notify {
+  --notify-color: black;
+
   position: fixed;
   left: 50%;
   top: 10px;
   z-index: 102;
   max-width: 380px;
   padding: 6px 26px;
-  border: 1px solid var(--primary);
+  color:  var(--notify-color);
+  border: 1px solid var(--notify-color);
   background: #fff;
   animation: show 300ms forwards cubic-bezier(0.8, 0.02, 0.45, 0.91);
 
-  &--success {
-    color: green;
-    border-color: green;
+  &\#success {
+    --notify-color: green;
   }
 
-  &--error {
-    color: red;
-    border-color: red;
+  &\#error {
+    --notify-color: red;
   }
 
-  &__close {
+  &\/close {
     position: absolute;
     top: 4px;
     right: 6px;

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { Validators, FormGroup, FormBuilder } from '@angular/forms';
 import { AuthService } from '../shared/security/auth.service';
 import { Router } from '@angular/router';
@@ -6,6 +6,8 @@ import {PaymentService} from '../shared/payment/payment.service';
 import {environment} from '../../environments/environment';
 import {paddleConfig} from '../../environments/paddle.config';
 import {AnalyticsService} from '../shared/analytics/analytics.service';
+import {NotifyComponent} from '../notify/notify.component';
+import {AlertService} from '../shared/alert/alert.service';
 
 @Component({
   selector: 'app-signup',
@@ -48,11 +50,15 @@ export class SignupComponent implements OnInit {
   token;
   loading = false;
 
+  @ViewChild('alert', { read: ViewContainerRef }) alert: ViewContainerRef;
+
   constructor(private fb: FormBuilder,
               private authService: AuthService,
               private router: Router,
               public paymentService: PaymentService,
-              private analyticsService: AnalyticsService) {
+              private analyticsService: AnalyticsService,
+              private cfr: ComponentFactoryResolver,
+              private alertService: AlertService) {
     this.form = fb.group({
       email: ['', [
         Validators.required,
@@ -126,13 +132,19 @@ export class SignupComponent implements OnInit {
 
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);
 
-          alert('Account creates successfully');
+          this.showAlert('alert');
+
+          this.alertService.success('Account creates successfully');
 
           this.router.navigate(['/home']);
 
           this.analyticsService.trackEvent('signup');
         },
-        alert
+        (error) => {
+          this.showAlert('alert');
+
+          this.alertService.error(error);
+        }
       );
   }
 
@@ -156,5 +168,15 @@ export class SignupComponent implements OnInit {
     // console.log(timezone);
 
     return timezone;
+  }
+
+  showAlert(target) {
+    this[target].clear();
+
+    const factory = this.cfr.resolveComponentFactory(NotifyComponent);
+
+    const ref = this[target].createComponent(factory);
+
+    ref.changeDetectorRef.detectChanges();
   }
 }

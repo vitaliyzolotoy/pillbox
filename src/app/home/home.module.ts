@@ -15,7 +15,6 @@ import { SettingsComponent } from '../settings/settings.component';
 import { HeaderComponent } from '../header/header.component';
 import { UpgradeComponent } from '../upgrade/upgrade.component';
 import * as moment from 'moment';
-import { NotifyComponent } from '../notify/notify.component';
 import {ReceptumsComponent} from '../receptums/receptums.component';
 import {BaseModule} from '../base/base.module';
 
@@ -30,8 +29,7 @@ import {BaseModule} from '../base/base.module';
     WeekComponent,
     SettingsComponent,
     HeaderComponent,
-    UpgradeComponent,
-    NotifyComponent
+    UpgradeComponent
   ],
   imports: [
     CommonModule,
@@ -45,7 +43,6 @@ import {BaseModule} from '../base/base.module';
     ReceptumsService,
     { provide: 'moment', useFactory: (): any => moment }
   ],
-  bootstrap: [HomeComponent],
-  entryComponents: [NotifyComponent]
+  bootstrap: [HomeComponent]
 })
 export class HomeModule { }

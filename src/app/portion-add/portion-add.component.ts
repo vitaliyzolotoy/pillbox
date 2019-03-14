@@ -69,7 +69,7 @@ export class PortionAddComponent implements OnInit {
             data.key,
             // Date.now(),
             form.value.timestamp
-              ? new Date(new Date(new Date(form.value.timestamp + 'Z').toISOString().substring(0, 10)).setHours(form.value.time.split(':')[0], form.value.time.split(':')[1])).getTime()
+              ? new Date(new Date(new Date(form.value.timestamp).toISOString().substring(0, 10)).setHours(form.value.time.split(':')[0], form.value.time.split(':')[1])).getTime()
               : new Date(new Date(new Date().toISOString().substring(0, 10)).setHours(form.value.time.split(':')[0], form.value.time.split(':')[1])).getTime(),
             // minutes(1),
             minutes(form.value.recurrence ? form.value.recurrence * 1440 : 1440),
