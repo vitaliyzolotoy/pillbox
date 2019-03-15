@@ -4,6 +4,10 @@
     <span class="logo__line"></span>
   </div>
   <ul class="selector">
+    <li class="selector__item"><button class="button button--action"
+                                       [routerLink]="['/home/add']"
+                                       [queryParams]="{ modal: true }"><i class="icon icon--plus"></i> Add medicine</button></li>
+    <li class="selector__gap"></li>
     <li class="selector__item"><button class="button"
                                        [routerLink]="['/home']"
                                        [queryParams]="{ week: null }"
