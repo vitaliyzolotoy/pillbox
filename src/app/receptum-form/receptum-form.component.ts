@@ -23,7 +23,7 @@ export class ReceptumFormComponent implements OnInit {
 
   ngOnInit() {
     this.form = this.formBuilder.group({
-      schedule: [null, Validators.required],
+      schedule: ['-L0dRv-aGoYeniq-vtiZ', Validators.required],
       time: [null, [
         Validators.required,
         Validators.pattern(/^([01]?[0-9]|2[0-3]):[0-5][0-9]$/)

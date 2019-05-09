@@ -24,7 +24,7 @@
     <div class="receptum-form__item">
       What time?
       <span class="receptum-form__select select">
-        <select class="select__input" name="schedule" formControlName="schedule">
+        <select class="select__input" name="schedule" formControlName="schedule" required>
           <option *ngFor="let item of schedule" value="{{ item.$key }}">{{ item.fullName }}</option>
         </select>
         <span class="select__icon">
