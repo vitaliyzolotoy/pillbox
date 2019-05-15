@@ -2,12 +2,12 @@
   <li class="week__item week__item--{{ item.name.toLowerCase() }} "
       *ngFor="let item of week; index as i"
       [ngClass]="{ 'week__item--current': current.name.toLowerCase() === item.name.toLowerCase() }">
-    <a class="week__link"
+    <button class="week__link"
        [routerLink]="['/home/' + key]"
        [queryParams]="{ modal: true, schedule: schedule, date: item.date }"
-       [class.week__link--disabled]="trial">
+       [disabled]="trial">
       <i class="week__icon icon icon--plus"></i>
-    </a>
+    </button>
     <app-caption [period]="schedule" [day]="item.name"></app-caption>
     <app-receptums [receptums]="item.receptums" [current]="current"></app-receptums>
   </li>

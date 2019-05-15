@@ -1,6 +1,7 @@
 export class AuthInfo {
   constructor(public $uid: string,
-              public email: string) {}
+              public email: string,
+              public verify: boolean) {}
 
   isLoggenIn() {
     return !!this.$uid;
@@ -8,5 +9,9 @@ export class AuthInfo {
 
   getUserUID() {
     return this.$uid;
+  }
+
+  isVerify() {
+    return !this.verify;
   }
 }

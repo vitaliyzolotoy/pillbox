@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 
 @Injectable()
 export class AuthService {
-  static UNKNOWN_USER = new AuthInfo(null, null);
+  static UNKNOWN_USER = new AuthInfo(null, null, null);
 
   authInfo$: BehaviorSubject<AuthInfo> = new BehaviorSubject<AuthInfo>(AuthService.UNKNOWN_USER);
 
@@ -14,11 +14,15 @@ export class AuthService {
               private router: Router) {
     auth.authState.subscribe((authState) => {
       if (authState) {
-        // console.log(authState)
-        const authInfo = new AuthInfo(authState.uid, authState.email);
+        console.log(authState)
+        const authInfo = new AuthInfo(authState.uid, authState.email, authState.emailVerified);
         this.authInfo$.next(authInfo);
       }
     });
+
+    // auth.auth.onIdTokenChanged((user) => {
+    //   console.log('data from stateChanged: ', user);
+    // })
   }
 
   login(email, password): Observable<AngularFireAuth> {
@@ -33,13 +37,17 @@ export class AuthService {
     return this.auth.auth.sendPasswordResetEmail(email);
   }
 
+  verifyEmail() {
+    this.auth.auth.currentUser.sendEmailVerification();
+  }
+
   fromFirebaseAuthPromise(promise): Observable<any> {
     const subject = new Subject<any>();
 
     promise
       .then(res => {
         // console.log(this.auth.auth.currentUser)
-        const authInfo = new AuthInfo(this.auth.auth.currentUser.uid, this.auth.auth.currentUser.email);
+        const authInfo = new AuthInfo(this.auth.auth.currentUser.uid, this.auth.auth.currentUser.email, this.auth.auth.currentUser.emailVerified);
 
         this.authInfo$.next(authInfo);
         subject.next(res);

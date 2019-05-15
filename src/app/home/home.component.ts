@@ -39,6 +39,12 @@ export class HomeComponent implements OnInit {
       console.log(authInfo);
 
       this.authInfo = authInfo;
+
+      if (!this.authInfo.verify) {
+        this.showAlert('alert');
+
+        this.alertService.error('Please verify your email');
+      }
     });
 
     this.activatedRoute.parent.queryParams.subscribe((params: any) => {

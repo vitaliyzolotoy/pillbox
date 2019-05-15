@@ -139,6 +139,8 @@ export class SignupComponent implements OnInit {
           this.router.navigate(['/home']);
 
           this.analyticsService.trackEvent('signup');
+
+          this.authService.verifyEmail();
         },
         (error) => {
           this.showAlert('alert');
