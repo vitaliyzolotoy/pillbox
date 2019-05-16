@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
 import {ScheduleService} from '../shared/model/schedule.service';
 import {ActivatedRoute} from '@angular/router';
@@ -19,7 +19,8 @@ export class ReceptumFormComponent implements OnInit {
   constructor(private formBuilder: FormBuilder,
               private scheduleService: ScheduleService,
               private route: ActivatedRoute,
-              private activatedRoute: ActivatedRoute) { }
+              private activatedRoute: ActivatedRoute,
+              @Inject('moment') private moment) { }
 
   ngOnInit() {
     this.form = this.formBuilder.group({
@@ -59,9 +60,9 @@ export class ReceptumFormComponent implements OnInit {
         if (new Date(this.date) <= new Date(this.currentDate)) {
           this.form.controls['timestamp'].patchValue(new Date().toISOString().substring(0, 10));
         } else {
-          // console.log(this.date);
+          console.log(this.moment(this.date).add(1, 'days').toDate());
 
-          this.form.controls['timestamp'].setValue(new Date(this.date + 'Z').toISOString().substring(0, 10));
+          this.form.controls['timestamp'].setValue(this.moment(this.date).add(1, 'days').toDate().toISOString().substring(0, 10));
         }
 
         this.showOptions = true;
