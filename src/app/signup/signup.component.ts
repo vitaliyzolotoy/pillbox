@@ -140,7 +140,7 @@ export class SignupComponent implements OnInit {
 
           this.analyticsService.trackEvent('signup');
 
-          this.authService.verifyEmail();
+          // this.authService.verifyEmail();
         },
         (error) => {
           this.showAlert('alert');
