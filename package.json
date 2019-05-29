@@ -31,8 +31,7 @@
     "moment-recur": "^1.0.7",
     "rxjs": "6.3.3",
     "rxjs-compat": "6.2.0",
-    "zone.js": "^0.8.26",
-    "node-sass": "^4.0.0"
+    "zone.js": "^0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.6.6",
@@ -53,7 +52,7 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "node-sass": "^4.11.0",
+    "node-sass": "^4.8.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.0.4",
     "tslint": "~5.3.2",
