@@ -35,17 +35,17 @@ export class HomeComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.authService.authInfo$.subscribe(authInfo => {
-    //   console.log(authInfo);
-    //
-    //   this.authInfo = authInfo;
-    //
-    //   if (!this.authInfo.verify) {
-    //     this.showAlert('alert');
-    //
-    //     this.alertService.error('Please verify your email');
-    //   }
-    // });
+    this.authService.authInfo$.subscribe(authInfo => {
+      console.log(authInfo);
+
+      this.authInfo = authInfo;
+
+      // if (!this.authInfo.verify) {
+      //   this.showAlert('alert');
+      //
+      //   this.alertService.error('Please verify your email');
+      // }
+    });
 
     this.activatedRoute.parent.queryParams.subscribe((params: any) => {
       if (params) {
