@@ -1,7 +1,7 @@
 import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import {FormBuilder, FormGroup} from '@angular/forms';
 import {ReceptumsService} from '../shared/model/receptums.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {TaskService} from '../shared/task/task.service';
 import {MessagingService} from '../shared/messaging/messaging.service';
 import * as firebase from 'firebase';
@@ -34,7 +34,8 @@ export class PortionAddComponent implements OnInit {
               private messagingService: MessagingService,
               private cfr: ComponentFactoryResolver,
               private alertService: AlertService,
-              private analyticsService: AnalyticsService) { }
+              private analyticsService: AnalyticsService,
+              private router: Router) { }
 
   ngOnInit() {
     this.scheduleKey = this.route.snapshot.params['key'];
@@ -87,11 +88,13 @@ export class PortionAddComponent implements OnInit {
 
           this.alertService.success('Medicine added');
 
-          this.messagingService.getPermission();
-
           form.reset();
 
           this.analyticsService.trackEvent('create');
+
+          // this.router.navigate(['/home'], { queryParams: { recupthum: 'added' } });
+
+          this.messagingService.getPermission();
         },
         err => alert(`${err}`)
       );

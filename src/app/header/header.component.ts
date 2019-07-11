@@ -31,4 +31,8 @@ export class HeaderComponent implements OnInit {
   logout() {
     this.authService.logout();
   }
+
+  getToday(): string {
+    return new Date().toISOString().split('T')[0];
+  }
 }
