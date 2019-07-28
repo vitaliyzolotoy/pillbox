@@ -43,7 +43,7 @@
   <div class="fieldset__foot">
     <button class="button button--large"
             (click)="signUp()"
-            [disabled]="!isPasswordMatch() || !isAgreed() || !form.valid">
+            [disabled]="!isPasswordMatch() || !isAgreed() || !form.valid || !id">
       <i *ngIf="!loading" class="link__icon icon icon--lock"></i>
       <app-spinner *ngIf="loading" [size]="'small'" [theme]="'white'"></app-spinner>
       Sign Up
