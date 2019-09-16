@@ -20,13 +20,6 @@
     </label>
   </div>
   <br>
-  <label class="option" *ngIf="free">
-    <input class="option__checkbox" type="radio" name="plan" value="test" formControlName="plan">
-    <i class="option__icon icon icon--ok"></i>
-    Free plan
-  </label>
-  <label class="option" *ngIf="trial">
-    <i class="option__icon icon icon--ok"></i>
-    Try it free for 15 days
-  </label>
+  <label class="option" *ngIf="free"><input class="option__checkbox" type="radio" name="plan" value="test" formControlName="plan"><i class="option__icon icon icon--ok"></i> Free plan</label>
+  <label class="option" *ngIf="trial"><input class="option__checkbox" type="radio" value="option" name="plan"><i class="option__icon icon icon--ok"></i> or try it free for 15 days</label>
 </form>

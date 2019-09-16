@@ -1,5 +1,5 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormGroup} from '@angular/forms';
 import {environment} from '../../environments/environment';
 
 @Component({
@@ -27,7 +27,7 @@ export class PlanComponent implements OnInit {
 
   constructor(private fb: FormBuilder) {
     this.form = fb.group({
-      plan: [null, Validators.required]
+      plan: [null]
     });
   }
 
