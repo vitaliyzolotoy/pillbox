@@ -10,6 +10,24 @@
   &__checkbox:checked + &__icon {
     color: #fd8a10;
   }
+
+  &__trial {
+    position: relative;
+    font-size: 13px;
+    font-weight: bold;
+    display: inline-block;
+    width: 45px;
+    text-align: center;
+    color: #fff;
+  }
+
+  &__trial svg {
+    position: absolute;
+    top: -2px;
+    left: 0;
+    z-index: -1;
+    fill: #e9502f;
+  }
 }
 
 .plan {
@@ -61,7 +79,40 @@
 
   &__save {
     font-size: 14px;
+    position: relative;
     color: #2c3035;
+  }
+
+  &__save::before,
+  &__save::after {
+    position: absolute;
+    top: 0;
+    content: "";
+    border-style: solid;
+    border-width: 10px 5px;
+    border-radius: 2px;
+  }
+
+  &__save::before {
+    left: -5px;
+    border-color: #ffd200 #ffd200 #ffd200 transparent;
+  }
+
+  &__save::after {
+    right: -5px;
+    border-color: #ffd200 transparent #ffd200 #ffd200;
+  }
+
+  &__save-inner {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 20px;
+    font-size: 11px;
+    color: #2a2a2a;
+    background: #ffd200;
   }
 
   &--yearly &__text,

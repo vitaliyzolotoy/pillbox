@@ -5,21 +5,35 @@
     <label class="plan__text" for="monthly">
       <span class="plan__title"><b>Monthly</b></span>
       <span class="plan__price"><sup>$</sup><b>3<span>/mo</span></b></span>
-      <span class="plan__label">Select plan</span>
+      <span class="plan__label">Choose</span>
       <span class="plan__label plan__label--checked">Selected</span>
     </label>
   </div>
   <div class="plan plan--yearly">
     <input class="plan__control radio tabs" type="radio" id="pro" name="plan" value="yearly" formControlName="plan">
     <label class="plan__text" for="pro">
-      <span class="plan__title"><b>Yearly</b></span>
+      <span class="plan__title"><b>Annual</b></span>
       <span class="plan__price"><sup>$</sup><b>24<span>/yr</span></b></span>
-      <span class="plan__save">only $2 a month!</span>
-      <span class="plan__label">Select plan</span>
+      <span class="plan__save">
+        <span class="plan__save-inner">
+          only $2 a month!
+        </span>
+      </span>
+      <span class="plan__label">Choose</span>
       <span class="plan__label plan__label--checked">Selected</span>
     </label>
   </div>
   <br>
   <label class="option" *ngIf="free"><input class="option__checkbox" type="radio" name="plan" value="test" formControlName="plan"><i class="option__icon icon icon--ok"></i> Free plan</label>
-  <label class="option" *ngIf="trial"><input class="option__checkbox" type="radio" value="option" name="plan"><i class="option__icon icon icon--ok"></i> or try it free for 15 days</label>
+  <label class="option" *ngIf="trial">
+    <input class="option__checkbox" type="radio" value="option" name="plan">
+    <i class="option__icon icon icon--ok"></i>
+    or try it free for
+    <span class="option__trial">
+      15
+      <svg xmlns="http://www.w3.org/2000/svg" width="44" height="23" class="plan-header-DiscountBadge_cls2_Ga6eS plan-header-DiscountBadge_cls1_2DskI"><path d="M22 21l-3 2-3-2h-.004L13 22.997l-2.953-1.968-3.255 1.295-2.519-2.58.009.001-2.912-1.84.597-3.499L.03 11.5l1.938-2.907-.598-3.5 2.912-1.841-.009.002 2.52-2.58 3.254 1.294L13 0l3 2h-2.937H16l3-2 3 2 3-2 3 2h2.937H28l3-2 2.953 1.968L37.208.674l2.519 2.58-.009-.002 2.912 1.841-.598 3.5L43.97 11.5l-1.937 2.906.597 3.498-2.912 1.841.009-.001-2.52 2.58-3.254-1.295L31 22.997 28.004 21H28l-3 2-3-2z"></path></svg>
+      <small></small>
+    </span>
+    days
+  </label>
 </form>
