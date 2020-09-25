@@ -8,45 +8,6 @@
     display: none;
   }
 
-  &__trial {
-    font-size: 14px;
-    position: relative;
-    display: inline-block;
-    color: #2c3035;
-  }
-
-  &__trial::before,
-  &__trial::after {
-    position: absolute;
-    top: 0;
-    content: "";
-    border-style: solid;
-    border-width: 10px 5px;
-    border-radius: 2px;
-  }
-
-  &__trial::before {
-    left: -5px;
-    border-color: #ffd200 #ffd200 #ffd200 transparent;
-  }
-
-  &__trial::after {
-    right: -5px;
-    border-color: #ffd200 transparent #ffd200 #ffd200;
-  }
-
-  &__trial-inner {
-    position: relative;
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 20px;
-    padding: 0 6px;
-    color: #2a2a2a;
-    background: #ffd200;
-  }
-
   &__checkbox:checked ~ &__trial::before {
     border-color: #fd8a10 #fd8a10 #fd8a10 transparent;
   }
@@ -104,7 +65,7 @@
   }
 
   &__price sup {
-    font-size: 12px;
+    font-size: 7px;
   }
 
   &--yearly &__text,
@@ -181,18 +142,22 @@
   }
 
   &__save {
-    font-size: 11px;
+    font-size: 10px;
     white-space: nowrap;
   }
 
   &__save-inner {
     position: relative;
-    font-size: 13px;
+    font-size: 12px;
     font-weight: bold;
     display: inline-block;
     width: 45px;
     text-align: center;
     color: #fff;
+  }
+
+  &__save-inner sup {
+    font-size: 5px;
   }
 
   &__save-inner svg {

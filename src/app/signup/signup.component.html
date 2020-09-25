@@ -1,5 +1,15 @@
 <ng-template #alert></ng-template>
 
+<div class="logo">
+  <div class="logo__item"></div>
+  <div class="logo__item"></div>
+  <div class="logo__item"></div>
+  <div class="logo__item"></div>
+  <div class="logo__item"></div>
+  <div class="logo__item"></div>
+  <div class="logo__item"></div>
+</div>
+
 <form class="fieldset"
       [formGroup]="form">
   <h2 class="fieldset__head">Create Your Account <small>or
@@ -25,6 +35,19 @@
              formControlName="confirm">
       <span class="fieldset__hint" *ngIf="isErrorVisible('confirm', 'required')">Field is required</span>
     </div>
+  </div>
+  <div class="fieldset__pane" *ngIf="subscription">
+    <span class="fieldset__subtitle">
+      Your subscription plan
+      <span class="label">
+        <span class="label__inner">
+        15 days free trial
+        </span>
+      </span>
+    </span>
+    <app-plan (id)="onId($event)"></app-plan>
+  </div>
+  <div class="fieldset__foot">
     <div class="fieldset__item">
       <label>
         <span class="checkbox">
@@ -35,15 +58,9 @@
       </label> <a href="http://getpillboxapp.com/terms.html" class="link">Terms of Use</a>
       <span class="fieldset__hint" *ngIf="isErrorVisible('terms', 'required')">Field is required</span>
     </div>
-  </div>
-  <div class="fieldset__pane" *ngIf="subscription">
-    <span>Choose your subscription plan</span>
-    <app-plan (id)="onId($event)"></app-plan>
-  </div>
-  <div class="fieldset__foot">
     <button class="button button--large"
             (click)="signUp()"
-            [disabled]="!isPasswordMatch() || !isAgreed() || !form.valid">
+            [disabled]="!isPasswordMatch() || !isAgreed() || !form.valid || !id">
       <i *ngIf="!loading" class="link__icon icon icon--lock"></i>
       <app-spinner *ngIf="loading" [size]="'small'" [theme]="'white'"></app-spinner>
       Sign Up
