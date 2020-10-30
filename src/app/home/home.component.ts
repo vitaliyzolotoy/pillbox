@@ -1,4 +1,4 @@
-import {Component, ComponentFactoryResolver, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
+import {Component, ComponentFactoryResolver, Inject, OnInit, ViewChild, ViewContainerRef} from '@angular/core';
 import { AuthService } from '../shared/security/auth.service';
 import {AuthInfo} from '../shared/security/auth-info';
 import {ActivatedRoute, NavigationEnd, Router} from '@angular/router';
@@ -16,10 +16,10 @@ import {AlertService} from '../shared/alert/alert.service';
 
 export class HomeComponent implements OnInit {
   authInfo: AuthInfo;
-  visibility = false;
   trial;
   status;
   message;
+  month;
 
   @ViewChild('alert', { read: ViewContainerRef }) alert: ViewContainerRef;
 
@@ -30,11 +30,14 @@ export class HomeComponent implements OnInit {
               private analyticsService: AnalyticsService,
               private messagingService: MessagingService,
               private cfr: ComponentFactoryResolver,
-              private alertService: AlertService) {
+              private alertService: AlertService,
+              @Inject('moment') private moment) {
     this.analyticsService.trackPageViews();
   }
 
   ngOnInit() {
+    this.month = this.moment().clone().startOf('isoWeek').format('MMMM YYYY');
+
     this.authService.authInfo$.subscribe(authInfo => {
       console.log(authInfo);
 
@@ -45,12 +48,6 @@ export class HomeComponent implements OnInit {
       //
       //   this.alertService.error('Please verify your email');
       // }
-    });
-
-    this.activatedRoute.parent.queryParams.subscribe((params: any) => {
-      if (params) {
-        this.visibility = params.modal;
-      }
     });
 
     this.paymentService.trial()
@@ -97,5 +94,9 @@ export class HomeComponent implements OnInit {
     const ref = this[target].createComponent(factory);
 
     ref.changeDetectorRef.detectChanges();
+  }
+
+  onMonth(event) {
+    this.month = event;
   }
 }

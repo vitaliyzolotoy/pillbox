@@ -8,7 +8,7 @@ import {AuthInfo} from '../shared/security/auth-info';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  @Input() visibility;
+  @Input() month;
   authInfo: AuthInfo;
   week = 0;
 

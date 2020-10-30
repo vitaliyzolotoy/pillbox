@@ -1,7 +1,7 @@
 <div class="organizer-outer" #scroller>
-  <ul class="organizer" [ngClass]="{ 'organizer--visibility': visibility }">
+  <ul class="organizer">
     <li class="organizer__head" *ngIf="loading">
-      <span class="organizer__date" *ngFor="let day of days">{{ day }}</span>
+      <span class="organizer__date" *ngFor="let day of formatedDays">{{ day }}</span>
     </li>
     <li class="organizer__item" *ngFor="let item of schedule">
       <a class="organizer__link"

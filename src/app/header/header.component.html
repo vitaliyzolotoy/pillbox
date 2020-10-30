@@ -1,4 +1,4 @@
-<header class="header" [ngClass]="{ 'header--visibility': visibility }">
+<header class="header">
   <div class="logo">
     <h1 class="logo__name">Pillbox</h1>
     <span class="logo__line"></span>
@@ -17,10 +17,17 @@
                                        [routerLink]="['/home']"
                                        [queryParams]="{ week: week }">Next <i class="icon icon--right"></i></button></li>
   </ul>
+  <div class="month">
+    {{ month }}
+  </div>
   <menu class="menu" *ngIf="authInfo?.isLoggenIn()">
     <a href="#" class="menu__link link" [routerLink]="['/home/settings']" [queryParams]="{ modal: true }">
-      <i class="link__icon icon icon--setting"></i>Settings</a>
+      <i class="link__icon icon icon--setting"></i>
+      <span>Settings</span>
+    </a>
     <a href="#" class="menu__link link" (click)="logout(); false">
-      <i class="link__icon icon icon--power"></i>Logout</a>
+      <i class="link__icon icon icon--power"></i>
+      <span>Logout</span>
+    </a>
   </menu>
 </header>

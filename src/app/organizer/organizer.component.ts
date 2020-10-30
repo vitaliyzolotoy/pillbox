@@ -13,7 +13,7 @@ require('moment-recur');
 })
 export class OrganizerComponent implements OnInit {
   @Input() uid;
-  @Input() visibility;
+  @Output() month: EventEmitter<any> = new EventEmitter();
   schedule: ScheduleItem[];
   receptums: Receptum[];
   loading = false;
@@ -24,6 +24,7 @@ export class OrganizerComponent implements OnInit {
   week;
   current;
   dayOfWeek;
+  formatedDays;
   @ViewChild('scroller', {read: ElementRef}) private scroller: ElementRef;
 
   constructor(private scheduleService: ScheduleService,
@@ -33,6 +34,8 @@ export class OrganizerComponent implements OnInit {
 
   ngOnInit() {
     this.start = this.moment().clone().startOf('isoWeek');
+
+    this.month.emit(this.moment().clone().startOf('isoWeek').format('MMMM YYYY'));
 
     this.activatedRoute.parent.queryParams.subscribe((params: any) => {
       if (params) {
@@ -160,15 +163,22 @@ export class OrganizerComponent implements OnInit {
       this.start = this.moment().startOf('isoWeek');
     }
 
+    this.month.emit(this.moment(this.start).format('MMMM YYYY'));
+
     const days = [];
+    const formatedDays = [];
 
     for (let i = 0; i <= 6; i++) {
-      days.push(this.moment(this.start).add(i, 'days').format('MM/DD/YYYY'));
+      days.push(this.moment(this.start).add(i, 'days'));
+
+      formatedDays.push(this.moment(this.start).add(i, 'days').format('ddd D'));
     }
 
     // console.log(days);
 
     this.days = days;
+
+    this.formatedDays = formatedDays;
   }
 
   // onActive(current) {

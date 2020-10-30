@@ -29,6 +29,7 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
+  backdrop-filter: blur(10px);
 
   &__inner {
     position: relative;

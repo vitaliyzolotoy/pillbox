@@ -10,10 +10,6 @@
   padding: 0;
   list-style: none;
 
-  &--visibility {
-    filter: blur(10px);
-  }
-
   &__head {
     font-size: 0.75rem;
     display: flex;
@@ -69,40 +65,11 @@
   }
   
   &__date {
+    font-size: .8rem;
     width: 100%;
     padding: 3px 3px 0;
     text-align: center;
-    color: #fff;
-  }
-
-  &__date:nth-child(1) {
-    border-radius: 3px 0 0 0;
-    background: var(--mon);
-  }
-
-  &__date:nth-child(2) {
-    background: var(--tue);
-  }
-
-  &__date:nth-child(3) {
-    background: var(--wed);
-  }
-
-  &__date:nth-child(4) {
-    background: var(--thu);
-  }
-
-  &__date:nth-child(5) {
-    background: var(--fri);
-  }
-
-  &__date:nth-child(6) {
-    background: var(--sat);
-  }
-
-  &__date:nth-child(7) {
-    border-radius: 0 3px 0 0;
-    background: var(--sun);
+    color: black;
   }
 }
 
