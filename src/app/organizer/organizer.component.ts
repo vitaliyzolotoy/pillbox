@@ -100,10 +100,11 @@ export class OrganizerComponent implements OnInit {
 
               this.dayOfWeek = new Date().getDay() || 7;
 
-
-              this.scroller.nativeElement.scrollLeft = 1190 / 7 * (this.dayOfWeek - 1);
-
-              // console.log(item);
+              if (!this.week) {
+                this.scroller.nativeElement.scrollLeft = 1190 / 7 * (this.dayOfWeek - 1);
+              } else {
+                this.scroller.nativeElement.scrollLeft = 0;
+              }
 
               this.scheduleService.findAllReceptumsForSchedule(item.$key, this.uid)
                 .subscribe(receptums => {
