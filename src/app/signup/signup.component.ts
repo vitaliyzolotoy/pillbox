@@ -120,6 +120,12 @@ export class SignupComponent implements OnInit {
                 this.paymentService.processPayment(data, this.id);
 
                 gtag_report_conversion();
+
+                this.showAlert('alert');
+
+                this.alertService.success('Account created successfully');
+
+                this.router.navigate(['/home']);
               }
             });
 
@@ -131,12 +137,6 @@ export class SignupComponent implements OnInit {
           this.paymentService.saveEmail();
 
           this.paymentService.saveTimezone(this.timezones[this.getTimezoneOffset()]);
-
-          this.showAlert('alert');
-
-          this.alertService.success('Account creates successfully');
-
-          this.router.navigate(['/home']);
 
           this.analyticsService.trackEvent('signup');
 
