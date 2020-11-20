@@ -115,17 +115,13 @@ export class SignupComponent implements OnInit {
               locale: 'en',
               title: 'Pillbox',
               successCallback: data => {
-                // console.log(data);
+                console.log(data);
+
                 this.token = data;
+
                 this.paymentService.processPayment(data, this.id);
 
                 gtag_report_conversion();
-
-                this.showAlert('alert');
-
-                this.alertService.success('Account created successfully');
-
-                this.router.navigate(['/home']);
               }
             });
 
@@ -152,7 +148,30 @@ export class SignupComponent implements OnInit {
 
   configHandler() {
     Paddle.Setup({
-      vendor: paddleConfig.vendor
+      vendor: paddleConfig.vendor,
+      eventCallback: (data) => {
+        // The data.event will specify the event type
+        if (data.event === "Checkout.Complete") {
+          console.log(data.eventData); // Data specifics on the event
+
+          this.showAlert('alert');
+
+          this.alertService.success('Account created successfully');
+
+          this.analyticsService.trackEvent('complete');
+
+          this.router.navigate(['/home']);
+        } else if (data.event === "Checkout.Close") {
+          console.log(data.eventData); // Data specifics on the event
+
+          this.analyticsService.trackEvent('close');
+        } else if (data.event === "Checkout.Loaded") {
+          console.log(data.eventData); // Data specifics on the event
+
+          this.analyticsService.trackEvent('loaded');
+        }
+      }
+
     });
   }
 
