@@ -1,40 +1,17 @@
 .logo {
-  position: absolute;
-  top: 0;
-  left: 0;
   display: flex;
-  width: 100%;
+  align-items: center;
 
-  &__item {
-    flex-grow: 1;
-    height: 3px;
+  &__pic {
+    width: 46px;
+    height: 46px;
   }
 
-  &__item:nth-child(1) {
-    background: var(--mon);
-  }
-
-  &__item:nth-child(2) {
-    background: var(--tue);
-  }
-
-  &__item:nth-child(3) {
-    background: var(--wed);
-  }
-
-  &__item:nth-child(4) {
-    background: var(--thu);
-  }
-
-  &__item:nth-child(5) {
-    background: var(--fri);
-  }
-
-  &__item:nth-child(6) {
-    background: var(--sat);
-  }
-
-  &__item:nth-child(7) {
-    background: var(--sun);
+  &__name {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin: 0;
+    line-height: 32px;
+    text-transform: uppercase;
   }
 }

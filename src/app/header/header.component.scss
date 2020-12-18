@@ -1,6 +1,7 @@
 @import "../../utils.scss";
 @import '../link/link.scss';
 @import '../icon/icon.scss';
+@import '../logo/logo.scss';
 @import "../button/button.scss";
 
 .header {
@@ -17,23 +18,6 @@
 .month {
   font-size: 20px;
   padding: 0 20px;
-}
-
-.logo {
-  &__name {
-    font-size: 32px;
-    font-weight: 200;
-    margin: 0;
-    line-height: 32px;
-  }
-
-  &__line {
-    display: inline-block;
-    width: 100%;
-    height: 9px;
-    background: url('../../assets/logo/logo.png') 0 0 no-repeat;
-    background-size: contain;
-  }
 }
 
 .selector {

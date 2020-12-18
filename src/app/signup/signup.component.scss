@@ -6,3 +6,17 @@
 @import '../checkbox/checkbox.scss';
 @import '../logo/logo.scss';
 @import '../label/label.scss';
+
+.logo {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.plan-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin: 0;
+  line-height: 32px;
+  text-transform: uppercase;
+}

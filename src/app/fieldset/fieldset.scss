@@ -25,6 +25,7 @@
   &__head {
     font-size: 32px;
     font-weight: 200;
+    margin-top: 50px;
   }
 
   &__title {
@@ -36,8 +37,8 @@
   &__subtitle {
     position: relative;
     display: inline-block;
-    margin-top: 32px;
-    margin-bottom: 32px;
+    margin-top: 20px;
+    margin-bottom: 0;
   }
 
   &__item {
