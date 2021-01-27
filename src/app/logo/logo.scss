@@ -3,8 +3,8 @@
   align-items: center;
 
   &__pic {
-    width: 46px;
-    height: 46px;
+    width: 50px;
+    height: 64px;
   }
 
   &__name {
@@ -13,5 +13,10 @@
     margin: 0;
     line-height: 32px;
     text-transform: uppercase;
+  }
+
+  &__link {
+    color: #000;
+    text-decoration: none;
   }
 }
