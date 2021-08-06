@@ -40,3 +40,7 @@ testem.log
 # System Files
 .DS_Store
 Thumbs.db
+src/environments/firebase.config.ts
+src/environments/paddle.config.ts
+src/environments/stripe.config.ts
+bfg.jar
